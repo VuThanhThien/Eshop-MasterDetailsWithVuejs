@@ -1,0 +1,75 @@
+.navbar {
+    position: relative;
+    float: left;
+    width: 150px;
+    height: 100vh;
+    background-color: #2b3173;
+    border-right: 1px solid #bbbbbb;
+}
+
+.navbar .logoSite {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 52px;
+}
+
+.navbar .logoBox {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+/*Logo page*/
+
+.navbar .logoBox .eShopLogo {
+    width: 100%;
+    height: 52px;
+    background-image: url('../../assets/Logo_Full_White.png');
+    background-position: 0 center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #1e235a;
+}
+
+.navbar .navbarContent {
+    width: 100%;
+}
+
+.navbar .navbarContent .navbarItem {
+    display: flex;
+    padding-left: 10px;
+    height: 50px;
+    cursor: pointer;
+    line-height: 44px;
+    align-items: center;
+}
+
+.navbar .navbarContent .navbarItem:hover {
+    background-color: #1e235a;
+}
+
+.navbar .navbarContent .navbarItem:focus {
+    background-color: #1e235a;
+}
+
+.navbar .navbarContent .navbarItem:active {
+    background-color: #1e235a;
+}
+
+.navbarItem .navbarItemIcon {
+    width: 20px;
+    height: 20px;
+    align-self: center;
+    margin-right: 10px;
+    background-size: contain;
+}
+
+.navbarItemText {
+    color: #aaacc7;
+    font-size: 12px;
+    margin-top: 2px;
+    margin-left: 10px;
+}

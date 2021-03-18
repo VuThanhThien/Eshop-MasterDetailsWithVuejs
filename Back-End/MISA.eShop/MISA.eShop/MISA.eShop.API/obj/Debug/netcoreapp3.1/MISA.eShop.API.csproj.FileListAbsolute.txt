@@ -1,0 +1,196 @@
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.exe
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.csprojAssemblyReference.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.AssemblyInfoInputs.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.AssemblyInfo.cs
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.RazorTargetAssemblyInfo.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\staticwebassets\MISA.eShop.API.StaticWebAssets.Manifest.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\staticwebassets\MISA.eShop.API.StaticWebAssets.xml
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.deps.json
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.runtimeconfig.json
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.runtimeconfig.dev.json
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.csproj.CoreCompileInputs.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.MvcApplicationPartsAssemblyInfo.cs
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.MvcApplicationPartsAssemblyInfo.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.csproj.CopyComplete
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.genruntimeconfig.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.xml
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Model.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Model.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Dapper.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.Streams.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\K4os.Hash.xxHash.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MySql.Data.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Zstandard.Net.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Business.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Business.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.csprojAssemblyReference.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.AssemblyInfoInputs.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.AssemblyInfo.cs
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.csproj.CoreCompileInputs.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.MvcApplicationPartsAssemblyInfo.cs
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.MvcApplicationPartsAssemblyInfo.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.exe
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.deps.json
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.runtimeconfig.json
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.runtimeconfig.dev.json
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.xml
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Dapper.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.Streams.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\K4os.Hash.xxHash.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MySql.Data.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Zstandard.Net.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Business.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Model.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Business.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Model.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.RazorTargetAssemblyInfo.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.csproj.CopyComplete
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\staticwebassets\MISA.eShop.API.StaticWebAssets.Manifest.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\staticwebassets\MISA.eShop.API.StaticWebAssets.xml
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.genruntimeconfig.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\appsettings.Development.json
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\appsettings.json
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.exe
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.deps.json
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.runtimeconfig.json
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.runtimeconfig.dev.json
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.xml
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Dapper.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.Streams.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\K4os.Hash.xxHash.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MySql.Data.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Zstandard.Net.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Business.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Model.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Business.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Model.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.csprojAssemblyReference.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.AssemblyInfoInputs.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.AssemblyInfo.cs
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.csproj.CoreCompileInputs.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.MvcApplicationPartsAssemblyInfo.cs
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.MvcApplicationPartsAssemblyInfo.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\staticwebassets\MISA.eShop.API.StaticWebAssets.Manifest.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\staticwebassets\MISA.eShop.API.StaticWebAssets.xml
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\scopedcss\bundle\MISA.eShop.API.styles.css
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.RazorTargetAssemblyInfo.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.csproj.CopyComplete
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.genruntimeconfig.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\appsettings.Development.json
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\appsettings.json
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.exe
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.deps.json
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.runtimeconfig.json
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.runtimeconfig.dev.json
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.API.xml
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Dapper.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.Streams.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\K4os.Hash.xxHash.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MySql.Data.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Zstandard.Net.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Business.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Model.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Business.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.Model.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.csprojAssemblyReference.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.AssemblyInfoInputs.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.AssemblyInfo.cs
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.csproj.CoreCompileInputs.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.MvcApplicationPartsAssemblyInfo.cs
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.MvcApplicationPartsAssemblyInfo.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\staticwebassets\MISA.eShop.API.StaticWebAssets.Manifest.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\staticwebassets\MISA.eShop.API.StaticWebAssets.xml
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\scopedcss\bundle\MISA.eShop.API.styles.css
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.RazorTargetAssemblyInfo.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.csproj.CopyComplete
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.API\obj\Debug\netcoreapp3.1\MISA.eShop.API.genruntimeconfig.cache

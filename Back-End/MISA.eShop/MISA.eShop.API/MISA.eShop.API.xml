@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MISA.eShop.API</name>
+    </assembly>
+    <members>
+        <member name="T:MISA.eShop.API.Controllers.BasesController`1">
+            <summary>
+            Controller dùng chung
+            </summary>
+            <typeparam name="T">Model</typeparam>
+        </member>
+        <member name="F:MISA.eShop.API.Controllers.BasesController`1._baseBL">
+            <summary>
+            Biến baseBL
+            </summary>
+        </member>
+        <member name="M:MISA.eShop.API.Controllers.BasesController`1.#ctor(MISA.eShop.Business.Interfaces.IBaseBL{`0})">
+            <summary>
+            Contructor
+            </summary>
+            <param name="baseBL"></param>
+        </member>
+        <member name="M:MISA.eShop.API.Controllers.BasesController`1.GetAll">
+            <summary>
+            Lấy tất cả danh sách đối tượng
+            </summary>
+            <returns></returns>
+            created by vtthien 08.03.2021
+        </member>
+        <member name="M:MISA.eShop.API.Controllers.BasesController`1.GetByID(System.Guid)">
+            <summary>
+            Lấy thông tin theo định danh
+            </summary>
+            <param name="id">Định danh đối tượng cần lấy</param>
+            <returns>Đối tượng có id trùng với id truyền lên</returns>
+        </member>
+        <member name="M:MISA.eShop.API.Controllers.BasesController`1.Post(`0)">
+            <summary>
+            Thêm mới bản ghi
+            </summary>
+            <param name="entity">Đối tượng cần thêm mới</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISA.eShop.API.Controllers.BasesController`1.Put(System.Guid,`0)">
+            <summary>
+            Cập nhật thông tin
+            </summary>
+            <param name="id">Định danh đối tượng</param>
+            <param name="entity">Đối tượng thay đổi</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISA.eShop.API.Controllers.BasesController`1.Delete(System.Guid)">
+            <summary>
+            Xoá thông tin
+            </summary>
+            <param name="id">Định danh thông tin cần xoá</param>
+            <returns></returns>
+        </member>
+        <member name="T:MISA.eShop.API.Controllers.ProductsController">
+            <summary>
+            API hàng hoá
+            </summary>
+        </member>
+        <member name="F:MISA.eShop.API.Controllers.ProductsController._productBL">
+            <summary>
+            Biến productBL gọi lên tầng Bussiness xử lý nghiệp vụ hàng hoá
+            </summary>
+        </member>
+        <member name="M:MISA.eShop.API.Controllers.ProductsController.#ctor(MISA.eShop.Business.Interfaces.IBaseBL{MISA.eShop.Model.Dictionary.Product},MISA.eShop.Business.Interfaces.IProductBL)">
+            <summary>
+            Controller
+            </summary>
+            <param name="baseBL"></param>
+            <param name="productBL"></param>
+        </member>
+        <member name="M:MISA.eShop.API.Controllers.ProductsController.GetProductPaging(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.Double,System.Int32,System.Int32)">
+            <summary>
+            Lấy danh sách hàng hoá - kèm theo tìm kiếm và phân trang
+            </summary>
+            <param name="offset">Vị trí bắt đầu (mặc định là 1)</param>
+            <param name="limit">Giới hạn bản ghi cần lấy (mặc định là 25)</param>
+            <param name="productSKU">Mã SKU của sản phẩm</param>
+            <param name="productName">Tên sản phẩm</param>
+            <param name="productCategory">Loại sản phẩm</param>
+            <param name="productUnit">Đơn vị tính</param>
+            <param name="sellPrice">Giá bán</param>
+            <param name="isShow">Có hiện thị trên màn hình bán hàng (1-Có, 0-Không, 2-Tất cả)</param>
+            <param name="status">Trạng thái hàng hoá (0-Đang kinh doanh, 1-Ngừng kinh doanh, 2-Tất cả)</param>
+            <returns>Danh sách các bản ghi tìm được</returns>
+        </member>
+        <member name="M:MISA.eShop.API.Controllers.ProductsController.Post(MISA.eShop.Model.Dictionary.Product)">
+            <summary>
+            Thêm mới một sản phẩm
+            </summary>
+            <param name="product">Sản phẩm cần thêm mới</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISA.eShop.API.Controllers.ProductsController.Put(System.Guid,MISA.eShop.Model.Dictionary.Product)">
+            <summary>
+            Cập nhật thông tin hàng hoá
+            </summary>
+            <param name="productId">ID hàng hoá</param>
+            <param name="product">Thông tin sửa đổi</param>
+            <returns></returns>
+        </member>
+        <member name="T:MISA.eShop.API.Program">
+            <summary>
+            Lớp khởi tạo chương trình
+            </summary>
+        </member>
+        <member name="M:MISA.eShop.API.Program.Main(System.String[])">
+            <summary>
+            Hàm khởi tạo ctrinh
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:MISA.eShop.API.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Hàm build host
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MISA.eShop.API.Startup">
+            <summary>
+            Lớp Startup
+            </summary>
+        </member>
+        <member name="M:MISA.eShop.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Controller
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:MISA.eShop.API.Startup.Configuration">
+            <summary>
+            Biến cấu hình
+            </summary>
+        </member>
+        <member name="M:MISA.eShop.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:MISA.eShop.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>

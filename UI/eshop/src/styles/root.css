@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "GoogleSans-Regular";
+    src: url("../assets/font/GoogleSans-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "GoogleSans-Bold";
+    src: url("../assets/font/GoogleSans-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "GoogleSans-Italic";
+    src: url("../assets/font/GoogleSans-Italic.otf") format("opentype");
+}
+
+@import "./layouts/_navbar.css";
+@import "./layouts/_header.css";
+@import "./layouts/_content.css";
+@import "./commons/_button.css";
+@import "./commons/_icon.css";
+@import "./commons/_footer.css";
+@import "./commons/_input.css";
+@import "./commons/_table.css";
+@import "./commons/_toolbar.css";
+@import "./pages/productList.css";
+@import "./pages/popup.css";
+:root {
+    --primary-active: #190472;
+    --primary-hover: #616ce6;
+    --primary-focus: #dee1f9;
+}

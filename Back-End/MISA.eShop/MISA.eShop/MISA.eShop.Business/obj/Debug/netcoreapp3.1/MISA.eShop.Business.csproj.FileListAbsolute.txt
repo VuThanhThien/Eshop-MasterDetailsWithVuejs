@@ -1,0 +1,56 @@
+D:\Project\Clone\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Business.deps.json
+D:\Project\Clone\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Business.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Business.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Model.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Model.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csprojAssemblyReference.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.AssemblyInfoInputs.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.AssemblyInfo.cs
+D:\Project\Clone\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csproj.CoreCompileInputs.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csproj.CopyComplete
+D:\Project\Clone\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csprojAssemblyReference.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.AssemblyInfoInputs.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.AssemblyInfo.cs
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csproj.CoreCompileInputs.cache
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Business.deps.json
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Business.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Business.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Model.dll
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Model.pdb
+D:\Project\Clone\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csproj.CopyComplete
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Business.deps.json
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Business.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Business.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Model.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Model.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csprojAssemblyReference.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.AssemblyInfoInputs.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.AssemblyInfo.cs
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csproj.CoreCompileInputs.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csproj.CopyComplete
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Business.deps.json
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Business.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Business.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Model.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Model.pdb
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csprojAssemblyReference.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.AssemblyInfoInputs.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.AssemblyInfo.cs
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csproj.CoreCompileInputs.cache
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csproj.CopyComplete
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.dll
+E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.pdb

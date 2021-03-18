@@ -1,0 +1,12 @@
+.content{
+    position: absolute;
+    top: 52px;
+    left: 150px;
+    width: calc(100% - 150px);
+    height: calc(100vh - 52px);
+    background-color: #f1f3f8;
+    padding:10px 10px 0 10px;
+}
+.contenBody{
+    height: 100%;
+}

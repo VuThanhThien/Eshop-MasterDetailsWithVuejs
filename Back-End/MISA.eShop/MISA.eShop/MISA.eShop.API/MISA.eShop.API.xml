@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MISA.eShop.API</name>
+    </assembly>
+    <members>
+        <member name="T:MISA.eShop.API.Controllers.BasesController`1">
+            <summary>
+            Controller dùng chung
+            </summary>
+            <typeparam name="T">Model</typeparam>
+        </member>
+        <member name="M:MISA.eShop.API.Controllers.BasesController`1.GetAll(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Lấy danh sách đối tượng
+            </summary>
+            <returns></returns>
+            created by vtthien 08.03.2021
+        </member>
+        <member name="T:MISA.eShop.API.Controllers.ProductsController">
+            <summary>
+            API hàng hoá
+            </summary>
+        </member>
+        <member name="M:MISA.eShop.API.Controllers.ProductsController.GetAll(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Lấy danh sách hàng hoá
+            </summary>
+            <param name="offset">Vị trí bắt đầu (mặc định là 1)</param>
+            <param name="limit">Giới hạn bản ghi cần lấy (mặc định là 25)</param>
+            <param name="key">Chuỗi thuộc tính cần search</param>
+            <param name="value">Chuỗi giá trị tương ứng với thuộc tính đó</param>
+            <returns>Danh sách các bản ghi tìm được</returns>
+        </member>
+        <member name="T:MISA.eShop.API.Startup">
+            <summary>
+            Lớp Startup
+            </summary>
+        </member>
+        <member name="M:MISA.eShop.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Controller
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:MISA.eShop.API.Startup.Configuration">
+            <summary>
+            Biến cấu hình
+            </summary>
+        </member>
+        <member name="M:MISA.eShop.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:MISA.eShop.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>
