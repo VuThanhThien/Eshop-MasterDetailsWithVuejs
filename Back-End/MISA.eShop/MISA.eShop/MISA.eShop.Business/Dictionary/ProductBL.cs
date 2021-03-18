@@ -151,5 +151,21 @@ namespace MISA.eShop.Business.Dictionary
             // thì mới cho phép cập nhật
             return base.Update(productID, product);
         }
+
+        //public string GenSKU(string mySKU)
+        //{
+        //    // Lấy hàng hóa theo SKU
+        //    var productBySku = _baseDL.GetBySKU(mySKU);
+        //    int a = productBySku.Rows.Count;
+        //    if (productBySku != null)
+        //    {
+                
+        //        return mySKU + "01";
+        //    }
+        //    else
+        //    {
+
+        //    }
+        //}
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yk3rh8qt3Dgkfc+sEugrWxzx7d2lq/hEibjCbbWVQw2MtvLOAXh1kYU0TZXmWxhQ2XsIDxx2x61yYsP9vtmadQ==",
+  "dgSpecHash": "tJ8IBpyh6EsyIKK4jfZHQbZKRVJKg9G+7M86c8cmAXbgHGU7wy25JbLy3IewORhcEW52M571uprsLt0Tsj/uOQ==",
   "success": true,
-  "projectFilePath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.API\\MISA.eShop.API.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.API\\MISA.eShop.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",

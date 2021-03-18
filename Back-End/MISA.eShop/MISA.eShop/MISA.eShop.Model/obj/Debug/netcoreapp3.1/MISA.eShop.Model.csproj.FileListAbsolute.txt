@@ -34,3 +34,12 @@ E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Mod
 E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.csproj.CoreCompileInputs.cache
 E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.dll
 E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.pdb
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\bin\Debug\netcoreapp3.1\MISA.eShop.Model.deps.json
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\bin\Debug\netcoreapp3.1\MISA.eShop.Model.dll
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\bin\Debug\netcoreapp3.1\MISA.eShop.Model.pdb
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.AssemblyInfo.cs
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.dll
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.pdb

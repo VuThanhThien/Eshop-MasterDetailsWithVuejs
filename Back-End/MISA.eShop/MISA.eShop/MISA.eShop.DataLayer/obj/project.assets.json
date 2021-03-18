@@ -1072,11 +1072,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\MISA.eShop.DataLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\MISA.eShop.DataLayer.csproj",
       "projectName": "MISA.eShop.DataLayer",
-      "projectPath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\MISA.eShop.DataLayer.csproj",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\MISA.eShop.DataLayer.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1093,8 +1093,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj": {
-              "projectPath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj"
+            "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj"
             }
           }
         }

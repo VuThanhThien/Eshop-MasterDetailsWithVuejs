@@ -90,8 +90,8 @@ namespace MISA.eShop.API.Controllers
         /// <param name="id">Định danh đối tượng</param>
         /// <param name="entity">Đối tượng thay đổi</param>
         /// <returns></returns>
-        [HttpPut("{id}")]
-        public virtual IActionResult Put(Guid id, [FromBody] T entity)
+        [HttpPut]
+        public virtual IActionResult Put([FromRoute] Guid id, [FromBody] T entity)
         {
             var result = _baseBL.Update(id, entity);
             return StatusCode((int)result.HTTPStatusCode, result.Data);

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.API\\MISA.eShop.API.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.API\\MISA.eShop.API.csproj": {}
   },
   "projects": {
-    "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.API\\MISA.eShop.API.csproj": {
+    "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.API\\MISA.eShop.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.API\\MISA.eShop.API.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.API\\MISA.eShop.API.csproj",
         "projectName": "MISA.eShop.API",
-        "projectPath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.API\\MISA.eShop.API.csproj",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.API\\MISA.eShop.API.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.API\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Business\\MISA.eShop.Business.csproj": {
-                "projectPath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Business\\MISA.eShop.Business.csproj"
+              "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Business\\MISA.eShop.Business.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Business\\MISA.eShop.Business.csproj"
               },
-              "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj": {
-                "projectPath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj"
+              "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj"
               }
             }
           }
@@ -74,14 +74,14 @@
         }
       }
     },
-    "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Business\\MISA.eShop.Business.csproj": {
+    "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Business\\MISA.eShop.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Business\\MISA.eShop.Business.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Business\\MISA.eShop.Business.csproj",
         "projectName": "MISA.eShop.Business",
-        "projectPath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Business\\MISA.eShop.Business.csproj",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Business\\MISA.eShop.Business.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Business\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -98,8 +98,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\MISA.eShop.DataLayer.csproj": {
-                "projectPath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\MISA.eShop.DataLayer.csproj"
+              "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\MISA.eShop.DataLayer.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\MISA.eShop.DataLayer.csproj"
               }
             }
           }
@@ -132,14 +132,14 @@
         }
       }
     },
-    "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\MISA.eShop.DataLayer.csproj": {
+    "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\MISA.eShop.DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\MISA.eShop.DataLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\MISA.eShop.DataLayer.csproj",
         "projectName": "MISA.eShop.DataLayer",
-        "projectPath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\MISA.eShop.DataLayer.csproj",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\MISA.eShop.DataLayer.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -156,8 +156,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj": {
-                "projectPath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj"
+              "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj"
               }
             }
           }
@@ -204,14 +204,14 @@
         }
       }
     },
-    "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj": {
+    "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj",
         "projectName": "MISA.eShop.Model",
-        "projectPath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\MISA.eShop.Model.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "E:\\Fresher\\MISA.eShop.gd2\\MISA.eShop - Copy\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\VTT-eShop-18-03-21\\Back-End\\MISA.eShop\\MISA.eShop\\MISA.eShop.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
