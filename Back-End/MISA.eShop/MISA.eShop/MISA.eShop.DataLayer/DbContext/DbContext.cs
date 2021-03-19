@@ -59,5 +59,13 @@ namespace MISA.eShop.DataLayer.DbContext
 
             return result;
         }
+
+        public object ExcuteScalarStore(string storeName, object parameters = null)
+        {
+            var param = new DynamicParameters(parameters);
+            var result = _connect.ExecuteScalar(storeName, param, commandType: CommandType.StoredProcedure);
+
+            return result;
+        }
     }
 }

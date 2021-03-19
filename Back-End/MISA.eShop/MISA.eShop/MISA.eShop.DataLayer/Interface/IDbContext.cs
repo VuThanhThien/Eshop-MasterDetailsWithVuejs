@@ -28,5 +28,7 @@ namespace MISA.eShop.DataLayer.Interface
         /// <returns>Số lượng bản ghi bị ảnh hưởng</returns>
         /// created by vtthien 08.03.2021
         int ExcuteStore(string storeProcedure, object parameters = null);
+
+        object ExcuteScalarStore(string storeName, object parameters = null);
     }
 }

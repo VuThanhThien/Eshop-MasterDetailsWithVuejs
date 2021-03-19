@@ -87,26 +87,53 @@
                 />
               </div>
             </th>
-            <th width="25%">
+            <th width="20%">
               Nhóm hàng hóa
               <div class="filterField">
                 <div class="iconSearch">*</div>
-                <input
+                <select
                   class="searchField"
-                  @keyup.enter="getPaginate"
-                  v-model.trim="enterCategory"
-                />
+                  v-model="enterCategory"
+                  @change="getPaginate"
+                >
+                  <option selected value="0">Tất cả</option>
+                  <option value="1">Đồ dùng cá nhân</option>
+                  <option value="2">Đồ gia dụng</option>
+                  <option value="3">Đồng hồ</option>
+                  <option value="4">Giày</option>
+                  <option value="5">Giày bata</option>
+                  <option value="6">Giày da</option>
+                  <option value="7">Giày Sneaker</option>
+                  <option value="8">Giày vải</option>
+                  <option value="9">Hoa quả</option>
+                  <option value="10">Khăn</option>
+                  <option value="11">Nước ngọt</option>
+                  <option value="12">Quần</option>
+                  <option value="13">Váy</option>
+                  <option value="14">Xe máy</option>
+                  <option value="15">Áo</option>
+                </select>
               </div>
             </th>
-            <th width="8%">
+            <th width="10%">
               Đơn vị tính
               <div class="filterField">
                 <div class="iconSearch">*</div>
-                <input
+                <select
                   class="searchField"
-                  @keyup.enter="getPaginate"
-                  v-model.trim="enterUnitName"
-                />
+                  v-model="enterUnitCode"
+                  @change="getPaginate"
+                >
+                  <option selected value="0">Tất cả</option>
+                  <option value="1">Đôi</option>
+                  <option value="2">Chiếc</option>
+                  <option value="3">Túi</option>
+                  <option value="3">Kg</option>
+                  <option value="5">Thùng</option>
+                  <option value="6">Mét</option>
+                  <option value="7">Cuộn</option>
+                  <option value="8">Lít</option>
+                </select>
               </div>
             </th>
             <th width="10%">
@@ -180,12 +207,12 @@
             </td>
             <td>
               <div class="cell">
-                {{ product.categoryName }}
+                {{ convertCategory(product.categoryCode) }}
               </div>
             </td>
             <td>
               <div class="cell">
-                {{ product.unitName }}
+                {{ convertUnitName(product.unitCode) }}
               </div>
             </td>
             <td>
@@ -223,12 +250,12 @@
             @keyup.enter="getPaginate"
           />
           <a> trên </a>
-          <div class="totalPage">{{ typePage }}</div>
+          <div class="totalPage">{{ Math.ceil(lengthOfFilter/typePage)}}</div>
         </div>
         <button class="buttonPage" @click="nextPage">
           <div class="nextPage"></div>
         </button>
-        <button class="buttonPage">
+        <button class="buttonPage"  @click="lastPage">
           <div class="lastPage"></div>
         </button>
         <button class="buttonPage" @click="reload">
@@ -244,7 +271,10 @@
 
       <div class="contentFooterRight">
         <!-- todo proc cần trả về số bản ghi thỏa mãn và số trang thỏa mãn -->
-        <a>Hiển thị 1- {{ products.length }} trên {{ typePage }} kết quả</a>
+        <a
+          >Hiển thị 1- {{ products.length }} trên {{ lengthOfFilter }} kết
+          quả</a
+        >
         <!-- <p>Các input đã check: {{ checked }}</p> -->
       </div>
     </div>
@@ -313,6 +343,36 @@ export default {
       if (status == 1) return "Đang hoạt động";
       return "Tất cả";
     },
+
+    /**format nhóm hàng hóa */
+    convertCategory(categoryCode) {
+      if (categoryCode == 1) return "Đồ dùng cá nhân";
+      if (categoryCode == 2) return "Đồ gia dụng";
+      if (categoryCode == 3) return "Đồng hồ";
+      if (categoryCode == 4) return "Giày";
+      if (categoryCode == 5) return "Giày bata";
+      if (categoryCode == 6) return "Giày da";
+      if (categoryCode == 7) return "Giày Sneaker";
+      if (categoryCode == 8) return "Giày vải";
+      if (categoryCode == 9) return "Hoa quả";
+      if (categoryCode == 10) return "Khăn";
+      if (categoryCode == 11) return "Nước ngọt";
+      if (categoryCode == 12) return "Quần";
+      if (categoryCode == 13) return "Váy";
+      if (categoryCode == 14) return "Xe máy";
+      if (categoryCode == 15) return "Áo";
+    },
+
+    convertUnitName(unitCode) {
+      if (unitCode == 1) return "Đôi";
+      if (unitCode == 2) return "Chiếc";
+      if (unitCode == 3) return "Túi";
+      if (unitCode == 4) return "Kg";
+      if (unitCode == 5) return "Thùng";
+      if (unitCode == 6) return "Mét";
+      if (unitCode == 7) return "Cuộn";
+      if (unitCode == 8) return "Lít";
+    },
     /**format hiển thị */
     //Createdby VTT 19/03/21
     convertIsShow(isShow) {
@@ -326,29 +386,33 @@ export default {
     },
     /**API phân trang + filter */
     async getPaginate() {
-      var offset = (this.currentPage - 1) * this.typePage + 1;
+      if (this.enterSellPrice == "") {
+        this.enterSellPrice = 0;
+      }
+      var offset = (this.currentPage - 1) * this.typePage ;
       // var sellPriceConverted = this.enterSellPrice.convertSellPrice();
       const response = await axios.get(
         "http://localhost:55810/api/Products/Paginate?offset=" +
           offset +
           "&limit=" +
           this.typePage +
+          "&categoryCode=" +
+          this.enterCategory +
           "&productSKU=" +
           this.enterSKU +
           "&productName=" +
           this.enterProductName +
           "&sellPrice=" +
           this.enterSellPrice +
-          "&productUnit=" +
-          this.enterUnitName +
-          "&productCategory=" +
-          this.enterCategory +
+          "&unitCode=" +
+          this.enterUnitCode +
           "&isShow=" +
           this.enterIsShow +
           "&status=" +
           this.enterStatus
       );
       this.products = response.data;
+      this.getLength();
     },
 
     /**Sang trang tiếp theo */
@@ -356,6 +420,8 @@ export default {
       this.currentPage = this.currentPage + 1;
 
       /**Nếu this.currentPage > tối đa thì gán bằng tối đa */
+      if(this.currentPage > Math.ceil(this.lengthOfFilter/this.typePage))
+      this.currentPage = Math.ceil(this.lengthOfFilter/this.typePage);
       this.getPaginate();
     },
 
@@ -373,11 +439,35 @@ export default {
       this.getPaginate();
     },
 
+    /**Trang cuối */
+    lastPage(){
+      this.currentPage = Math.ceil(this.lengthOfFilter/this.typePage);
+      this.getPaginate();
+    },
     /**reload */
     reload() {
       location.reload();
     },
-    /**API laays lenght */
+    /**API laays lengthOfFilter */
+    async getLength() {
+      let apiUrl =
+        "http://localhost:55810/api/Products/Length?productSKU=" +
+        this.enterSKU +
+        "&productName=" +
+        this.enterProductName +
+        "&categoryCode=" +
+        this.enterCategory +
+        "&unitCode=" +
+        this.enterUnitCode +
+        "&sellPrice=" +
+        this.enterSellPrice +
+        "&isShow=" +
+        this.enterIsShow +
+        "&status=" +
+        this.enterStatus;
+      const response = await axios.get(apiUrl);
+      this.lengthOfFilter = response.data;
+    },
   },
   computed: {
     // formatInputPrice(enterSellPrice){
@@ -386,15 +476,40 @@ export default {
     //   return enterSellPrice;
     // }
   },
+  // watch:{
+  //   /**Lấy số bản ghi thỏa mãn điều kiện search */
+  //   async getLength(){
+  //     const response = await  axios.get(
+  //       "http://localhost:55810/api/Products/Length?"+
+  //         "&categoryCode=" +
+  //         this.enterCategory +
+  //       "productSKU="+
+  //         this.enterSKU +
+  //         "&productName=" +
+  //         this.enterProductName +
+  //         "&sellPrice=" +
+  //         this.enterSellPrice +
+  //         "&unitCode=" +
+  //         this.enterUnitCode +
+  //         "&isShow=" +
+  //         this.enterIsShow +
+  //         "&status=" +
+  //         this.enterStatus
+  //     );
+  //     this.lengthOfFilter = response.data;
+  //   },
+
+  // },
   data() {
     return {
+      lengthOfFilter: 0,
       product: {},
       productEmpty: {},
       checked: [],
       enterSKU: "",
       enterProductName: "",
-      enterCategory: "",
-      enterUnitName: "",
+      enterCategory: 0,
+      enterUnitCode: 0,
       enterStatus: 2,
       enterIsShow: 2,
       enterSellPrice: 0,
@@ -419,6 +534,24 @@ export default {
         "&sellPrice=0&isShow=2&status=2"
     );
     this.products = response.data;
+
+    let apiUrl =
+      "http://localhost:55810/api/Products/Length?productSKU=" +
+      this.enterSKU +
+      "&productName=" +
+      this.enterProductName +
+      "&categoryCode=" +
+      this.enterCategory +
+      "&unitCode=" +
+      this.enterUnitCode +
+      "&sellPrice=" +
+      this.enterSellPrice +
+      "&isShow=" +
+      this.enterIsShow +
+      "&status=" +
+      this.enterStatus;
+    const length = await axios.get(apiUrl);
+    this.lengthOfFilter = length.data;
   },
 };
 </script>
@@ -428,6 +561,7 @@ export default {
   width: 100%;
   padding: 4px;
   display: flex;
+  border-radius: 4px;
 }
 .iconSearch {
   border: 1px solid #9e9e9e;

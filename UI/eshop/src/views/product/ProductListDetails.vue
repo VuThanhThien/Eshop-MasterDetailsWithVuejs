@@ -16,9 +16,19 @@
 
       <div class="rowForm">
         <div class="labelForm">Trạng thái kinh doanh</div>
-        <input type="radio" name="radiocheck" value="1" v-model="product.status"/>
+        <input
+          type="radio"
+          name="radiocheck"
+          value="1"
+          v-model="product.status"
+        />
         <label for="1" style="margin-right: 10px">Đang kinh doanh</label>
-        <input type="radio" name="radiocheck" value="0" v-model="product.status"/>
+        <input
+          type="radio"
+          name="radiocheck"
+          value="0"
+          v-model="product.status"
+        />
         <label for="2">Ngừng kinh doanh</label>
       </div>
 
@@ -26,12 +36,17 @@
         <div class="labelForm">
           Tên hàng hóa<span style="color: red"> *</span>
         </div>
-        <input type="text" class="productName" v-model="product.productName"/>
+        <input type="text" class="productName" v-model="product.productName" />
       </div>
 
       <div class="rowForm">
         <div class="labelForm">Nhóm hàng hóa</div>
-        <select class="custom-select" id="selectCategory" style="width: 270px" v-model="product.categoryCode">
+        <select
+          class="custom-select"
+          id="selectCategory"
+          style="width: 270px"
+          v-model="product.categoryCode"
+        >
           <option selected disabled>Chọn nhóm hàng hóa</option>
           <option value="1">Đồ dùng cá nhân</option>
           <option value="2">Đồ gia dụng</option>
@@ -47,6 +62,7 @@
           <option value="12">Quần</option>
           <option value="13">Váy</option>
           <option value="14">Xe máy</option>
+          <option value="15">Áo</option>
         </select>
         <div class="iconPlusContain">
           <div class="iconPlus"></div>
@@ -55,7 +71,7 @@
 
       <div class="rowForm">
         <div class="labelForm">Mã SKU</div>
-        <input type="text" v-model="product.sku"/>
+        <input type="text" v-model="product.sku" />
       </div>
 
       <div class="rowForm">
@@ -74,7 +90,11 @@
 
       <div class="rowForm">
         <div class="labelForm">Đơn vị</div>
-        <select class="custom-select" style="width: 270px" v-model="product.unitCode">
+        <select
+          class="custom-select"
+          style="width: 270px"
+          v-model="product.unitCode"
+        >
           <option selected disabled>Chọn đơn vị</option>
           <option value="1">Đôi</option>
           <option value="2">Chiếc</option>
@@ -92,7 +112,7 @@
 
       <div>
         <div class="rowForm" style="align-items: center">
-          <input type="checkbox" v-model="product.isShow"/>
+          <input type="checkbox" v-model="product.isShow" />
           Hiển thị trên màn hình bán hàng <i class="fas fa-question-circle"></i>
         </div>
       </div>
@@ -163,14 +183,22 @@
         <div class="labelForm">Ảnh hàng hóa</div>
         <div class="boxImage">
           <div class="imgBlock">
-            <div class="symbolPen">
+            <div class="symbolPen" v-if="!url">
               <div class="iconPen"></div>
               Biểu tượng
             </div>
-            <div class="imgProduct"></div>
+            <div class="imgProduct" v-if="!url"></div>
+            <img class="imgProduct" v-if="url" :src="url" />
           </div>
           <div class="xboxInner">
-            <input type="file" name="file" id="file" class="inputfile" />
+            <input
+              type="file"
+              name="file"
+              id="file"
+              class="inputfile"
+              accept="image/x-png,image/gif,image/jpeg"
+              @change="onFileChange"
+            />
             <label for="file">...</label>
           </div>
         </div>
@@ -221,6 +249,7 @@ export default {
   data() {
     return {
       tags: [],
+      url: null,
     };
   },
   methods: {
@@ -235,11 +264,19 @@ export default {
       let val = (value / 1).toFixed(2).replace(".", ",");
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
+
+    onFileChange(e) {
+      const file = e.target.files[0];
+      this.url = URL.createObjectURL(file);
+    },
   },
 };
 </script>
 
 <style>
+.input-tag span {
+  color: white;
+}
 .formBody {
   position: fixed;
   z-index: 10;
@@ -307,7 +344,7 @@ i {
   bottom: 0px;
 }
 .boxImage {
-  height: 180px;
+  height: 200px;
   width: 200px;
   border-color: #636dde !important;
   border-width: 1px !important;
@@ -326,7 +363,7 @@ i {
   overflow: hidden;
   position: relative;
   left: 0;
-  top: 0;
+  top: 24px;
   width: 198px;
   height: 32px;
   justify-content: center !important;
@@ -374,7 +411,9 @@ span {
   color: white !important;
 }
 .vue-input-tag-wrapper .input-tag .remove {
-  color: #ffffff im !important;
+  cursor: pointer;
+  font-weight: 700;
+  color: white !important;
 }
 .vue-input-tag-wrapper .new-tag {
   background: transparent;
@@ -427,14 +466,15 @@ span {
   width: 198px;
   height: 146px;
 }
+
 .imgProduct {
-  width: 50%;
-  height: 140px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
   background-image: url("https://testmisatrinhmisa.mshopkeeper.vn/backendg2/api/Image?id=12EB2AFC-16CA-45EC-8E9A-1A1B829EBFB9&type=4&mode=pad&CompanyCode=testmisatrinhmisa&w=200&h=180");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 
 .symbolPen {

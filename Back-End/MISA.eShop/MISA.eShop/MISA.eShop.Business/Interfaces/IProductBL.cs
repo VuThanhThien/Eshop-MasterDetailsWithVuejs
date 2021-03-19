@@ -26,5 +26,7 @@ namespace MISA.eShop.Business.Interfaces
             int isShow = 2,
             int status = 2);
 
+        BaseResponse GetSKUGenerate(
+            string productKey);
     }
 }

@@ -82,7 +82,19 @@ namespace MISA.eShop.API.Controllers
             [FromQuery] int status = 2)
         {
             var result = _productBL.GetLength( productSKU, productName, categoryCode, unitCode, sellPrice, isShow, status);
-            return StatusCode((int)result.HTTPStatusCode, result);
+            return StatusCode((int)result.HTTPStatusCode, result.Data);
+        }
+
+        /// <summary>
+        /// Sinh mã SKU tự động từ chuỗi nhập vào
+        /// </summary>
+        /// <param name="productKey">Chuỗi tên nhập vào</param>
+        /// <returns>SKU mới</returns>
+        [HttpGet("SKU")]
+        public IActionResult GetSKUGenerate([FromQuery] string productKey = "")
+        {
+            var result = _productBL.GetSKUGenerate(productKey);
+            return StatusCode((int)result.HTTPStatusCode, result.Data);
         }
 
         // POST api/<ProductsController>

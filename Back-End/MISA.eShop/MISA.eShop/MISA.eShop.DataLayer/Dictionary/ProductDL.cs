@@ -35,16 +35,31 @@ namespace MISA.eShop.DataLayer.Dictionary
         /// </summary>
         /// <param name="param">Tham số truyền vào store</param>
         /// <returns>Số bản ghi</returns>
-        IEnumerable<Product> IProductDL.GetLength(object param)
+        public long GetLength(object param)
         {
             var procName = "Proc_GetLength";
 
             var parameters = new DynamicParameters(param);
 
-            var result = _dbContext.QueryStore(procName, parameters);
+            var result = (long)_dbContext.ExcuteScalarStore(procName, parameters);
 
             return result;
         }
 
+        /// <summary>
+        /// Lấy mã sku sinh tự động
+        /// </summary>
+        /// <param name="productKey">Chuỗi cắt gọn tên hàng hóa</param>
+        /// <returns></returns>
+        public string GetSKUGenerate(object param)
+        {
+            var procName = "Proc_GenProductSKU";
+
+            var parameters = new DynamicParameters(param);
+
+            var result = (string)_dbContext.ExcuteScalarStore(procName, parameters);
+
+            return result;
+        }
     }
 }

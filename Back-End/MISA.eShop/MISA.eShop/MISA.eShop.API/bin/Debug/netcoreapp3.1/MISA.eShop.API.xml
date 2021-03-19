@@ -109,6 +109,13 @@
             <param name="status">Trạng thái hàng hoá (0-Đang kinh doanh, 1-Ngừng kinh doanh, 2-Tất cả)</param>
             <returns>Danh sách các bản ghi tìm được</returns>
         </member>
+        <member name="M:MISA.eShop.API.Controllers.ProductsController.GetSKUGenerate(System.String)">
+            <summary>
+            Sinh mã SKU tự động từ chuỗi nhập vào
+            </summary>
+            <param name="productKey">Chuỗi tên nhập vào</param>
+            <returns>SKU mới</returns>
+        </member>
         <member name="M:MISA.eShop.API.Controllers.ProductsController.Post(MISA.eShop.Model.Dictionary.Product)">
             <summary>
             Thêm mới một sản phẩm

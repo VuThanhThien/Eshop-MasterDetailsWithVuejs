@@ -8,7 +8,7 @@ using System;
 
 namespace MISA.eShop.Business.Dictionary
 {
-    public class ProductBL: BaseBL<Product>, IProductBL
+    public class ProductBL : BaseBL<Product>, IProductBL
     {
         private readonly IProductDL _productDL;
 
@@ -32,7 +32,7 @@ namespace MISA.eShop.Business.Dictionary
         /// <param name="status">Trạng thái hàng hoá (1-Đang kinh doanh, 2-Ngừng kinh doanh, 3-Tất cả)</param>
         /// <returns>Danh sách các bản ghi tìm được</returns>
         public BaseResponse GetPaging(
-            int offset = 1, 
+            int offset = 1,
             int limit = 25,
             string productSKU = "",
             string productName = "",
@@ -117,26 +117,45 @@ namespace MISA.eShop.Business.Dictionary
                 status = status
             };
 
-            var result = _productDL.GetLength(param);
+            // khởi tạo dữ liệu trả về => trả về mã 200
+            var response = new BaseResponse()
+            {
+                HTTPStatusCode = HTTPStatusCode.Ok,
+                Data = _productDL.GetLength(param)
+            };
+            return response;
+        }
 
-            // danh sách rỗng => trả vè mã 204
-            if (result == null)
+        /// <summary>
+        /// Lấy mã sku tự động
+        /// </summary>
+        /// <param name="productKey"></param>
+        /// <returns></returns>
+        /// createdby vtt 19/03/21
+        public BaseResponse GetSKUGenerate(string productKey)
+        {
+            var param = new
+            {
+                productKey = productKey
+            };
+            //Nếu chuỗi nhập vào null
+            if (productKey == null)
             {
                 // khởi tạo dữ liệu trả về
                 var response = new BaseResponse()
                 {
-                    HTTPStatusCode = HTTPStatusCode.No_ConTent,
-                    Data = null
+                    HTTPStatusCode = HTTPStatusCode.Bad_Request,
+                    Data = new MisaError(DevMessage.DuplicateSKU, ErrorCode.DuplicateData)
                 };
                 return response;
             }
             else
             {
-                // khởi tạo dữ liệu trả về => trả về mã 200
+                // khởi tạo dữ liệu trả về
                 var response = new BaseResponse()
                 {
                     HTTPStatusCode = HTTPStatusCode.Ok,
-                    Data = result
+                    Data = _productDL.GetSKUGenerate(param)
                 };
                 return response;
             }
@@ -153,8 +172,13 @@ namespace MISA.eShop.Business.Dictionary
             // kiểm tra trùng mã SKU không
             var productBySku = _baseDL.GetBySKU(product.SKU);
 
+            if(product.ProductIDParent == null)
+            {
+                product.ProductIDParent = Guid.Empty;
+            }    
+
             // nếu tìm thấy mã Sku trong db => trả về lỗi 400
-            if(productBySku != null)
+            if (productBySku != null)
             {
                 // khởi tạo dữ liệu trả về
                 var response = new BaseResponse()
@@ -184,7 +208,7 @@ namespace MISA.eShop.Business.Dictionary
         public override BaseResponse Update(Guid productID, Product product)
         {
             // Check Id truyền lên và ID trong object => nếu khác nhau thì trả về lỗi 400
-            if(productID != product.ProductID)
+            if (productID != product.ProductID)
             {
                 var response = new BaseResponse()
                 {
@@ -215,20 +239,5 @@ namespace MISA.eShop.Business.Dictionary
             return base.Update(productID, product);
         }
 
-        //public string GenSKU(string mySKU)
-        //{
-        //    // Lấy hàng hóa theo SKU
-        //    var productBySku = _baseDL.GetBySKU(mySKU);
-        //    int a = productBySku.Rows.Count;
-        //    if (productBySku != null)
-        //    {
-
-        //        return mySKU + "01";
-        //    }
-        //    else
-        //    {
-
-        //    }
-        //}
     }
 }

@@ -17,7 +17,13 @@ namespace MISA.eShop.DataLayer.Interface
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        IEnumerable<Product> GetLength(object param);
+        long GetLength(object param);
 
+        /// <summary>
+        /// Lấy SKU sinh tự động
+        /// </summary>
+        /// <param name="productKey">Chuỗi cắt gọn tên hàng hóa</param>
+        /// <returns></returns>
+        string GetSKUGenerate(object param);
     }
 }
