@@ -144,8 +144,8 @@
                   @change="getPaginate"
                 >
                   <option value="2">Tất cả</option>
-                  <option value="1">Đang hoạt động</option>
-                  <option value="0">Ngừng hoạt động</option>
+                  <option value="1">Đang kinh doanh</option>
+                  <option value="0">Ngừng kinh doanh</option>
                 </select>
               </div>
             </th>

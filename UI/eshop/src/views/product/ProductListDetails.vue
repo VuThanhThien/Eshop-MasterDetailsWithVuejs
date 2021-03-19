@@ -16,9 +16,9 @@
 
       <div class="rowForm">
         <div class="labelForm">Trạng thái kinh doanh</div>
-        <input type="radio" name="radiocheck" value="1" />
+        <input type="radio" name="radiocheck" value="1" v-model="product.status"/>
         <label for="1" style="margin-right: 10px">Đang kinh doanh</label>
-        <input type="radio" name="radiocheck" value="0" />
+        <input type="radio" name="radiocheck" value="0" v-model="product.status"/>
         <label for="2">Ngừng kinh doanh</label>
       </div>
 
@@ -26,17 +26,27 @@
         <div class="labelForm">
           Tên hàng hóa<span style="color: red"> *</span>
         </div>
-        <input type="text" class="productName" />
+        <input type="text" class="productName" v-model="product.productName"/>
       </div>
 
       <div class="rowForm">
         <div class="labelForm">Nhóm hàng hóa</div>
-        <select class="custom-select" id="selectCategory" style="width: 270px">
-          ; >
-          <option selected disabled>Select one</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
+        <select class="custom-select" id="selectCategory" style="width: 270px" v-model="product.categoryCode">
+          <option selected disabled>Chọn nhóm hàng hóa</option>
+          <option value="1">Đồ dùng cá nhân</option>
+          <option value="2">Đồ gia dụng</option>
+          <option value="3">Đồng hồ</option>
+          <option value="4">Giày</option>
+          <option value="5">Giày bata</option>
+          <option value="6">Giày da</option>
+          <option value="7">Giày Sneaker</option>
+          <option value="8">Giày vải</option>
+          <option value="9">Hoa quả</option>
+          <option value="10">Khăn</option>
+          <option value="11">Nước ngọt</option>
+          <option value="12">Quần</option>
+          <option value="13">Váy</option>
+          <option value="14">Xe máy</option>
         </select>
         <div class="iconPlusContain">
           <div class="iconPlus"></div>
@@ -45,7 +55,7 @@
 
       <div class="rowForm">
         <div class="labelForm">Mã SKU</div>
-        <input type="text" />
+        <input type="text" v-model="product.sku"/>
       </div>
 
       <div class="rowForm">
@@ -53,22 +63,27 @@
           Giá mua <i class="fas fa-question-circle"></i>
         </div>
         <!-- <input type="number" class="inputNumber" placeholder="0"/> -->
-        <DxNumberBox :value="13415.24" format="#,##0" />
+        <DxNumberBox :value="product.buyPrice" format="#,##0" />
       </div>
 
       <div class="rowForm">
         <div class="labelForm">Giá bán</div>
         <!-- <input type="number" class="inputNumber" placeholder="0" /> -->
-        <DxNumberBox :value="13415.24" format="#,##0" />
+        <DxNumberBox :value="product.sellPrice" format="#,##0" />
       </div>
 
       <div class="rowForm">
         <div class="labelForm">Đơn vị</div>
-        <select class="custom-select" style="width: 270px">
-          <option selected disabled>Select one</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
+        <select class="custom-select" style="width: 270px" v-model="product.unitCode">
+          <option selected disabled>Chọn đơn vị</option>
+          <option value="1">Đôi</option>
+          <option value="2">Chiếc</option>
+          <option value="3">Túi</option>
+          <option value="3">Kg</option>
+          <option value="5">Thùng</option>
+          <option value="6">Mét</option>
+          <option value="7">Cuộn</option>
+          <option value="8">Lít</option>
         </select>
         <div class="iconPlusContain">
           <div class="iconPlus"></div>
@@ -77,7 +92,7 @@
 
       <div>
         <div class="rowForm" style="align-items: center">
-          <input type="checkbox" />
+          <input type="checkbox" v-model="product.isShow"/>
           Hiển thị trên màn hình bán hàng <i class="fas fa-question-circle"></i>
         </div>
       </div>
@@ -141,7 +156,7 @@
 
       <div class="rowForm">
         <div class="labelForm">Mô tả</div>
-        <textarea class="description"></textarea>
+        <textarea class="description" v-model="product.description"></textarea>
       </div>
 
       <div class="rowForm">

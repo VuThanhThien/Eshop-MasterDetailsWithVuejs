@@ -14,7 +14,6 @@
             </div>
             <!-- chọn nhà hàng hiện tại  -->
             <select id="myRestaurant">
-                <option>DODAVI- 160 HOÀNG HOA THÁM</option>
                 <option>DODAVI- Cầu Giấy</option>
                 <option>DODAVI- Nam Từ Liêm</option>
             </select>
