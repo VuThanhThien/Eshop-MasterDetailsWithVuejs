@@ -30,5 +30,21 @@ namespace MISA.eShop.DataLayer.Dictionary
             return result;
         }
 
+        /// <summary>
+        /// Lấy số lương bản ghi thảo mãn điều kiện lọc
+        /// </summary>
+        /// <param name="param">Tham số truyền vào store</param>
+        /// <returns>Số bản ghi</returns>
+        IEnumerable<Product> IProductDL.GetLength(object param)
+        {
+            var procName = "Proc_GetLength";
+
+            var parameters = new DynamicParameters(param);
+
+            var result = _dbContext.QueryStore(procName, parameters);
+
+            return result;
+        }
+
     }
 }

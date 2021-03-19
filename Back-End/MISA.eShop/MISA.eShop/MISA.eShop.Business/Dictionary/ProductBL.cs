@@ -31,7 +31,9 @@ namespace MISA.eShop.Business.Dictionary
         /// <param name="isShow">Có hiện thị trên màn hình bán hàng (1-Có, 0-Không, 2-Tất cả)</param>
         /// <param name="status">Trạng thái hàng hoá (1-Đang kinh doanh, 2-Ngừng kinh doanh, 3-Tất cả)</param>
         /// <returns>Danh sách các bản ghi tìm được</returns>
-        public BaseResponse GetPaging(int offset = 1, int limit = 25,
+        public BaseResponse GetPaging(
+            int offset = 1, 
+            int limit = 25,
             string productSKU = "",
             string productName = "",
             int categoryCode = 0,
@@ -43,6 +45,7 @@ namespace MISA.eShop.Business.Dictionary
 
             var param = new
             {
+
                 limit = limit,
                 offset = offset,
                 productSKU = productSKU,
@@ -55,6 +58,66 @@ namespace MISA.eShop.Business.Dictionary
             };
 
             var result = _productDL.GetPaging(param);
+
+            // danh sách rỗng => trả vè mã 204
+            if (result == null)
+            {
+                // khởi tạo dữ liệu trả về
+                var response = new BaseResponse()
+                {
+                    HTTPStatusCode = HTTPStatusCode.No_ConTent,
+                    Data = null
+                };
+                return response;
+            }
+            else
+            {
+                // khởi tạo dữ liệu trả về => trả về mã 200
+                var response = new BaseResponse()
+                {
+                    HTTPStatusCode = HTTPStatusCode.Ok,
+                    Data = result
+                };
+                return response;
+            }
+        }
+
+        /// <summary>
+        /// Lấy danh sách hàng hoá
+        /// </summary>
+        /// <param name="offset">Vị trí bắt đầu (mặc định là 1)</param>
+        /// <param name="limit">Giới hạn bản ghi cần lấy (mặc định là 25)</param>
+        /// <param name="productSKU">Mã SKU của sản phẩm</param>
+        /// <param name="productName">Tên sản phẩm</param>
+        /// <param name="productCategory">Loại sản phẩm</param>
+        /// <param name="productUnit">Đơn vị tính</param>
+        /// <param name="sellPrice">Giá bán</param>
+        /// <param name="isShow">Có hiện thị trên màn hình bán hàng (1-Có, 0-Không, 2-Tất cả)</param>
+        /// <param name="status">Trạng thái hàng hoá (1-Đang kinh doanh, 2-Ngừng kinh doanh, 3-Tất cả)</param>
+        /// <returns>Danh sách các bản ghi tìm được</returns>
+
+        public BaseResponse GetLength(
+            string productSKU = "",
+            string productName = "",
+            int categoryCode = 0,
+            int unitCode = 0,
+            double sellPrice = 0,
+            int isShow = 2,
+            int status = 2)
+        {
+
+            var param = new
+            {
+                productSKU = productSKU,
+                productName = productName,
+                categoryCode = categoryCode,
+                unitCode = unitCode,
+                sellPrice = sellPrice,
+                isShow = isShow,
+                status = status
+            };
+
+            var result = _productDL.GetLength(param);
 
             // danh sách rỗng => trả vè mã 204
             if (result == null)
@@ -159,7 +222,7 @@ namespace MISA.eShop.Business.Dictionary
         //    int a = productBySku.Rows.Count;
         //    if (productBySku != null)
         //    {
-                
+
         //        return mySKU + "01";
         //    }
         //    else

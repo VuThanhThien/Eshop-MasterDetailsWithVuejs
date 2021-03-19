@@ -13,10 +13,6 @@
         </div>
         <div class="iconText">Thêm mới</div>
       </button>
-      <!-- <ms-button class="contentHeaderButton" :bgcolor="bg-color" :icon="iconAdd">
-        Thêm mới
-      </ms-button> -->
-      <!-- nhân bản  -->
       <button
         title="Nhân bản thêm một cửa hàng nữa"
         class="contentHeaderButton"
@@ -27,26 +23,34 @@
         <div class="iconText">Nhân bản</div>
       </button>
       <!-- sửa  -->
-      <button title="Chỉnh sửa thông tin cửa hàng" class="contentHeaderButton">
+      <button
+        title="Chỉnh sửa thông tin cửa hàng"
+        class="contentHeaderButton"
+        @click="btnEditOnClick"
+      >
         <div class="iconHeader">
           <div class="iconEdit"></div>
         </div>
         <div class="iconText">Sửa</div>
       </button>
       <!-- xóa  -->
-      <button title="Xóa cửa hàng" class="contentHeaderButton" @click="btnDeleteOnClick">
+      <button
+        title="Xóa cửa hàng"
+        class="contentHeaderButton"
+        @click="btnDeleteOnClick"
+      >
         <div class="iconHeader">
           <div class="iconDelete"></div>
         </div>
         <div class="iconText">Xóa</div>
       </button>
       <Popup
-        :isHidePopup="isHidePopupParent" 
+        :isHidePopup="isHidePopupParent"
         @outIsHidePopup="outIsHidePopup"
         :product="product"
       />
       <!-- nạp  -->
-      <button class="contentHeaderButton">
+      <button class="contentHeaderButton" @click="reload">
         <div class="iconHeader">
           <div class="iconImport"></div>
         </div>
@@ -59,7 +63,7 @@
         <thead>
           <tr class="filter">
             <th width="4%">
-              <input type="checkbox" >
+              <input type="checkbox" />
             </th>
             <th width="10%">
               SKU
@@ -87,8 +91,9 @@
               Nhóm hàng hóa
               <div class="filterField">
                 <div class="iconSearch">*</div>
-                <input class="searchField" 
-                @keyup.enter="getPaginate"
+                <input
+                  class="searchField"
+                  @keyup.enter="getPaginate"
                   v-model.trim="enterCategory"
                 />
               </div>
@@ -97,27 +102,33 @@
               Đơn vị tính
               <div class="filterField">
                 <div class="iconSearch">*</div>
-                <input class="searchField"
-                @keyup.enter="getPaginate"
+                <input
+                  class="searchField"
+                  @keyup.enter="getPaginate"
                   v-model.trim="enterUnitName"
                 />
               </div>
             </th>
-            <th width="10%" >
+            <th width="10%">
               Giá bán TB
               <div class="filterField">
                 <div class="iconSearch">≥</div>
-                <input class="searchField"
-                @keyup.enter="getPaginate"
+                <input
+                  class="searchField"
+                  @keyup.enter="getPaginate"
                   v-model.number="enterSellPrice"
-                  style="text-align:right"
+                  style="text-align: right"
                 />
               </div>
             </th>
             <th width="15%">
               Hiển thị trên màn hình bán hàng
               <div class="filterField">
-                <select style="width: 100%;height: 38px">
+                <select
+                  style="width: 100%; height: 38px"
+                  v-model="enterIsShow"
+                  @change="getPaginate"
+                >
                   <option value="2" selected>Tất cả</option>
                   <option value="1">Có</option>
                   <option value="0">Không</option>
@@ -127,7 +138,11 @@
             <th width="12%">
               Trạng thái
               <div class="filterField">
-                <select style="width: 100%;height: 38px">
+                <select
+                  style="width: 100%; height: 38px"
+                  v-model="enterStatus"
+                  @change="getPaginate"
+                >
                   <option value="2">Tất cả</option>
                   <option value="1">Đang hoạt động</option>
                   <option value="0">Ngừng hoạt động</option>
@@ -146,7 +161,11 @@
           >
             <td>
               <div class="cell">
-                <input type="checkbox" v-model="checked" :value="product.productID">
+                <input
+                  type="checkbox"
+                  v-model="checked"
+                  :value="product.productID"
+                />
               </div>
             </td>
             <td>
@@ -175,23 +194,23 @@
               </div>
             </td>
             <td>
-              <div class="cell">{{convertIsShow(product.isShow)}}</div>
+              <div class="cell">{{ convertIsShow(product.isShow) }}</div>
             </td>
             <td>
-              <div class="cell">{{convertStatus(product.status)}}</div>
+              <div class="cell">{{ convertStatus(product.status) }}</div>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
     <!-- Component chi tiết  -->
-    <Details :isHide="isHideParent" @outIsHide="outIsHide" />
+    <Details :isHide="isHideParent" :product="product" @outIsHide="outIsHide" />
     <div class="contentFooter">
       <div class="contentFooterLeft">
-        <button class="buttonPage">
+        <button class="buttonPage" @click="firstPage">
           <div class="firstPage"></div>
         </button>
-        <button class="buttonPage">
+        <button class="buttonPage" @click="prevPage">
           <div class="prevPage"></div>
         </button>
         <div class="contentFooterPaging">
@@ -204,18 +223,18 @@
             @keyup.enter="getPaginate"
           />
           <a> trên </a>
-          <div class="totalPage">{{products.length/typePage}}</div>
+          <div class="totalPage">{{ typePage }}</div>
         </div>
-        <button class="buttonPage">
+        <button class="buttonPage" @click="nextPage">
           <div class="nextPage"></div>
         </button>
         <button class="buttonPage">
           <div class="lastPage"></div>
         </button>
-        <button class="buttonPage">
+        <button class="buttonPage" @click="reload">
           <div class="refresh"></div>
         </button>
-        <select class="typePage" v-model="typePage">
+        <select class="typePage" v-model="typePage" @change="getPaginate">
           <option value="5">5</option>
           <option value="25" selected>25</option>
           <option value="50">50</option>
@@ -225,7 +244,7 @@
 
       <div class="contentFooterRight">
         <!-- todo proc cần trả về số bản ghi thỏa mãn và số trang thỏa mãn -->
-        <a>Hiển thị 1- {{ products.length }} trên {{ products.length }} kết quả</a>
+        <a>Hiển thị 1- {{ products.length }} trên {{ typePage }} kết quả</a>
         <!-- <p>Các input đã check: {{ checked }}</p> -->
       </div>
     </div>
@@ -239,27 +258,48 @@ import Details from "./ProductListDetails.vue";
 import Popup from "../popup/PopupDelete";
 export default {
   name: "Product",
-  props: {
-  },
+  props: {},
   components: {
     Details,
-    Popup
+    Popup,
   },
   methods: {
     /**Chọn dòng  */
-     rowOnClick(product ,index) {
+    rowOnClick(product, index) {
       this.isActive = index;
       this.product = product;
     },
     /**Mở form */
+    /**Mở form để thêm mới */
     btnAddOnClick() {
+      // gán cho product bind lên là prodcut rỗng
+      this.product = this.productEmpty;
+      // Mở form
       this.isHideParent = !this.isHideParent;
     },
-    btnDeleteOnClick(){
-      this.isHidePopupParent = !this.isHidePopupParent;
+
+    // Nút sửa
+    btnEditOnClick() {
+      //Nếu chưa active thì chọn
+      if (this.isActive < 0)
+        this.$notify({ type: "warn", text: "Vui lòng chọn cửa hàng cần sửa" });
+      // ngược lại thì mở form
+      //Createdby VTT 19/03/21
+      else this.isHideParent = !this.isHideParent;
+    },
+
+    /**Xóa hàng hóa */
+    btnDeleteOnClick() {
+      // Nếu chưa active thì thông báo chưa chọn
+      if (this.isActive < 0)
+        this.$notify({ type: "warn", text: "Vui lòng chọn cửa hàng cần xóa" });
+      //Ngược lại thì mở popup xóa
+      //Createdby VTT 19/03/21
+      else this.isHidePopupParent = !this.isHidePopupParent;
     },
 
     /**Đóng form */
+    //Createdby VTT 19/03/21
     outIsHide(e) {
       this.isHideParent = e;
     },
@@ -267,43 +307,79 @@ export default {
       this.isHidePopupParent = e;
     },
     /**format trạng thái */
-    convertStatus(status){
-      if(status == 0)
-      return "Ngừng hoạt động";
-      if(status == 1)
-      return "Đang hoạt động";
+    //Createdby VTT 19/03/21
+    convertStatus(status) {
+      if (status == 0) return "Ngừng hoạt động";
+      if (status == 1) return "Đang hoạt động";
       return "Tất cả";
     },
     /**format hiển thị */
-    convertIsShow(isShow){
-      if(isShow == 0)
-      return "Có";
-      if(isShow ==1)
-      return "Không";
+    //Createdby VTT 19/03/21
+    convertIsShow(isShow) {
+      if (isShow == 1) return "Có";
+      if (isShow == 0) return "Không";
     },
     /**format tiền */
     formatPrice(value) {
-        let val = (value/1).toFixed(2).replace('.', ',')
-        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+      // let val = (value/1).toFixed(2).replace('.', ',')
+      return value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
     },
     /**API phân trang + filter */
-    async getPaginate(){
-      var offset = (this.currentPage - 1)*this.typePage + 1 ;
+    async getPaginate() {
+      var offset = (this.currentPage - 1) * this.typePage + 1;
       // var sellPriceConverted = this.enterSellPrice.convertSellPrice();
-    const response = await axios.get(
-      "http://localhost:55810/api/Products/Paginate?offset="
-      + offset +"&limit="
-      +this.typePage+"&productSKU="
-      +this.enterSKU+"&productName="
-      +this.enterProductName+"&sellPrice="
-      +this.enterSellPrice+"&productUnit="
-      +this.enterUnitName+"&productCategory="
-      +this.enterCategory+"&isShow=2&status=2"
-    );
-    this.products = response.data;
-    }
+      const response = await axios.get(
+        "http://localhost:55810/api/Products/Paginate?offset=" +
+          offset +
+          "&limit=" +
+          this.typePage +
+          "&productSKU=" +
+          this.enterSKU +
+          "&productName=" +
+          this.enterProductName +
+          "&sellPrice=" +
+          this.enterSellPrice +
+          "&productUnit=" +
+          this.enterUnitName +
+          "&productCategory=" +
+          this.enterCategory +
+          "&isShow=" +
+          this.enterIsShow +
+          "&status=" +
+          this.enterStatus
+      );
+      this.products = response.data;
+    },
+
+    /**Sang trang tiếp theo */
+    nextPage() {
+      this.currentPage = this.currentPage + 1;
+
+      /**Nếu this.currentPage > tối đa thì gán bằng tối đa */
+      this.getPaginate();
+    },
+
+    /**về trang trước */
+    prevPage() {
+      this.currentPage = this.currentPage - 1;
+
+      if (this.currentPage < 1) this.currentPage = 1;
+      this.getPaginate();
+    },
+
+    /**Về trang đầu */
+    firstPage() {
+      this.currentPage = 1;
+      this.getPaginate();
+    },
+
+    /**reload */
+    reload() {
+      location.reload();
+    },
+    /**API laays lenght */
   },
-  computed:{
+  computed: {
     // formatInputPrice(enterSellPrice){
     //   if(enterSellPrice < 0)
     //   enterSellPrice = 0;
@@ -312,18 +388,21 @@ export default {
   },
   data() {
     return {
-      product:{},
+      product: {},
+      productEmpty: {},
       checked: [],
-      enterSKU:"",
-      enterProductName:"",
-      enterCategory:"",
-      enterUnitName:"",
+      enterSKU: "",
+      enterProductName: "",
+      enterCategory: "",
+      enterUnitName: "",
+      enterStatus: 2,
+      enterIsShow: 2,
       enterSellPrice: 0,
       isActive: -1,
-      typePage:25,
-      currentPage:1,
+      typePage: 25,
+      currentPage: 1,
       isHideParent: true,
-      isHidePopupParent:true,
+      isHidePopupParent: true,
       products: service.getProducts(),
       allMode: "allPages",
       checkBoxesMode: "always",
@@ -331,9 +410,13 @@ export default {
   },
   /**API ban đầu */
   async created() {
-    var offset = (this.currentPage - 1)*this.typePage + 1 ;
+    var offset = (this.currentPage - 1) * this.typePage + 1;
     const response = await axios.get(
-      "http://localhost:55810/api/Products/Paginate?offset="+ offset +"&limit="+ this.typePage+"&sellPrice=0&isShow=2&status=2"
+      "http://localhost:55810/api/Products/Paginate?offset=" +
+        offset +
+        "&limit=" +
+        this.typePage +
+        "&sellPrice=0&isShow=2&status=2"
     );
     this.products = response.data;
   },
@@ -364,10 +447,8 @@ export default {
   border: 1px solid #9e9e9e;
 }
 .hightlight {
-  
   background-color: #dfe3e8;
   border-left: 1px solid #dfe3e8;
-
 }
 /* .contenBody{} */
 
@@ -400,5 +481,7 @@ export default {
 a {
   margin: 10px;
 }
-
+.totalPage {
+  width: 15px;
+}
 </style>

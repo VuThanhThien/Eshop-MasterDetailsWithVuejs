@@ -54,3 +54,17 @@ E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Bus
 E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csproj.CopyComplete
 E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.dll
 E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.pdb
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Business.deps.json
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Business.dll
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Business.pdb
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.dll
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Model.dll
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.pdb
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Business\bin\Debug\netcoreapp3.1\MISA.eShop.Model.pdb
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.AssemblyInfo.cs
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.csproj.CopyComplete
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.dll
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Business\obj\Debug\netcoreapp3.1\MISA.eShop.Business.pdb

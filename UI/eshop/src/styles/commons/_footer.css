@@ -20,6 +20,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 180px;
 }
 
 .contentFooterPaging span {
@@ -39,13 +40,13 @@
 }
 
 
-/* .currentPage{
+.currentPage{
     height: 35px;
-    width: 50px;
+    width: 60px;
     border: gray;
     align-items: center !important;
     justify-content: center;
-} */
+}
 
 .contentFooterPaging {
     margin-left: 10px;

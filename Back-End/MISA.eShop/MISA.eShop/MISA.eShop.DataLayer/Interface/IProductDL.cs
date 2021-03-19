@@ -12,5 +12,12 @@ namespace MISA.eShop.DataLayer.Interface
         /// <returns>Danh sách hàng hoá</returns>
         IEnumerable<Product> GetPaging(object param);
 
+        /// <summary>
+        /// Lấy số lượng bản ghi thỏa mãn điều kiện lọc
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        IEnumerable<Product> GetLength(object param);
+
     }
 }

@@ -46,3 +46,15 @@ E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.Dat
 E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.csproj.CopyComplete
 E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.dll
 E:\Fresher\MISA.eShop.gd2\MISA.eShop - Copy\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.pdb
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.deps.json
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.dll
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.pdb
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\bin\Debug\netcoreapp3.1\MISA.eShop.Model.dll
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\bin\Debug\netcoreapp3.1\MISA.eShop.Model.pdb
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.AssemblyInfo.cs
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.csproj.CopyComplete
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.dll
+C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.pdb

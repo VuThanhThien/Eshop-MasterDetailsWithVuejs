@@ -59,6 +59,32 @@ namespace MISA.eShop.API.Controllers
             return StatusCode((int)result.HTTPStatusCode, result.Data);
         }
 
+        // GET api/<ProductsController>
+        /// <summary>
+        /// Lấy số bản ghi thỏa mãn yêu cầu search
+        /// </summary>
+        /// <param name="productSKU">Mã SKU của sản phẩm</param>
+        /// <param name="productName">Tên sản phẩm</param>
+        /// <param name="categoryCode">Mã loại sản phẩm</param>
+        /// <param name="unitCode"> Mã Đơn vị tính( Mặc định là 0, 1- đôi, 2- chiếc, 3- túi, 4- kg, 5- thùng, 6-met, 7- cuộn, 8-lit, 9- hộp)</param>
+        /// <param name="sellPrice">Giá bán tối thiểu (Mặc định là 0)</param>
+        /// <param name="isShow">Có hiện thị trên màn hình bán hàng (1-Có, 0-Không, 2-Tất cả)</param>
+        /// <param name="status">Trạng thái hàng hoá (0-Đang kinh doanh, 1-Ngừng kinh doanh, 2-Tất cả)</param>
+        /// <returns>Danh sách các bản ghi tìm được</returns>
+        [HttpGet("Length")]
+        public IActionResult GetLength(
+            [FromQuery] string productSKU = "",
+            [FromQuery] string productName = "",
+            [FromQuery] int categoryCode = 0,
+            [FromQuery] int unitCode = 0,
+            [FromQuery] double sellPrice = 0,
+            [FromQuery] int isShow = 2,
+            [FromQuery] int status = 2)
+        {
+            var result = _productBL.GetLength( productSKU, productName, categoryCode, unitCode, sellPrice, isShow, status);
+            return StatusCode((int)result.HTTPStatusCode, result);
+        }
+
         // POST api/<ProductsController>
         /// <summary>
         /// Thêm mới một sản phẩm

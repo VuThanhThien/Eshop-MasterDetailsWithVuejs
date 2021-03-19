@@ -16,9 +16,9 @@
 
       <div class="rowForm">
         <div class="labelForm">Trạng thái kinh doanh</div>
-        <input type="radio" name="radiocheck" id="1" />
+        <input type="radio" name="radiocheck" value="1" />
         <label for="1" style="margin-right: 10px">Đang kinh doanh</label>
-        <input type="radio" name="radiocheck" id="2" />
+        <input type="radio" name="radiocheck" value="0" />
         <label for="2">Ngừng kinh doanh</label>
       </div>
 
@@ -52,12 +52,14 @@
         <div class="labelForm">
           Giá mua <i class="fas fa-question-circle"></i>
         </div>
-        <input type="number" class="inputNumber" placeholder="0"/>
+        <!-- <input type="number" class="inputNumber" placeholder="0"/> -->
+        <DxNumberBox :value="13415.24" format="#,##0" />
       </div>
 
       <div class="rowForm">
         <div class="labelForm">Giá bán</div>
-        <input type="number" class="inputNumber" placeholder="0" />
+        <!-- <input type="number" class="inputNumber" placeholder="0" /> -->
+        <DxNumberBox :value="13415.24" format="#,##0" />
       </div>
 
       <div class="rowForm">
@@ -117,7 +119,9 @@
                   <div class="cell"></div>
                 </td>
                 <td>
-                  <div class="cell"></div>
+                  <div class="cell">
+                    <DxNumberBox :value="13415.24" format="#,##0" />
+                  </div>
                 </td>
                 <td>
                   <div class="cell"></div>
@@ -181,10 +185,24 @@
 </template>
 
 <script>
+import DxNumberBox from "devextreme-vue/number-box";
 export default {
   name: "ProductDetails",
-  props: ["isHide"],
-  components: {},
+  props: {
+    isHide: {
+      type: Boolean,
+      default() {
+        return true;
+      },
+    },
+    product: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
+  components: { DxNumberBox },
   data() {
     return {
       tags: [],
@@ -199,8 +217,8 @@ export default {
     },
     /**format tiền */
     formatPrice(value) {
-        let val = (value/1).toFixed(2).replace('.', ',')
-        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+      let val = (value / 1).toFixed(2).replace(".", ",");
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
   },
 };
