@@ -250,12 +250,14 @@
             @keyup.enter="getPaginate"
           />
           <a> trên </a>
-          <div class="totalPage">{{ Math.ceil(lengthOfFilter/typePage)}}</div>
+          <div class="totalPage">
+            {{ Math.ceil(lengthOfFilter / typePage) }}
+          </div>
         </div>
         <button class="buttonPage" @click="nextPage">
           <div class="nextPage"></div>
         </button>
-        <button class="buttonPage"  @click="lastPage">
+        <button class="buttonPage" @click="lastPage">
           <div class="lastPage"></div>
         </button>
         <button class="buttonPage" @click="reload">
@@ -272,8 +274,8 @@
       <div class="contentFooterRight">
         <!-- todo proc cần trả về số bản ghi thỏa mãn và số trang thỏa mãn -->
         <a
-          >Hiển thị 1- {{ products.length }} trên {{ lengthOfFilter }} kết
-          quả</a
+          >Hiển thị {{ typePage * (currentPage - 1) + 1 }}-
+          {{ currentPage * typePage }} trên {{ lengthOfFilter }} kết quả</a
         >
         <!-- <p>Các input đã check: {{ checked }}</p> -->
       </div>
@@ -312,7 +314,7 @@ export default {
     btnEditOnClick() {
       //Nếu chưa active thì chọn
       if (this.isActive < 0)
-        this.$notify({ type: "warn", text: "Vui lòng chọn cửa hàng cần sửa" });
+        this.$notify({ type: "Success", text: "Vui lòng chọn cửa hàng cần sửa" });
       // ngược lại thì mở form
       //Createdby VTT 19/03/21
       else this.isHideParent = !this.isHideParent;
@@ -332,6 +334,7 @@ export default {
     //Createdby VTT 19/03/21
     outIsHide(e) {
       this.isHideParent = e;
+      this.product = this.productEmpty;
     },
     outIsHidePopup(e) {
       this.isHidePopupParent = e;
@@ -389,7 +392,7 @@ export default {
       if (this.enterSellPrice == "") {
         this.enterSellPrice = 0;
       }
-      var offset = (this.currentPage - 1) * this.typePage ;
+      var offset = (this.currentPage - 1) * this.typePage;
       // var sellPriceConverted = this.enterSellPrice.convertSellPrice();
       const response = await axios.get(
         "http://localhost:55810/api/Products/Paginate?offset=" +
@@ -420,8 +423,8 @@ export default {
       this.currentPage = this.currentPage + 1;
 
       /**Nếu this.currentPage > tối đa thì gán bằng tối đa */
-      if(this.currentPage > Math.ceil(this.lengthOfFilter/this.typePage))
-      this.currentPage = Math.ceil(this.lengthOfFilter/this.typePage);
+      if (this.currentPage > Math.ceil(this.lengthOfFilter / this.typePage))
+        this.currentPage = Math.ceil(this.lengthOfFilter / this.typePage);
       this.getPaginate();
     },
 
@@ -440,8 +443,8 @@ export default {
     },
 
     /**Trang cuối */
-    lastPage(){
-      this.currentPage = Math.ceil(this.lengthOfFilter/this.typePage);
+    lastPage() {
+      this.currentPage = Math.ceil(this.lengthOfFilter / this.typePage);
       this.getPaginate();
     },
     /**reload */
@@ -469,37 +472,7 @@ export default {
       this.lengthOfFilter = response.data;
     },
   },
-  computed: {
-    // formatInputPrice(enterSellPrice){
-    //   if(enterSellPrice < 0)
-    //   enterSellPrice = 0;
-    //   return enterSellPrice;
-    // }
-  },
-  // watch:{
-  //   /**Lấy số bản ghi thỏa mãn điều kiện search */
-  //   async getLength(){
-  //     const response = await  axios.get(
-  //       "http://localhost:55810/api/Products/Length?"+
-  //         "&categoryCode=" +
-  //         this.enterCategory +
-  //       "productSKU="+
-  //         this.enterSKU +
-  //         "&productName=" +
-  //         this.enterProductName +
-  //         "&sellPrice=" +
-  //         this.enterSellPrice +
-  //         "&unitCode=" +
-  //         this.enterUnitCode +
-  //         "&isShow=" +
-  //         this.enterIsShow +
-  //         "&status=" +
-  //         this.enterStatus
-  //     );
-  //     this.lengthOfFilter = response.data;
-  //   },
-
-  // },
+  computed: {},
   data() {
     return {
       lengthOfFilter: 0,
@@ -525,6 +498,7 @@ export default {
   },
   /**API ban đầu */
   async created() {
+    this.productEmpty = {};
     var offset = (this.currentPage - 1) * this.typePage + 1;
     const response = await axios.get(
       "http://localhost:55810/api/Products/Paginate?offset=" +

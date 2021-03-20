@@ -37,7 +37,7 @@ namespace MISA.eShop.DataLayer.Dictionary
         /// <returns>Số bản ghi</returns>
         public long GetLength(object param)
         {
-            var procName = "Proc_GetLength";
+            var procName = MISAProc.PROC_GET_LENGTH;
 
             var parameters = new DynamicParameters(param);
 
@@ -53,7 +53,7 @@ namespace MISA.eShop.DataLayer.Dictionary
         /// <returns></returns>
         public string GetSKUGenerate(object param)
         {
-            var procName = "Proc_GenProductSKU";
+            var procName = MISAProc.PROC_GEN_PRODUCT_SKU;
 
             var parameters = new DynamicParameters(param);
 

@@ -58,6 +58,16 @@ namespace MISA.eShop.Model.Enum
         /// </summary>
         public const string PROC_GET_PRODUCT_PAGING = "Proc_GetProductPaging";
 
+        /// <summary>
+        /// Lấy tổng bản ghi thỏa mãn điều kiện search
+        /// </summary>
+        public const string PROC_GET_LENGTH = "Proc_GetLength";
+
+        /// <summary>
+        /// Sinh mã SKU tự động
+        /// </summary>
+        public const string PROC_GEN_PRODUCT_SKU = "Proc_GenProductSKU";
+
         #endregion
     }
 }

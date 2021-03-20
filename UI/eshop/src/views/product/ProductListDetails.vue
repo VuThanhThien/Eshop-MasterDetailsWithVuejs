@@ -1,7 +1,7 @@
 <template>
   <div class="formBody" :class="{ isHide: isHide }">
     <div class="myButtonDialog" style="border-bottom: solid 1px gray">
-      <button class="myButton" id="buttonSave">
+      <button class="myButton" id="buttonSave" @click="save">
         <div class="iconSave"></div>
         Lưu
       </button>
@@ -36,7 +36,13 @@
         <div class="labelForm">
           Tên hàng hóa<span style="color: red"> *</span>
         </div>
-        <input type="text" class="productName" v-model="product.productName" />
+        <input
+          type="text"
+          class="productName"
+          v-model="product.productName"
+          @keyup.enter="getAutoSKU"
+          ref="name"
+        />
       </div>
 
       <div class="rowForm">
@@ -79,13 +85,13 @@
           Giá mua <i class="fas fa-question-circle"></i>
         </div>
         <!-- <input type="number" class="inputNumber" placeholder="0"/> -->
-        <DxNumberBox :value="product.buyPrice" format="#,##0" />
+        <DxNumberBox v-model="product.buyPrice" format="#,##0" />
       </div>
 
       <div class="rowForm">
         <div class="labelForm">Giá bán</div>
         <!-- <input type="number" class="inputNumber" placeholder="0" /> -->
-        <DxNumberBox :value="product.sellPrice" format="#,##0" />
+        <DxNumberBox v-model="product.sellPrice" format="#,##0" />
       </div>
 
       <div class="rowForm">
@@ -215,7 +221,7 @@
       style="border-top: solid 1px gray"
       id="buttonBottom"
     >
-      <button class="myButton" id="buttonSave">
+      <button class="myButton" id="buttonSave" @click.prevent="save">
         <div class="iconSave"></div>
         Lưu
       </button>
@@ -228,6 +234,7 @@
 </template>
 
 <script>
+import * as axios from "axios";
 import DxNumberBox from "devextreme-vue/number-box";
 export default {
   name: "ProductDetails",
@@ -248,6 +255,7 @@ export default {
   components: { DxNumberBox },
   data() {
     return {
+      productEmpty: {},
       tags: [],
       url: null,
     };
@@ -255,6 +263,8 @@ export default {
   methods: {
     closeForm() {
       this.$emit("outIsHide", !this.isHide);
+      //TODO đóng form thì cho productTemp về rỗng
+      this.$emit("product", this.productEmpty);
     },
     deleteEvent(index) {
       this.$delete(this.tags, index);
@@ -268,6 +278,166 @@ export default {
     onFileChange(e) {
       const file = e.target.files[0];
       this.url = URL.createObjectURL(file);
+    },
+
+    /**TODO sinh sku tự động */
+    getAutoSKU() {
+      if((this.product.productName != null) && (this.product.productName == null)){
+        let acronym = this.product.productName
+        .split(/\s/)
+        .reduce((response, word) => (response += word.slice(0, 1)), "");
+      // let acronym = str.split(' ').map(function(item){return item[0]}).join('');
+
+      const response =  axios.get(
+      "http://localhost:55810/api/Products/SKU?productKey=" +
+        acronym 
+    );
+      this.product.sku = response.data;
+      }
+      
+    },
+
+    /**Hàm POST */
+    postRestaurant() {
+      // Thực hiện post
+      axios
+        .post("http://localhost:55810/api/Products", this.product)
+        .then((response) => {
+          if (response.data) {
+            this.$notify({
+              //thông báo thêm mới
+              type: "success",
+              title: "Important message",
+              text: "Thêm mới thành công ",
+            });
+            // load lai trang sau 2s
+            setTimeout(() => location.reload(), 2000);
+          }
+        })
+        .catch((e) => {
+          // console.log("response errors : ", e.response.data);
+          if (e.response.status == 400) {
+            this.$notify({
+              // bad request
+              type: "errors",
+              title: "Important message",
+              text: "Thêm mới cửa hàng thất bại (BAD REQUEST)",
+            });
+          }
+
+          if (e.response.status == 500) {
+            this.$notify({
+              //Lỗi server
+              title: "Important message",
+              text: "Vui lòng liên hệ MISA để được hỗ trợ",
+            });
+          }
+        });
+    },
+
+    /**Hàm PUT */
+    putRestaurant() {
+      // Thực hiện put
+      axios
+        .put(
+          "http://localhost:55810/api/Products?productId=" +
+            this.product.productID,
+          this.product
+        )
+        .then((response) => {
+          if (response.status == 200) {
+            this.$notify({
+              //Sửa thành công
+              type: "success",
+              title: "Important message",
+              text: "Đã cập nhật thành công cửa hàng ",
+            });
+            // load lai trang sau 2s
+            setTimeout(() => location.reload(), 2000);
+          }
+        })
+        .catch((e) => {
+          if (e.response.status == 400) {
+            this.$notify({
+              type: "errors",
+              title: "Important message",
+              text: "Cập nhật thông tin cửa hàng thất bại !",
+            });
+          }
+
+          if (e.response.status == 500) {
+            this.$notify({
+              type: "errors",
+              title: "Important message",
+              text: "Vui lòng liên hệ MISA để được hỗ trợ",
+            });
+          }
+        });
+    },
+
+    /**Event nút Lưu */
+    save() {
+      //Ép kiểu int cho các trường
+      this.product.categoryCode = Number(this.product.categoryCode);
+      this.product.unitCode = Number(this.product.unitCode);
+      this.product.status = Number(this.product.status);
+      //validate isShow từ true false sang 1 0
+      if (this.product.isShow == true) {
+        this.product.isShow = 1;
+        console.log(this.product.isShow);
+      } else {
+        this.product.isShow = 0;
+      }
+      if (
+        this.product.productIDParent == null ||
+        this.product.productIDParent == ""
+      ) {
+        //Gán productID = guid.empty để nó parse được
+        this.product.productIDParent = "00000000-0000-0000-0000-000000000000";
+      }
+      //Nếu validate thiếu tên thì thống báo
+      if (this.validateProduct.error) {
+        this.$notify({
+          title: "Important message",
+          text: this.validateProduct.msg,
+        });
+        //focus
+        if (this.validateProduct.typeError == "name") {
+          this.$refs.name.focus();
+        }
+      } else {
+        //Nếu productID null tức là đang thêm mới
+        if (
+          this.product.productID == null ||
+          this.product.productID == "00000000-0000-0000-0000-000000000000"
+        ) {
+          //Gán productID = guid.empty để nó parse được
+          this.product.productID = "00000000-0000-0000-0000-000000000000";
+          this.postRestaurant();
+        } else {
+          this.putRestaurant();
+        }
+        this.closeForm();
+      }
+    },
+  },
+  computed: {
+    /**Validate */
+    validateProduct() {
+      let returnData = {
+        error: false,
+        msg: "",
+        typeError: "",
+      };
+      if (this.product.productName == "" || this.product.productName == null) {
+        returnData = {
+          error: true,
+          msg: "Vui lòng nhập tên hàng hóa",
+          typeError: "name",
+        };
+      }
+
+      return returnData;
     },
   },
 };

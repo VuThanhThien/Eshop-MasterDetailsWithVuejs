@@ -60,6 +60,13 @@ namespace MISA.eShop.DataLayer.DbContext
             return result;
         }
 
+        /// <summary>
+        /// Hàm excutescala query 1 thuộc tính
+        /// </summary>
+        /// <param name="storeName"></param>
+        /// <param name="parameters"></param>
+        /// <returns>Lấy về giá trị đầu tiên</returns>
+        /// Createdby vtt (20/03/21)
         public object ExcuteScalarStore(string storeName, object parameters = null)
         {
             var param = new DynamicParameters(parameters);

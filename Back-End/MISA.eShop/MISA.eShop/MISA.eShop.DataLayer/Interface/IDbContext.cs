@@ -29,6 +29,13 @@ namespace MISA.eShop.DataLayer.Interface
         /// created by vtthien 08.03.2021
         int ExcuteStore(string storeProcedure, object parameters = null);
 
+        /// <summary>
+        /// ExcuteScalar để nhận về cột đầu tiên của dòng đầu tiên dưới dạng object
+        /// </summary>
+        /// <param name="storeName">tên store</param>
+        /// <param name="parameters">Tham số truyền vào store</param>
+        /// <returns>nhận về cột đầu tiên của dòng đầu tiên dưới dạng object</returns>
+        /// createdby vtt(20/03/21)
         object ExcuteScalarStore(string storeName, object parameters = null);
     }
 }
