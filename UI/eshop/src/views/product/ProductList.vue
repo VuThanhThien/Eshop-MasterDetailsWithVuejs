@@ -272,7 +272,6 @@
       </div>
 
       <div class="contentFooterRight">
-        <!-- todo proc cần trả về số bản ghi thỏa mãn và số trang thỏa mãn -->
         <a
           >Hiển thị {{ typePage * (currentPage - 1) + 1 }}-
           {{ currentPage * typePage }} trên {{ lengthOfFilter }} kết quả</a

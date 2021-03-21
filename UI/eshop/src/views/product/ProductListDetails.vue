@@ -263,7 +263,7 @@ export default {
     closeForm() {
       this.$emit("outIsHide", !this.isHide);
       //TODO đóng form thì cho productTemp về rỗng
-      this.$emit("product", this.productEmpty);
+      // this.$emit("product", this.productEmpty);
     },
     deleteEvent(index) {
       this.$delete(this.tags, index);
@@ -448,7 +448,7 @@ export default {
       return returnData;
     },
   },
-
+  
   async updated() {
     /**TODO sinh sku tự động  */
     /**Lỗi nếu nhập tên hàng hóa sau đó xóa về null thì sẽ có lỗi 400 - và khi click vào từng thằng ở cha thì sku cũng tự gen */
@@ -465,10 +465,10 @@ export default {
       const response = await axios.get(
         "http://localhost:55810/api/Products/SKU?productKey=" + acronym
       );
-      //gán sku bằng mã vừa ghép được ??? TODO
+      //gán sku bằng mã vừa ghép được
       this.product.sku = response.data;
       //log ra đã đúng
-      console.log(response.data);
+      // console.log(response.data);
     }
   },
 };
@@ -698,5 +698,14 @@ span {
   width: 12px;
   padding: 8px;
   margin-top: 3px;
+}
+.dx-texteditor-input {
+    width: 300px  !important;
+    height: 32px  !important;
+    text-align: right !important;
+}
+.dx-widget input, .dx-widget textarea {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.35715;
 }
 </style>
