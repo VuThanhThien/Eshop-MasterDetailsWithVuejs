@@ -41,6 +41,7 @@
           class="productName"
           v-model="product.productName"
           ref="name"
+          @input="autoSku"
         />
       </div>
 
@@ -256,11 +257,24 @@ export default {
     return {
       productEmpty: {},
       tags: [],
-      productChildren:[],
+      productChildren: [],
       url: null,
     };
   },
   methods: {
+    autoSku() {
+      let value = event.target.value;
+      if (value != "") {
+        value = this.removeVietnameseTones(value);
+        const acronym = value
+          .toUpperCase()
+          .split(/\s/)
+          .reduce((response, word) => (response += word.slice(0, 1)), "");
+        axios
+          .get("http://localhost:55810/api/Products/SKU?productKey=" + acronym)
+          .then((response) => (this.product.sku = response.data));
+      }
+    },
     closeForm() {
       this.$emit("outIsHide", !this.isHide);
       //TODO đóng form thì cho productTemp về rỗng
@@ -280,35 +294,35 @@ export default {
       this.url = URL.createObjectURL(file);
     },
     // /**Thay thế tiếng Việt */
-    // removeVietnameseTones(str) {
-    //   str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
-    //   str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
-    //   str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
-    //   str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
-    //   str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
-    //   str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
-    //   str = str.replace(/đ/g, "d");
-    //   str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
-    //   str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
-    //   str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
-    //   str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
-    //   str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
-    //   str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
-    //   str = str.replace(/Đ/g, "D");
-    //   // Some system encode vietnamese combining accent as individual utf-8 characters
-    //   // Một vài bộ encode coi các dấu mũ, dấu chữ như một kí tự riêng biệt nên thêm hai dòng này
-    //   str = str.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, ""); // ̀ ́ ̃ ̉ ̣  huyền, sắc, ngã, hỏi, nặng
-    //   str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // ˆ ̆ ̛  Â, Ê, Ă, Ơ, Ư
-    //   // Remove extra spaces
-    //   // Bỏ các khoảng trắng liền nhau
-    //   str = str.replace(/ + /g, " ");
-    //   str = str.trim();
-    //   return str;
-    // },
+    removeVietnameseTones(str) {
+      str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+      str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+      str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+      str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+      str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+      str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+      str = str.replace(/đ/g, "d");
+      str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+      str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+      str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+      str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+      str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+      str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+      str = str.replace(/Đ/g, "D");
+      // Some system encode vietnamese combining accent as individual utf-8 characters
+      // Một vài bộ encode coi các dấu mũ, dấu chữ như một kí tự riêng biệt nên thêm hai dòng này
+      str = str.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, ""); // ̀ ́ ̃ ̉ ̣  huyền, sắc, ngã, hỏi, nặng
+      str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // ˆ ̆ ̛  Â, Ê, Ă, Ơ, Ư
+      // Remove extra spaces
+      // Bỏ các khoảng trắng liền nhau
+      str = str.replace(/ + /g, " ");
+      str = str.trim();
+      return str;
+    },
 
     /**Hàm POST */
-    async postRestaurant() { await
-      // Thực hiện post
+    async postProduct() {
+      await // Thực hiện post
       axios
         .post("http://localhost:55810/api/Products", this.product)
         .then((response) => {
@@ -346,8 +360,8 @@ export default {
     },
 
     /**Hàm PUT */
-    async putRestaurant() { await
-      // Thực hiện put
+    async putRestaurant() {
+      await // Thực hiện put
       axios
         .put(
           "http://localhost:55810/api/Products?productId=" +
@@ -420,27 +434,27 @@ export default {
         }
       } else {
         //Nếu productID null tức là đang thêm mới
-        if (
-          this.product.productID == null 
-        ) {
+        if (this.product.productID == null) {
           //Gán productID = guid.empty để nó parse được
           this.product.productID = "00000000-0000-0000-0000-000000000000";
-          this.postRestaurant();
+          this.postProduct();
         } else {
           this.putRestaurant();
-          this.getProductDetail();
         }
         this.closeForm();
       }
     },
 
-    /**Lấy danh sách hàng hóa chi tiết theo id hàng hóa cha */
-    async getProductDetail(){
-      const response = await axios.get("http://localhost:55810/api/Products/ByParent/"+this.product.productID);
+    /**Lấy danh sách hàng hóa chi tiết theo id hàng hóa cha DONE
+     * CreatedBy Vtthien 22/03/21
+     */
+    async getProductDetail() {
+      const response = await axios.get(
+        "http://localhost:55810/api/Products/ByParent/" + this.product.productID
+      );
       this.productChildren = response.data;
       console.log(this.productChildren);
-    }
-
+    },
   },
   computed: {
     /**Validate */
@@ -461,29 +475,6 @@ export default {
       return returnData;
     },
   },
-
-  // async updated() {
-  //   /**TODO sinh sku tự động  */
-  //   /**Lỗi nếu nhập tên hàng hóa sau đó xóa về null thì sẽ có lỗi 400 - và khi click vào từng thằng ở cha thì sku cũng tự gen */
-  //   //Nếu tên hàng hóa đã nhập( khác rỗng)
-  //   if (this.product.productName != null) {
-  //     // this.product.productName = this.product.productName.removeVietnameseTones(this);
-  //     //Lấy các kí tự rút gọn chữ cái đầu
-  //     const acronym = this.product.productName
-  //       .toUpperCase()
-  //       .split(/\s/)
-  //       .reduce((response, word) => (response += word.slice(0, 1)), "");
-  //     // let acronym = str.split(' ').map(function(item){return item[0]}).join('');
-  //     // Gọi API lấy đuôi số to nhất tìm được trong db với chuỗi rút gọn vừa tìm được
-  //     const response = await axios.get(
-  //       "http://localhost:55810/api/Products/SKU?productKey=" + acronym
-  //     );
-  //     //gán sku bằng mã vừa ghép được
-  //     this.product.sku = response.data;
-  //     //log ra đã đúng
-  //     // console.log(response.data);
-  //   }
-  // },
 };
 </script>
 
@@ -673,7 +664,6 @@ span {
   padding: 0;
   z-index: 10;
   background-color: #cccaca;
-  
 }
 .description {
   min-height: 180px;

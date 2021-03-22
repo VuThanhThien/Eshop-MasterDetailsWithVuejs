@@ -2,6 +2,7 @@
 using MISA.eShop.Business.Interfaces;
 using MISA.eShop.Model.Dictionary;
 using System;
+using System.Collections.Generic;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,7 +25,7 @@ namespace MISA.eShop.API.Controllers
         /// </summary>
         /// <param name="baseBL"></param>
         /// <param name="productBL"></param>
-        public ProductsController(IBaseBL<Product> baseBL, IProductBL productBL): base(baseBL)
+        public ProductsController(IBaseBL<Product> baseBL, IProductBL productBL) : base(baseBL)
         {
             _productBL = productBL;
         }
@@ -45,9 +46,9 @@ namespace MISA.eShop.API.Controllers
         /// <returns>Danh sách các bản ghi tìm được</returns>
         [HttpGet("Paginate")]
         public IActionResult GetProductPaging(
-            [FromQuery] int offset = 0, 
-            [FromQuery] int limit = 25, 
-            [FromQuery] string productSKU = "", 
+            [FromQuery] int offset = 0,
+            [FromQuery] int limit = 25,
+            [FromQuery] string productSKU = "",
             [FromQuery] string productName = "",
             [FromQuery] int categoryCode = 0,
             [FromQuery] int unitCode = 0,
@@ -81,7 +82,7 @@ namespace MISA.eShop.API.Controllers
             [FromQuery] int isShow = 2,
             [FromQuery] int status = 2)
         {
-            var result = _productBL.GetLength( productSKU, productName, categoryCode, unitCode, sellPrice, isShow, status);
+            var result = _productBL.GetLength(productSKU, productName, categoryCode, unitCode, sellPrice, isShow, status);
             return StatusCode((int)result.HTTPStatusCode, result.Data);
         }
 
@@ -101,12 +102,27 @@ namespace MISA.eShop.API.Controllers
         /// <summary>
         /// Thêm mới một sản phẩm
         /// </summary>
-        /// <param name="product">Sản phẩm cần thêm mới</param>
+        /// <param name="product">Danh sach Sản phẩm cần thêm mới</param>
         /// <returns></returns>
         [HttpPost]
         public override IActionResult Post([FromBody] Product product)
         {
             var result = _productBL.Insert(product);
+
+            return StatusCode((int)result.HTTPStatusCode, result.Data);
+        }
+
+        // POST api/<ProductsController>
+        /// <summary>
+        /// Thêm mới nhiều sản phẩm
+        /// </summary>
+        /// <param name="products">Danh sach Sản phẩm cần thêm mới</param>
+        /// <returns></returns>
+        [HttpPost("Multi")]
+        public IActionResult MultiInsert([FromBody] List<Product> products)
+        {
+            var result = _productBL.MultiInsert(products);
+
             return StatusCode((int)result.HTTPStatusCode, result.Data);
         }
 

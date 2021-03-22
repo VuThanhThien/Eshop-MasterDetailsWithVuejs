@@ -5,6 +5,8 @@ using MISA.eShop.Model;
 using MISA.eShop.Model.Dictionary;
 using MISA.eShop.Model.Enum;
 using System;
+using System.Collections.Generic;
+using System.Transactions;
 
 namespace MISA.eShop.Business.Dictionary
 {
@@ -161,6 +163,37 @@ namespace MISA.eShop.Business.Dictionary
             }
         }
 
+        public BaseResponse MultiInsert(List<Product> products)
+        {
+            var result = new BaseResponse()
+            {
+                Data = products.Count,
+                HTTPStatusCode = HTTPStatusCode.Ok
+            };
+
+            try
+            {
+                using (var ts = new TransactionScope())
+                {
+                    foreach (var item in products)
+                    {
+                        Insert(item);
+                    }
+
+                    ts.Complete();
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Data = ex;
+                result.HTTPStatusCode = HTTPStatusCode.Ok;
+
+                return result;
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Ghi đè hàm Insert từ base
         /// Với Product bổ sung thêm đoạn check trùng mã SKU trước khi insert
@@ -172,10 +205,10 @@ namespace MISA.eShop.Business.Dictionary
             // kiểm tra trùng mã SKU không
             var productBySku = _baseDL.GetBySKU(product.SKU);
 
-            if(product.ProductIDParent == null)
+            if (product.ProductIDParent == null)
             {
                 product.ProductIDParent = Guid.Empty;
-            }    
+            }
 
             // nếu tìm thấy mã Sku trong db => trả về lỗi 400
             if (productBySku != null)

@@ -28,5 +28,7 @@ namespace MISA.eShop.Business.Interfaces
 
         BaseResponse GetSKUGenerate(
             string productKey);
+
+        BaseResponse MultiInsert(List<Product> products);
     }
 }

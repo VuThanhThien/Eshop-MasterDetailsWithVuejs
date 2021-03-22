@@ -128,7 +128,14 @@
             <summary>
             Thêm mới một sản phẩm
             </summary>
-            <param name="product">Sản phẩm cần thêm mới</param>
+            <param name="product">Danh sach Sản phẩm cần thêm mới</param>
+            <returns></returns>
+        </member>
+        <member name="M:MISA.eShop.API.Controllers.ProductsController.MultiInsert(System.Collections.Generic.List{MISA.eShop.Model.Dictionary.Product})">
+            <summary>
+            Thêm mới nhiều sản phẩm
+            </summary>
+            <param name="products">Danh sach Sản phẩm cần thêm mới</param>
             <returns></returns>
         </member>
         <member name="M:MISA.eShop.API.Controllers.ProductsController.Put(System.Guid,MISA.eShop.Model.Dictionary.Product)">
