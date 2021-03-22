@@ -147,7 +147,7 @@
                 <th width="3%"></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="detailBodyTable">
               <tr v-for="(tag, index) in tags" :key="index">
                 <td>
                   <div class="cell">{{ tag }}</div>
@@ -316,7 +316,7 @@ export default {
             this.$notify({
               //thông báo thêm mới
               type: "success",
-              title: "Important message",
+              title: "THÔNG BÁO",
               text: "Thêm mới thành công ",
             });
             // load lai trang sau 2s
@@ -324,12 +324,11 @@ export default {
           }
         })
         .catch((e) => {
-          // console.log("response errors : ", e.response.data);
           if (e.response.status == 400) {
             this.$notify({
               // bad request
               type: "errors",
-              title: "Important message",
+              title: "THÔNG BÁO",
               text: "Thêm mới cửa hàng thất bại !",
             });
             setTimeout(() => location.reload(), 2000);
@@ -338,7 +337,7 @@ export default {
           if (e.response.status == 500) {
             this.$notify({
               //Lỗi server
-              title: "Important message",
+              title: "THÔNG BÁO",
               text: "Vui lòng liên hệ MISA để được hỗ trợ",
             });
             setTimeout(() => location.reload(), 2000);
@@ -360,7 +359,7 @@ export default {
             this.$notify({
               //Sửa thành công
               type: "success",
-              title: "Important message",
+              title: "THÔNG BÁO",
               text: "Đã cập nhật thành công cửa hàng ",
             });
             // load lai trang sau 2s
@@ -371,7 +370,7 @@ export default {
           if (e.response.status == 400) {
             this.$notify({
               type: "errors",
-              title: "Important message",
+              title: "THÔNG BÁO",
               text: "Cập nhật thông tin cửa hàng thất bại !",
             });
           }
@@ -379,7 +378,7 @@ export default {
           if (e.response.status == 500) {
             this.$notify({
               type: "errors",
-              title: "Important message",
+              title: "THÔNG BÁO",
               text: "Vui lòng liên hệ MISA để được hỗ trợ",
             });
           }
@@ -393,12 +392,14 @@ export default {
       this.product.unitCode = Number(this.product.unitCode);
       this.product.status = Number(this.product.status);
       //validate isShow từ true false sang 1 0
+
       if (this.product.isShow == true) {
         this.product.isShow = 1;
         console.log(this.product.isShow);
       } else {
         this.product.isShow = 0;
       }
+
       if (
         this.product.productIDParent == null ||
         this.product.productIDParent == ""
@@ -406,10 +407,11 @@ export default {
         //Gán productID = guid.empty để nó parse được
         this.product.productIDParent = "00000000-0000-0000-0000-000000000000";
       }
-      //Nếu validate thiếu tên thì thống báo
+
+      //Nếu validate thiếu tên thì thống báo và focus
       if (this.validateProduct.error) {
         this.$notify({
-          title: "Important message",
+          title: "THÔNG BÁO",
           text: this.validateProduct.msg,
         });
         //focus
@@ -426,10 +428,19 @@ export default {
           this.postRestaurant();
         } else {
           this.putRestaurant();
+          this.getProductDetail();
         }
         this.closeForm();
       }
     },
+
+    /**Lấy danh sách hàng hóa chi tiết theo id hàng hóa cha */
+    async getProductDetail(){
+      const response = await axios.get("http://localhost:55810/api/Products/ByParent/"+this.product.productID);
+      this.productChildren = response.data;
+      console.log(this.productChildren);
+    }
+
   },
   computed: {
     /**Validate */
@@ -650,12 +661,19 @@ span {
 .gridDetail {
   max-height: 300px;
   min-width: 1450px;
+  overflow: auto;
 }
+/* .detailBodyTable{
+  border: solid 1px black !important;
+} */
 .detailTable th {
   text-align: center;
   align-items: center;
   height: 32px;
   padding: 0;
+  z-index: 10;
+  background-color: #cccaca;
+  
 }
 .description {
   min-height: 180px;

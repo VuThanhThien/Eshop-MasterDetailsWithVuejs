@@ -48,7 +48,7 @@
       <Popup
         :isHidePopup="isHidePopupParent"
         @outIsHidePopup="outIsHidePopup"
-        :product="product"
+        :checked="checked"
       />
       <!-- nạp  -->
       <button class="contentHeaderButton" @click="reload">
@@ -64,7 +64,7 @@
         <thead>
           <tr class="filter">
             <th width="4%">
-              <input type="checkbox" />
+              <input type="checkbox" id="checkAll" @click="checkAll" />
             </th>
             <th width="10%">
               SKU
@@ -191,6 +191,7 @@
               <div class="cell">
                 <input
                   type="checkbox"
+                  class="checkbox"
                   v-model="checked"
                   :value="product.productID"
                 />
@@ -313,15 +314,16 @@ export default {
     // Nút sửa
     btnEditOnClick() {
       //Nếu chưa active thì chọn
-      if (this.isActive < 0)
-        this.$notify({
-          title: "Important message",
-          type: "warn",
-          text: "Vui lòng chọn cửa hàng cần sửa",
-        });
+      // if (this.isActive < 0)
+      //   this.$notify({
+      //     title: "THÔNG BÁO",
+      //     type: "warn",
+      //     text: "Vui lòng chọn cửa hàng cần sửa",
+      //   });
       // ngược lại thì mở form
       //Createdby VTT 19/03/21
-      else this.isHideParent = !this.isHideParent;
+      // else 
+      this.isHideParent = !this.isHideParent;
     },
 
     btnDuplicateOnClick() {
@@ -330,29 +332,31 @@ export default {
       this.product.sku = "";
       this.product.barCode = null;
       //Nếu chưa active thì chọn
-      if (this.isActive < 0) {
-        this.$notify({
-          title: "Important message",
-          type: "warn",
-          text: "Vui lòng chọn cửa hàng cần nhân bản",
-        });
-      }
+      // if (this.isActive < 0) {
+      //   this.$notify({
+      //     title: "THÔNG BÁO",
+      //     type: "warn",
+      //     text: "Vui lòng chọn cửa hàng cần nhân bản",
+      //   });
+      // }
       // ngược lại thì mở form
       //Createdby VTT 22/03/21
-      else this.isHideParent = !this.isHideParent;
+      // else 
+      this.isHideParent = !this.isHideParent;
     },
     /**Xóa hàng hóa */
     btnDeleteOnClick() {
       // Nếu chưa active thì thông báo chưa chọn
-      if (this.isActive < 0)
-        this.$notify({
-          title: "Important message",
-          type: "warn",
-          text: "Vui lòng chọn cửa hàng cần xóa",
-        });
+      // if (this.isActive < 0)
+      //   this.$notify({
+      //     title: "THÔNG BÁO",
+      //     type: "warn",
+      //     text: "Vui lòng chọn cửa hàng cần xóa",
+      //   });
       //Ngược lại thì mở popup xóa
       //Createdby VTT 19/03/21
-      else this.isHidePopupParent = !this.isHidePopupParent;
+      // else 
+      this.isHidePopupParent = !this.isHidePopupParent;
     },
 
     /**Đóng form */
@@ -428,26 +432,28 @@ export default {
       }
 
       var offset = (this.currentPage - 1) * this.typePage;
-      const response = await axios.get(
-        "http://localhost:55810/api/Products/Paginate?offset=" +
-          offset +
-          "&limit=" +
-          this.typePage +
-          "&categoryCode=" +
-          this.enterCategory +
-          "&productSKU=" +
-          this.enterSKU +
-          "&productName=" +
-          this.enterProductName +
-          "&sellPrice=" +
-          this.enterSellPrice +
-          "&unitCode=" +
-          this.enterUnitCode +
-          "&isShow=" +
-          this.enterIsShow +
-          "&status=" +
-          this.enterStatus
-      ).catch((e) => console.log(e));
+      const response = await axios
+        .get(
+          "http://localhost:55810/api/Products/Paginate?offset=" +
+            offset +
+            "&limit=" +
+            this.typePage +
+            "&categoryCode=" +
+            this.enterCategory +
+            "&productSKU=" +
+            this.enterSKU +
+            "&productName=" +
+            this.enterProductName +
+            "&sellPrice=" +
+            this.enterSellPrice +
+            "&unitCode=" +
+            this.enterUnitCode +
+            "&isShow=" +
+            this.enterIsShow +
+            "&status=" +
+            this.enterStatus
+        )
+        .catch((e) => console.log(e));
       this.products = response.data;
       this.getLength();
     },
@@ -505,6 +511,24 @@ export default {
       const response = await axios.get(apiUrl).catch((e) => console.log(e));
       this.lengthOfFilter = response.data;
     },
+    /**Sự kiện select all checkbox */
+    checkAll() {
+      var checkBoxList = document.querySelectorAll(".checkbox");
+      if (document.getElementById("checkAll").checked == true) {
+        for (const checkbox of checkBoxList) {
+          checkbox.checked = true;
+        }
+        this.checked = [];
+        for (const product of this.products) {
+          this.checked.push(product.productID);
+        }
+      } else {
+        for (const checkbox of checkBoxList) {
+          checkbox.checked = false;
+        }
+        this.checked = [];
+      }
+    },
   },
   computed: {},
   data() {
@@ -520,7 +544,7 @@ export default {
       enterStatus: 2,
       enterIsShow: 2,
       enterSellPrice: 0,
-      isActive: -1,
+      isActive: 0,
       typePage: 25,
       currentPage: 1,
       isHideParent: true,

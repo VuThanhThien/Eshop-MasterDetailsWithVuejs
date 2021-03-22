@@ -32,8 +32,7 @@
             ></i>
           </div>
           <div class="message">
-            Bạn có chắc muốn xóa sản phẩm
-            <a id="bold">{{product.productName}}</a>
+            Bạn có chắc muốn xóa tất cả sản phẩm đã chọn        
             khỏi danh sách cửa hàng hay không ?
           </div>
         </div>
@@ -43,7 +42,7 @@
             <button
               class="dialogFooterButton"
               id="buttonDelete"
-              @click="deleteRestaurant"
+              @click="deleteOnClick"
             >
               <div class="iconDelete"></div>
               Xóa
@@ -68,19 +67,25 @@ import * as axios from "axios";
 export default {
   name: "PopupDelete",
 
-  props:{
-    isHidePopup:{
-      type:Boolean,
-      default(){
-        return true
-      }
+  props: {
+    checked: {
+      type: Array,
+      default() {
+        return [];
+      },
     },
-    product:{
-      type:Object,
-      default(){
-        return {}
-      }
-    }
+    isHidePopup: {
+      type: Boolean,
+      default() {
+        return true;
+      },
+    },
+    product: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
   },
   methods: {
     /**
@@ -89,22 +94,24 @@ export default {
     closePopup() {
       this.$emit("outIsHidePopup", !this.isHidePopup);
     },
-    /**
-     * Xóa cửa hàng
-     * Created by Vtt
-     */
-    async deleteRestaurant() {
-      // gọi api
-      const response = await axios
-        .delete("http://localhost:55810/api/Products/" + this.product.productID)
-        .catch((e) => console.log(e));
-      if (response) {
-        //nếu xóa thành công thì đóng popup
-        this.closePopup();
-        //hiện noti
+
+    async deleteOnClick() {
+      var i = 0;
+      var count = 0;
+      for (i = 0; i < this.checked.length; i++) {
+        const response = await axios
+          .delete("http://localhost:55810/api/Products/" + this.checked[i])
+          .catch((e) => console.log(e));
+        if (response) {
+          count = count + 1;
+        }
+      }
+      this.closePopup();
+      if (count == i) {
         this.$notify({
+          type: "success",
           title: "Important message",
-          text: "Xóa thành công cửa hàng!",
+          text: "Xóa thành công " + count + " cửa hàng !",
         });
         // load lai trang sau 2s
         setTimeout(() => location.reload(), 2000);
@@ -112,8 +119,7 @@ export default {
     },
   },
   data() {
-    return {
-    };
+    return {};
   },
 };
 </script>
@@ -135,17 +141,17 @@ export default {
   display: none;
 }
 .modalMask {
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: table;
-    transition: opacity 0.3s ease;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
 }
-h2{
+h2 {
   padding: 15px;
 }
 </style>
