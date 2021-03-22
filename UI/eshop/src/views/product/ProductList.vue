@@ -16,6 +16,7 @@
       <button
         title="Nhân bản thêm một cửa hàng nữa"
         class="contentHeaderButton"
+        @click="btnDuplicateOnClick"
       >
         <div class="iconHeader">
           <div class="iconDupplicate"></div>
@@ -313,17 +314,42 @@ export default {
     btnEditOnClick() {
       //Nếu chưa active thì chọn
       if (this.isActive < 0)
-        this.$notify({ type: "Success", text: "Vui lòng chọn cửa hàng cần sửa" });
+        this.$notify({
+          title: "Important message",
+          type: "warn",
+          text: "Vui lòng chọn cửa hàng cần sửa",
+        });
       // ngược lại thì mở form
       //Createdby VTT 19/03/21
       else this.isHideParent = !this.isHideParent;
     },
 
+    btnDuplicateOnClick() {
+      // gán id null và sku null
+      this.product.productID = null;
+      this.product.sku = "";
+      this.product.barCode = null;
+      //Nếu chưa active thì chọn
+      if (this.isActive < 0) {
+        this.$notify({
+          title: "Important message",
+          type: "warn",
+          text: "Vui lòng chọn cửa hàng cần nhân bản",
+        });
+      }
+      // ngược lại thì mở form
+      //Createdby VTT 22/03/21
+      else this.isHideParent = !this.isHideParent;
+    },
     /**Xóa hàng hóa */
     btnDeleteOnClick() {
       // Nếu chưa active thì thông báo chưa chọn
       if (this.isActive < 0)
-        this.$notify({ type: "warn", text: "Vui lòng chọn cửa hàng cần xóa" });
+        this.$notify({
+          title: "Important message",
+          type: "warn",
+          text: "Vui lòng chọn cửa hàng cần xóa",
+        });
       //Ngược lại thì mở popup xóa
       //Createdby VTT 19/03/21
       else this.isHidePopupParent = !this.isHidePopupParent;
@@ -383,16 +409,25 @@ export default {
     },
     /**format tiền */
     formatPrice(value) {
-      // let val = (value/1).toFixed(2).replace('.', ',')
+      if (value == null) value = "";
       return value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
     },
     /**API phân trang + filter */
     async getPaginate() {
+      //Giá nhập vào null thì bằng 0
       if (this.enterSellPrice == "") {
         this.enterSellPrice = 0;
       }
+      //trang hiện tại < 1 thì trả vè trang 1
+      if (this.currentPage < 1) {
+        this.currentPage = 1;
+      }
+      //Trang hiện tại > trang lớn nhất trả về trang lớn nhất
+      if (this.currentPage > Math.ceil(this.lengthOfFilter / this.typePage)) {
+        this.currentPage = Math.ceil(this.lengthOfFilter / this.typePage);
+      }
+
       var offset = (this.currentPage - 1) * this.typePage;
-      // var sellPriceConverted = this.enterSellPrice.convertSellPrice();
       const response = await axios.get(
         "http://localhost:55810/api/Products/Paginate?offset=" +
           offset +
@@ -412,7 +447,7 @@ export default {
           this.enterIsShow +
           "&status=" +
           this.enterStatus
-      );
+      ).catch((e) => console.log(e));
       this.products = response.data;
       this.getLength();
     },
@@ -467,7 +502,7 @@ export default {
         this.enterIsShow +
         "&status=" +
         this.enterStatus;
-      const response = await axios.get(apiUrl);
+      const response = await axios.get(apiUrl).catch((e) => console.log(e));
       this.lengthOfFilter = response.data;
     },
   },

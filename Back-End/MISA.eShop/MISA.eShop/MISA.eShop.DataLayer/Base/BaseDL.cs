@@ -140,5 +140,18 @@ namespace MISA.eShop.DataLayer.Base
             return result;
         }
 
+        public IEnumerable<T> GetByIDParent(Guid id)
+        {
+            var storeName = "Proc_GetProductByIDParent";
+
+            var parameters = new
+            {
+                id = id.ToString()
+            };
+
+            var result = _dbContext.QueryStore(storeName, parameters);
+
+            return result;
+        }
     }
 }

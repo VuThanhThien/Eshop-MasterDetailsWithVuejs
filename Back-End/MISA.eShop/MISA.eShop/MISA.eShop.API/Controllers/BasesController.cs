@@ -58,6 +58,19 @@ namespace MISA.eShop.API.Controllers
         }
 
         /// <summary>
+        /// Lấy danh sách hàng hóa con theo id hàng hóa cha
+        /// </summary>
+        /// <param name="id">ID hàng hóa cha</param>
+        /// <returns>danh sách hàng hóa con</returns>
+        /// CreatedBy Vtthien 22/03/21
+        [HttpGet("ByParent/{id}")]
+        public virtual IActionResult GetByIDParent([FromRoute] Guid id)
+        {
+            var result = _baseBL.GetByIDParent(id);
+            return StatusCode((int)result.HTTPStatusCode, result.Data);
+        }
+
+        /// <summary>
         /// Lấy thông tin theo code
         /// </summary>
         /// <param name="skuCode">Mã SKu đối tượng cần lấy</param>

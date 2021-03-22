@@ -8,6 +8,7 @@ namespace MISA.eShop.Business.Interfaces
         BaseResponse GetAll();
 
         BaseResponse GetByID(Guid id);
+        BaseResponse GetByIDParent(Guid id);
 
         BaseResponse GetBySKU(string skuCode);
 

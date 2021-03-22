@@ -93,9 +93,9 @@ export default {
      * Xóa cửa hàng
      * Created by Vtt
      */
-    deleteRestaurant() {
+    async deleteRestaurant() {
       // gọi api
-      const response = axios
+      const response = await axios
         .delete("http://localhost:55810/api/Products/" + this.product.productID)
         .catch((e) => console.log(e));
       if (response) {

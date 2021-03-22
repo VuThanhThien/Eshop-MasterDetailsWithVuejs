@@ -74,7 +74,7 @@ namespace MISA.eShop.Model.Dictionary
         /// <summary>
         /// Mã vạch
         /// </summary>
-        public int? Barcode { get; set; }
+        public int? BarCode { get; set; }
 
         /// <summary>
         /// Đường dẫn từ cha ->con

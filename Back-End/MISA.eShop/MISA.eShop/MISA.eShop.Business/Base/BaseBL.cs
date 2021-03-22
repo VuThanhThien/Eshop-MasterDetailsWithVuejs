@@ -236,5 +236,32 @@ namespace MISA.eShop.Business.Base
             }
         }
 
+        public virtual BaseResponse GetByIDParent(Guid id)
+        {
+            // lấy dữ liệu từ tầng DL về
+            var result = _baseDL.GetByIDParent(id);
+
+            // danh sách rỗng => trả vè lỗi 400
+            if (result == null)
+            {
+                // khởi tạo dữ liệu trả về
+                var response = new BaseResponse()
+                {
+                    HTTPStatusCode = HTTPStatusCode.Bad_Request,
+                    Data = new MisaError(DevMessage.NotFound, ErrorCode.NotFound)
+                };
+                return response;
+            }
+            else
+            {
+                // khởi tạo dữ liệu trả về => trả về mã 200
+                var response = new BaseResponse()
+                {
+                    HTTPStatusCode = HTTPStatusCode.Ok,
+                    Data = result
+                };
+                return response;
+            }
+        }
     }
 }

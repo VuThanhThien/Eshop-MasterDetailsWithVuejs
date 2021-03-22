@@ -14,6 +14,8 @@ namespace MISA.eShop.DataLayer.Interface
 
         T GetByID(Guid id);
 
+        IEnumerable<T> GetByIDParent(Guid id);
+
         T GetByCode(string code);
 
         T GetBySKU(string skuCode);

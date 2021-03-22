@@ -256,6 +256,7 @@ export default {
     return {
       productEmpty: {},
       tags: [],
+      productChildren:[],
       url: null,
     };
   },
@@ -306,7 +307,7 @@ export default {
     // },
 
     /**Hàm POST */
-    postRestaurant() {
+    async postRestaurant() { await
       // Thực hiện post
       axios
         .post("http://localhost:55810/api/Products", this.product)
@@ -329,8 +330,9 @@ export default {
               // bad request
               type: "errors",
               title: "Important message",
-              text: "Thêm mới cửa hàng thất bại (BAD REQUEST)",
+              text: "Thêm mới cửa hàng thất bại !",
             });
+            setTimeout(() => location.reload(), 2000);
           }
 
           if (e.response.status == 500) {
@@ -339,12 +341,13 @@ export default {
               title: "Important message",
               text: "Vui lòng liên hệ MISA để được hỗ trợ",
             });
+            setTimeout(() => location.reload(), 2000);
           }
         });
     },
 
     /**Hàm PUT */
-    putRestaurant() {
+    async putRestaurant() { await
       // Thực hiện put
       axios
         .put(
@@ -416,8 +419,7 @@ export default {
       } else {
         //Nếu productID null tức là đang thêm mới
         if (
-          this.product.productID == null ||
-          this.product.productID == "00000000-0000-0000-0000-000000000000"
+          this.product.productID == null 
         ) {
           //Gán productID = guid.empty để nó parse được
           this.product.productID = "00000000-0000-0000-0000-000000000000";
@@ -448,36 +450,33 @@ export default {
       return returnData;
     },
   },
-  
-  async updated() {
-    /**TODO sinh sku tự động  */
-    /**Lỗi nếu nhập tên hàng hóa sau đó xóa về null thì sẽ có lỗi 400 - và khi click vào từng thằng ở cha thì sku cũng tự gen */
-    //Nếu tên hàng hóa đã nhập( khác rỗng)
-    if (this.product.productName != null) {
-      // this.product.productName = this.product.productName.removeVietnameseTones(this);
-      //Lấy các kí tự rút gọn chữ cái đầu
-      const acronym = this.product.productName
-        .toUpperCase()
-        .split(/\s/)
-        .reduce((response, word) => (response += word.slice(0, 1)), "");
-      // let acronym = str.split(' ').map(function(item){return item[0]}).join('');
-      // Gọi API lấy đuôi số to nhất tìm được trong db với chuỗi rút gọn vừa tìm được
-      const response = await axios.get(
-        "http://localhost:55810/api/Products/SKU?productKey=" + acronym
-      );
-      //gán sku bằng mã vừa ghép được
-      this.product.sku = response.data;
-      //log ra đã đúng
-      // console.log(response.data);
-    }
-  },
+
+  // async updated() {
+  //   /**TODO sinh sku tự động  */
+  //   /**Lỗi nếu nhập tên hàng hóa sau đó xóa về null thì sẽ có lỗi 400 - và khi click vào từng thằng ở cha thì sku cũng tự gen */
+  //   //Nếu tên hàng hóa đã nhập( khác rỗng)
+  //   if (this.product.productName != null) {
+  //     // this.product.productName = this.product.productName.removeVietnameseTones(this);
+  //     //Lấy các kí tự rút gọn chữ cái đầu
+  //     const acronym = this.product.productName
+  //       .toUpperCase()
+  //       .split(/\s/)
+  //       .reduce((response, word) => (response += word.slice(0, 1)), "");
+  //     // let acronym = str.split(' ').map(function(item){return item[0]}).join('');
+  //     // Gọi API lấy đuôi số to nhất tìm được trong db với chuỗi rút gọn vừa tìm được
+  //     const response = await axios.get(
+  //       "http://localhost:55810/api/Products/SKU?productKey=" + acronym
+  //     );
+  //     //gán sku bằng mã vừa ghép được
+  //     this.product.sku = response.data;
+  //     //log ra đã đúng
+  //     // console.log(response.data);
+  //   }
+  // },
 };
 </script>
 
 <style>
-.input-tag span {
-  color: white;
-}
 .formBody {
   position: fixed;
   z-index: 10;
@@ -610,11 +609,17 @@ span {
   background-color: #2b3173 !important;
   border: none !important;
   color: white !important;
+  padding: 8px !important;
 }
 .vue-input-tag-wrapper .input-tag .remove {
   cursor: pointer;
   font-weight: 700;
   color: white !important;
+}
+.vue-input-tag-wrapper .input-tag span {
+  margin-top: 2px;
+  font-style: normal !important;
+  color: white;
 }
 .vue-input-tag-wrapper .new-tag {
   background: transparent;
@@ -700,12 +705,13 @@ span {
   margin-top: 3px;
 }
 .dx-texteditor-input {
-    width: 300px  !important;
-    height: 32px  !important;
-    text-align: right !important;
+  width: 300px !important;
+  height: 32px !important;
+  text-align: right !important;
 }
-.dx-widget input, .dx-widget textarea {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.35715;
+.dx-widget input,
+.dx-widget textarea {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.35715;
 }
 </style>

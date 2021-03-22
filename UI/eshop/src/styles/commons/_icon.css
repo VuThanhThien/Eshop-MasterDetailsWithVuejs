@@ -51,11 +51,12 @@
 
 /* footer  */
 
-.buttonPage:focus {
+.buttonPage:hover {
     border: #2b3173 solid 3px;
+}
+.buttonPage:focus {
     outline: none;
 }
-
 .firstPage {
     background: url("../../assets/common-icon.png") no-repeat -656px -131px;
     width: 8px;
