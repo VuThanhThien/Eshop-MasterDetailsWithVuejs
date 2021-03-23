@@ -39,7 +39,7 @@
         <input
           type="text"
           class="productName"
-          v-model="product.productName"
+          v-model.lazy="product.productName"
           ref="name"
           @input="autoSku"
         />
@@ -130,7 +130,6 @@
         <div style="display: flex">
           <div class="colorName">Màu sắc</div>
           <input-tag :add-tag-on-blur="true" v-model="tags"></input-tag>
-          <!-- <p>{{tags.length}}</p> -->
         </div>
       </div>
 
@@ -251,17 +250,22 @@ export default {
         return {};
       },
     },
+    productChildren:{
+      type:Array,
+      default(){
+        return [];
+      }
+    }
   },
   components: { DxNumberBox },
   data() {
     return {
-      productEmpty: {},
       tags: [],
-      productChildren: [],
       url: null,
     };
   },
   methods: {
+    /**Sinh SKU tự động */
     autoSku() {
       let value = event.target.value;
       if (value != "") {
@@ -275,11 +279,11 @@ export default {
           .then((response) => (this.product.sku = response.data));
       }
     },
+    /**Đóng form */
     closeForm() {
       this.$emit("outIsHide", !this.isHide);
-      //TODO đóng form thì cho productTemp về rỗng
-      // this.$emit("product", this.productEmpty);
     },
+    /**Xoashangf hóa chi tiết(con) */
     deleteEvent(index) {
       this.$delete(this.tags, index);
     },
@@ -288,7 +292,7 @@ export default {
       let val = (value / 1).toFixed(2).replace(".", ",");
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
-
+    /**sự kiển up ảnh */
     onFileChange(e) {
       const file = e.target.files[0];
       this.url = URL.createObjectURL(file);
@@ -377,7 +381,7 @@ export default {
               text: "Đã cập nhật thành công cửa hàng ",
             });
             // load lai trang sau 2s
-            setTimeout(() => location.reload(), 2000);
+            // setTimeout(() => location.reload(), 2000);
           }
         })
         .catch((e) => {
@@ -445,16 +449,7 @@ export default {
       }
     },
 
-    /**Lấy danh sách hàng hóa chi tiết theo id hàng hóa cha DONE
-     * CreatedBy Vtthien 22/03/21
-     */
-    async getProductDetail() {
-      const response = await axios.get(
-        "http://localhost:55810/api/Products/ByParent/" + this.product.productID
-      );
-      this.productChildren = response.data;
-      console.log(this.productChildren);
-    },
+    
   },
   computed: {
     /**Validate */

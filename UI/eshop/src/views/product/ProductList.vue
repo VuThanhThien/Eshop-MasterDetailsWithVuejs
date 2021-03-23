@@ -63,8 +63,13 @@
       <table class="tableContent">
         <thead>
           <tr class="filter">
-            <th width="4%">
-              <input type="checkbox" id="checkAll" @click="checkAll" />
+            <th width="3%">
+              <input
+                type="checkbox"
+                id="checkAll"
+                @click="checkAll"
+                style="margin: 0"
+              />
             </th>
             <th width="10%">
               SKU
@@ -218,7 +223,7 @@
               </div>
             </td>
             <td>
-              <div class="cell" style="text-align: right; padding-right: 5px">
+              <div class="cell" style="text-align: right; padding-right: 20px">
                 {{ formatPrice(product.sellPrice) }}
               </div>
             </td>
@@ -233,7 +238,7 @@
       </table>
     </div>
     <!-- Component chi tiết  -->
-    <Details :isHide="isHideParent" :product="product" @outIsHide="outIsHide" />
+    <Details :isHide="isHideParent" :product="product" :productChildren="productChildren" @outIsHide="outIsHide" />
     <div class="contentFooter">
       <div class="contentFooterLeft">
         <button class="buttonPage" @click="firstPage">
@@ -301,6 +306,7 @@ export default {
     rowOnClick(product, index) {
       this.isActive = index;
       this.product = product;
+      this.getProductDetail();
     },
     /**Mở form */
     /**Mở form để thêm mới */
@@ -309,9 +315,16 @@ export default {
       this.product = this.productEmpty;
       // Mở form
       this.isHideParent = !this.isHideParent;
+      //clear hàng hóa temp lưu những thằng vừa click
+      this.productEmpty = {};
+      //clear hàng hóa chi tiết của thằng vừa được click
+      this.productChildren = {};
+      //tắt active đi
+      this.isActive = -1;
     },
 
-    // Nút sửa
+    /**Nút sửa */
+    //Createdby VTT 19/03/21
     btnEditOnClick() {
       //Nếu chưa active thì chọn
       // if (this.isActive < 0)
@@ -321,11 +334,11 @@ export default {
       //     text: "Vui lòng chọn cửa hàng cần sửa",
       //   });
       // ngược lại thì mở form
-      //Createdby VTT 19/03/21
-      // else 
+      // else
       this.isHideParent = !this.isHideParent;
     },
 
+    /**Sự kiện nhân bản */
     btnDuplicateOnClick() {
       // gán id null và sku null
       this.product.productID = null;
@@ -341,7 +354,7 @@ export default {
       // }
       // ngược lại thì mở form
       //Createdby VTT 22/03/21
-      // else 
+      // else
       this.isHideParent = !this.isHideParent;
     },
     /**Xóa hàng hóa */
@@ -355,7 +368,7 @@ export default {
       //   });
       //Ngược lại thì mở popup xóa
       //Createdby VTT 19/03/21
-      // else 
+      // else
       this.isHidePopupParent = !this.isHidePopupParent;
     },
 
@@ -365,6 +378,7 @@ export default {
       this.isHideParent = e;
       this.product = this.productEmpty;
     },
+    /**Đóng popup */
     outIsHidePopup(e) {
       this.isHidePopupParent = e;
     },
@@ -529,10 +543,22 @@ export default {
         this.checked = [];
       }
     },
+
+    /**Lấy danh sách hàng hóa chi tiết theo id hàng hóa cha DONE
+     * CreatedBy Vtthien 22/03/21
+     */
+    async getProductDetail() {
+      const response = await axios.get(
+        "http://localhost:55810/api/Products/ByParent/" + this.product.productID
+      );
+      this.productChildren = response.data;
+      console.log(this.productChildren);
+    },
   },
   computed: {},
   data() {
     return {
+      productChildren: [],
       lengthOfFilter: 0,
       product: {},
       productEmpty: {},
