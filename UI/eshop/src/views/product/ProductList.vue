@@ -318,7 +318,7 @@ export default {
       //clear hàng hóa temp lưu những thằng vừa click
       this.productEmpty = {};
       //clear hàng hóa chi tiết của thằng vừa được click
-      this.productChildren = {};
+      this.productChildren = [];
       //tắt active đi
       this.isActive = -1;
     },
@@ -385,8 +385,8 @@ export default {
     /**format trạng thái */
     //Createdby VTT 19/03/21
     convertStatus(status) {
-      if (status == 0) return "Ngừng hoạt động";
-      if (status == 1) return "Đang hoạt động";
+      if (status == 0) return "Ngừng kinh doanh";
+      if (status == 1) return "Đang kinh doanh";
       return "Tất cả";
     },
 

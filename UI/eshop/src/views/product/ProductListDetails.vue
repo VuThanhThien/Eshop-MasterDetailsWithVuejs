@@ -129,11 +129,16 @@
         <div class="labelForm">Thuộc tính</div>
         <div style="display: flex">
           <div class="colorName">Màu sắc</div>
-          <input-tag :add-tag-on-blur="true" v-model="tags"></input-tag>
+          <input-tag
+            :add-tag-on-blur="true"
+            v-model="colors"
+            @remove="inputColorOnRemove($event)"
+            @add="inputColorOnAdd($event)"
+          ></input-tag>
         </div>
       </div>
 
-      <div class="rowForm" v-if="tags.length > 0">
+      <div class="rowForm" v-if="children.length > 0">
         <div class="labelForm">Chi tiết thuộc tính</div>
         <div class="gridDetail">
           <table width="100%">
@@ -144,31 +149,33 @@
                 <th width="9%">Mã vạch</th>
                 <th width="9%">Giá mua</th>
                 <th width="9%">Giá bán</th>
-                <th width="3%"></th>
               </tr>
             </thead>
             <tbody class="detailBodyTable">
-              <tr v-for="(tag, index) in tags" :key="index">
+              <tr v-for="(tag, index) in children" :key="index">
                 <td>
-                  <div class="cell">{{ tag }}</div>
-                </td>
-                <td>
-                  <div class="cell"></div>
-                </td>
-                <td>
-                  <div class="cell"></div>
-                </td>
-                <td>
-                  <div class="cell">
-                    <DxNumberBox :value="13415.24" format="#,##0" />
+                  <div class="cell" style="width: 150px">
+                    <input type="text" v-model="tag.productName" />
                   </div>
                 </td>
                 <td>
-                  <div class="cell"></div>
+                  <div class="cell">
+                    <input style="width: 100px" type="text" v-model="tag.sku" />
+                  </div>
                 </td>
                 <td>
                   <div class="cell">
-                    <div class="iconTrash" @click="deleteEvent(index)"></div>
+                    <DxNumberBox :value="tag.barCode" format="##0" />
+                  </div>
+                </td>
+                <td>
+                  <div class="cell">
+                    <DxNumberBox :value="tag.buyPrice" format="#,##0" />
+                  </div>
+                </td>
+                <td>
+                  <div class="cell">
+                    <DxNumberBox :value="tag.sellPrice" format="#,##0" />
                   </div>
                 </td>
               </tr>
@@ -237,6 +244,8 @@ import * as axios from "axios";
 import DxNumberBox from "devextreme-vue/number-box";
 export default {
   name: "ProductDetails",
+  components: { DxNumberBox },
+
   props: {
     isHide: {
       type: Boolean,
@@ -250,21 +259,83 @@ export default {
         return {};
       },
     },
-    productChildren:{
-      type:Array,
-      default(){
+    productChildren: {
+      type: Array,
+      default() {
         return [];
-      }
-    }
+      },
+    },
   },
-  components: { DxNumberBox },
+
+  watch: {
+    isHide: {
+      handler: function (value) {
+        if (!value) {
+          this.onShow();
+        }
+      },
+    },
+  },
+
   data() {
     return {
-      tags: [],
       url: null,
+      colors: [],
+      children: [],
+      productChild: [],
     };
   },
   methods: {
+    onShow() {
+      // bind các thông tin lên form
+      this.bindProductToForm();
+    },
+
+    bindProductToForm() {
+      this.children = [...this.productChildren];
+      this.bindInputTagColors();
+    },
+
+    bindInputTagColors() {
+      if (this.children?.length) {
+        let colors = [];
+        colors = this.children.map((p) => p.color);
+
+        this.colors = colors;
+      }
+    },
+
+    inputColorOnRemove(index) {
+      const colorRemove = this.colors[index];
+
+      this.children = this.children.filter((p) => p.color !== colorRemove);
+    },
+
+    inputColorOnAdd(color) {
+      let exits = false;
+      if (this.children?.length) {
+        exits = this.children.findIndex((p) => p.color === color) > -1;
+      }
+
+      if (!exits) {
+        // TODO
+        debugger;
+        this.inputBindDefaultChild(color);
+      }
+    },
+
+    inputBindDefaultChild(color) {
+      let productChild = {};
+      productChild.productName =
+        this.product.productName.toString() + " ( " + color + " )";
+      productChild.color = color;
+      productChild.sku = null;
+      productChild.barCode = null;
+      productChild.buyPrice = this.product.buyPrice;
+      productChild.sellPrice = this.product.sellPrice;
+      this.children.push(productChild);
+    },
+
     /**Sinh SKU tự động */
     autoSku() {
       let value = event.target.value;
@@ -283,10 +354,6 @@ export default {
     closeForm() {
       this.$emit("outIsHide", !this.isHide);
     },
-    /**Xoashangf hóa chi tiết(con) */
-    deleteEvent(index) {
-      this.$delete(this.tags, index);
-    },
     /**format tiền */
     formatPrice(value) {
       let val = (value / 1).toFixed(2).replace(".", ",");
@@ -297,7 +364,7 @@ export default {
       const file = e.target.files[0];
       this.url = URL.createObjectURL(file);
     },
-    // /**Thay thế tiếng Việt */
+    /**Thay thế tiếng Việt */
     removeVietnameseTones(str) {
       str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
       str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
@@ -381,7 +448,7 @@ export default {
               text: "Đã cập nhật thành công cửa hàng ",
             });
             // load lai trang sau 2s
-            // setTimeout(() => location.reload(), 2000);
+            setTimeout(() => location.reload(), 2000);
           }
         })
         .catch((e) => {
@@ -448,8 +515,6 @@ export default {
         this.closeForm();
       }
     },
-
-    
   },
   computed: {
     /**Validate */
@@ -659,6 +724,13 @@ span {
   padding: 0;
   z-index: 10;
   background-color: #cccaca;
+}
+.detailBodyTable td {
+  padding: 10px 0 10px 0 !important;
+}
+.detailBodyTable input {
+  border: none !important;
+  background-color: transparent !important;
 }
 .description {
   min-height: 180px;
