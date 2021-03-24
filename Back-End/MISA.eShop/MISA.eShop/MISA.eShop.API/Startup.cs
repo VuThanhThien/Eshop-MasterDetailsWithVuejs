@@ -42,7 +42,9 @@ namespace MISA.eShop.API
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
 
             //sửa lỗi cors
             services.AddCors(o => o.AddPolicy("AllowOrigin", builder =>

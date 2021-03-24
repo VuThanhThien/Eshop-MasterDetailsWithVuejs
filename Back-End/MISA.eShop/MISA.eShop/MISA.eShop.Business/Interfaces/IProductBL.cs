@@ -30,5 +30,8 @@ namespace MISA.eShop.Business.Interfaces
             string productKey);
 
         BaseResponse MultiInsert(List<Product> products);
+
+
+        BaseResponse Synchronized(SynchronizeWrapper synchronizeWrapper);
     }
 }

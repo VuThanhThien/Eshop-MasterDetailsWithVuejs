@@ -140,5 +140,11 @@ namespace MISA.eShop.API.Controllers
             return StatusCode((int)result.HTTPStatusCode, result.Data);
         }
 
+        [HttpPost("Sync")]
+        public IActionResult Synchronized([FromBody] SynchronizeWrapper synchronizeWrapper)
+        {
+            var result = _productBL.Synchronized(synchronizeWrapper);
+            return StatusCode((int)result.HTTPStatusCode, result.Data);
+        }
     }
 }

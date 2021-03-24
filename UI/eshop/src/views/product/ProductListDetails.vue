@@ -283,6 +283,7 @@ export default {
       colors: [],
       children: [],
       productChild: [],
+      idToDelete: [],
     };
   },
   methods: {
@@ -300,14 +301,13 @@ export default {
       if (this.children?.length) {
         let colors = [];
         colors = this.children.map((p) => p.color);
-
         this.colors = colors;
       }
     },
     /**xóa tag thì xóa hàng hóa */
     inputColorOnRemove(index) {
       const colorRemove = this.colors[index];
-
+      this.idToDelete.push(this.children[index].productID);
       this.children = this.children.filter((p) => p.color !== colorRemove);
     },
     /**thêm tag thì thêm hàng hóa chi tiết*/
@@ -418,7 +418,7 @@ export default {
               text: "Thêm mới thành công ",
             });
             // load lai trang sau 2s
-            setTimeout(() => location.reload(), 2000);
+            // setTimeout(() => location.reload(), 2000);
           }
         })
         .catch((e) => {
@@ -429,7 +429,7 @@ export default {
               title: "THÔNG BÁO",
               text: "Thêm mới cửa hàng thất bại !",
             });
-            setTimeout(() => location.reload(), 2000);
+            // setTimeout(() => location.reload(), 2000);
           }
 
           if (e.response.status == 500) {
@@ -461,7 +461,7 @@ export default {
               text: "Đã cập nhật thành công cửa hàng ",
             });
             // load lai trang sau 2s
-            setTimeout(() => location.reload(), 2000);
+            // setTimeout(() => location.reload(), 2000);
           }
         })
         .catch((e) => {
@@ -483,7 +483,43 @@ export default {
         });
     },
 
-    formatData(){
+    /**Thêm sửa cha + thêm, sửa, xóa con ở đây */
+    async syncProduct(synchronizeWrapper) {
+      await axios
+        .post("http://localhost:55810/api/Products/Sync", synchronizeWrapper)
+        .then((response) => {
+          if (response.data) {
+            this.$notify({
+              type: "success",
+              title: "THÔNG BÁO",
+              text: "Cập nhật thành công ",
+            });
+            // load lai trang sau 2s
+            setTimeout(() => location.reload(), 2000);
+          }
+        })
+        .catch((e) => {
+          if (e.response.status == 400) {
+            this.$notify({
+              // bad request
+              type: "errors",
+              title: "THÔNG BÁO",
+              text: "Cập nhật cửa hàng thất bại !",
+            });
+            setTimeout(() => location.reload(), 2000);
+          }
+
+          if (e.response.status == 500) {
+            this.$notify({
+              //Lỗi server
+              title: "THÔNG BÁO",
+              text: "Vui lòng liên hệ MISA để được hỗ trợ",
+            });
+            setTimeout(() => location.reload(), 2000);
+          }
+        });
+    },
+    formatData() {
       //#region  ép kiểu data trước khi post hàng hóa cha
       //Ép kiểu int cho các trường
       if (this.product.categoryCode == null) {
@@ -507,7 +543,6 @@ export default {
 
       if (this.product.isShow == true) {
         this.product.isShow = 1;
-        console.log(this.product.isShow);
       } else {
         this.product.isShow = 0;
       }
@@ -539,13 +574,17 @@ export default {
         if (this.product.productID == null) {
           //Gán productID = guid.empty để nó parse được
           this.product.productID = "00000000-0000-0000-0000-000000000000";
-          await this.postProduct();
-          console.log([this.product, ...this.children]);
-        } else {
-          console.log([this.product, ...this.children]);
-
-          await this.putRestaurant();
         }
+        // TODO đã lấy được ra mảng các object trong form, thằng đầu tiên là cha,
+        //Từ thằng thứ 2 là con
+        console.log([this.product, ...this.children]);
+        var newOrEditProduct = [this.product, ...this.children];
+        var deleteProduct = this.idToDelete;
+        var synchronizeWrapper = {
+          newOrEditObject: newOrEditProduct,
+          deleteObject: deleteProduct,
+        };
+        this.syncProduct(synchronizeWrapper);
       }
 
       this.closeForm();

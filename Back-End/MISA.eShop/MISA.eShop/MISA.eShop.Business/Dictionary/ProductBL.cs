@@ -222,11 +222,11 @@ namespace MISA.eShop.Business.Dictionary
                 return response;
             }
 
-            // tự sinh guidid mới
-            product.ProductID = Guid.NewGuid();
+            var result = base.Insert(product);
+            result.Data = product;
 
             // không mã sku không tồn tại thì tiến hành insert dữ liệu vào db
-            return base.Insert(product);
+            return result;
         }
 
         /// <summary>
@@ -272,5 +272,78 @@ namespace MISA.eShop.Business.Dictionary
             return base.Update(productID, product);
         }
 
+        public BaseResponse Synchronized(SynchronizeWrapper synchronizeWrapper)
+        {
+            var result = new BaseResponse()
+            {
+                HTTPStatusCode = HTTPStatusCode.Ok
+            };
+
+            try
+            {
+                using (var ts = new TransactionScope())
+                {
+                    var idParent = Guid.NewGuid();
+                    // xử lý list thêm mới hoặc sửa
+                    for (var i = 0; i < synchronizeWrapper.NewOrEditObject.Count; i++)
+                    {
+                        var productById = GetByID(synchronizeWrapper.NewOrEditObject[i].ProductID);
+                        if (productById.HTTPStatusCode == HTTPStatusCode.Ok && productById.Data != null)
+                        {
+                            if (i == 0)
+                            {
+                                // lấy thông tin id của sản phẩm cha nếu sp tra đã có
+                                idParent = synchronizeWrapper.NewOrEditObject[i].ProductID;
+                            }
+                            var updateResult = Update(synchronizeWrapper.NewOrEditObject[i].ProductID, synchronizeWrapper.NewOrEditObject[i]);
+                            if(updateResult.HTTPStatusCode != HTTPStatusCode.Ok)
+                            {
+                                return updateResult;
+                            }
+                        }
+                        else
+                        {
+                            // nếu thêm mới sản phẩm cha
+                            // Mặc định phần tử đầu tiên là sản phẩm cha
+                            if (i == 0)
+                            {
+                                // gán Id của sản phẩm cha bằng một chuỗi Id ngẫu nhiên
+                                synchronizeWrapper.NewOrEditObject[i].ProductID = idParent;
+                            }
+                            else
+                            {
+                                // nếu thêm mới sản phẩm con
+                                synchronizeWrapper.NewOrEditObject[i].ProductID = Guid.NewGuid();
+                                synchronizeWrapper.NewOrEditObject[i].ProductIDParent = idParent;
+                            }
+                            var insertResult = Insert(synchronizeWrapper.NewOrEditObject[i]);
+                            if (insertResult.HTTPStatusCode != HTTPStatusCode.Created)
+                            {
+                                return insertResult;
+                            }
+                        }
+                    }
+
+                    // xử lý xoá
+                    foreach (var item in synchronizeWrapper.DeleteObject)
+                    {
+                        var deleteResult = Delete(item);
+                        if (deleteResult.HTTPStatusCode != HTTPStatusCode.Ok)
+                        {
+                            return deleteResult;
+                        }
+                    }
+
+                    ts.Complete();
+                }
+            }
+            catch (Exception ex)
+            {
+                result.HTTPStatusCode = HTTPStatusCode.Server_Error;
+                result.Data = ex;
+            }
+
+            return result;
+        }
     }
 }
