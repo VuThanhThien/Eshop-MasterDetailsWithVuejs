@@ -326,14 +326,6 @@ export default {
     /**Nút sửa */
     //Createdby VTT 19/03/21
     btnEditOnClick() {
-      //Nếu chưa active thì chọn
-      // if (this.isActive < 0)
-      //   this.$notify({
-      //     title: "THÔNG BÁO",
-      //     type: "warn",
-      //     text: "Vui lòng chọn cửa hàng cần sửa",
-      //   });
-      // ngược lại thì mở form
       // else
       this.isHideParent = !this.isHideParent;
     },
@@ -344,29 +336,12 @@ export default {
       this.product.productID = null;
       this.product.sku = "";
       this.product.barCode = null;
-      //Nếu chưa active thì chọn
-      // if (this.isActive < 0) {
-      //   this.$notify({
-      //     title: "THÔNG BÁO",
-      //     type: "warn",
-      //     text: "Vui lòng chọn cửa hàng cần nhân bản",
-      //   });
-      // }
-      // ngược lại thì mở form
       //Createdby VTT 22/03/21
       // else
       this.isHideParent = !this.isHideParent;
     },
     /**Xóa hàng hóa */
     btnDeleteOnClick() {
-      // Nếu chưa active thì thông báo chưa chọn
-      // if (this.isActive < 0)
-      //   this.$notify({
-      //     title: "THÔNG BÁO",
-      //     type: "warn",
-      //     text: "Vui lòng chọn cửa hàng cần xóa",
-      //   });
-      //Ngược lại thì mở popup xóa
       //Createdby VTT 19/03/21
       // else
       this.isHidePopupParent = !this.isHidePopupParent;

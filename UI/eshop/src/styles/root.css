@@ -23,6 +23,7 @@
 @import "./commons/_table.css";
 @import "./commons/_toolbar.css";
 @import "./pages/productList.css";
+@import "./pages/productListDetails.css";
 @import "./pages/popup.css";
 :root {
     --primary-active: #190472;
