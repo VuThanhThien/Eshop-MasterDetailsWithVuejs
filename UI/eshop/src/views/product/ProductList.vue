@@ -552,7 +552,7 @@ export default {
         "http://localhost:55810/api/Products/ByParent/" + this.product.productID
       );
       this.productChildren = response.data;
-      console.log(this.productChildren);
+      // console.log(this.productChildren);
     },
   },
   computed: {},

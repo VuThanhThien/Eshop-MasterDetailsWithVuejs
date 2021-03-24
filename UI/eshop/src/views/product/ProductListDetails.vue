@@ -290,12 +290,12 @@ export default {
       // bind các thông tin lên form
       this.bindProductToForm();
     },
-
+    /**bind hàng hóa chi tiết lleen form */
     bindProductToForm() {
       this.children = [...this.productChildren];
       this.bindInputTagColors();
     },
-
+    /**map màu của hàng hóa với màu của thẻ input-tag */
     bindInputTagColors() {
       if (this.children?.length) {
         let colors = [];
@@ -304,13 +304,13 @@ export default {
         this.colors = colors;
       }
     },
-
+    /**xóa tag thì xóa hàng hóa */
     inputColorOnRemove(index) {
       const colorRemove = this.colors[index];
 
       this.children = this.children.filter((p) => p.color !== colorRemove);
     },
-
+    /**thêm tag thì thêm hàng hóa chi tiết*/
     inputColorOnAdd(color) {
       let exits = false;
       if (this.children?.length) {
@@ -318,26 +318,30 @@ export default {
       }
 
       if (!exits) {
-        // TODO
-        debugger;
         this.inputBindDefaultChild(color);
       }
     },
-
+    /**gán data mặc định cho hàng hóa chi tiết */
     inputBindDefaultChild(color) {
       let productChild = {};
       productChild.productName =
         this.product.productName.toString() + " ( " + color + " )";
       productChild.color = color;
       productChild.sku = null;
+      productChild.productID = "00000000-0000-0000-0000-000000000000";
+      productChild.productIDParent = "00000000-0000-0000-0000-000000000000";
       productChild.barCode = null;
       productChild.buyPrice = this.product.buyPrice;
       productChild.sellPrice = this.product.sellPrice;
+      productChild.sellPrice = this.product.sellPrice;
+      productChild.sellPrice = this.product.sellPrice;
+      productChild.sellPrice = this.product.sellPrice;
+      productChild.status = this.product.status;
       this.children.push(productChild);
     },
 
     /**Sinh SKU tự động */
-    autoSku() {
+    async autoSku() {
       let value = event.target.value;
       if (value != "") {
         value = this.removeVietnameseTones(value);
@@ -345,7 +349,7 @@ export default {
           .toUpperCase()
           .split(/\s/)
           .reduce((response, word) => (response += word.slice(0, 1)), "");
-        axios
+        await axios
           .get("http://localhost:55810/api/Products/SKU?productKey=" + acronym)
           .then((response) => (this.product.sku = response.data));
       }
@@ -391,6 +395,15 @@ export default {
       return str;
     },
 
+    /**Lấy hàng hóa theo SKU */
+    // async getProductBySKU(sku) {
+    //   let id = "";
+    //   await axios
+    //     .get("http://localhost:55810/api/Products/ProductBySKU/" + sku)
+    //     .then((response) => (id = response.data.productID));
+    //   // console.log(id);
+    //   return id;
+    // },
     /**Hàm POST */
     async postProduct() {
       await // Thực hiện post
@@ -425,7 +438,7 @@ export default {
               title: "THÔNG BÁO",
               text: "Vui lòng liên hệ MISA để được hỗ trợ",
             });
-            setTimeout(() => location.reload(), 2000);
+            // setTimeout(() => location.reload(), 2000);
           }
         });
     },
@@ -470,12 +483,26 @@ export default {
         });
     },
 
-    /**Event nút Lưu */
-    save() {
+    formatData(){
+      //#region  ép kiểu data trước khi post hàng hóa cha
       //Ép kiểu int cho các trường
-      this.product.categoryCode = Number(this.product.categoryCode);
-      this.product.unitCode = Number(this.product.unitCode);
-      this.product.status = Number(this.product.status);
+      if (this.product.categoryCode == null) {
+        this.product.categoryCode = 0;
+      } else {
+        this.product.categoryCode = Number(this.product.categoryCode);
+      }
+
+      if (this.product.unitCode == null) {
+        this.product.unitCode = 0;
+      } else {
+        this.product.unitCode = Number(this.product.unitCode);
+      }
+
+      if (this.product.status == null) {
+        this.product.status = 0;
+      } else {
+        this.product.status = Number(this.product.status);
+      }
       //validate isShow từ true false sang 1 0
 
       if (this.product.isShow == true) {
@@ -492,8 +519,12 @@ export default {
         //Gán productID = guid.empty để nó parse được
         this.product.productIDParent = "00000000-0000-0000-0000-000000000000";
       }
-
-      //Nếu validate thiếu tên thì thống báo và focus
+      //#endregion
+    },
+    /**Event nút Lưu */
+    async save() {
+      this.formatData();
+      //Nếu validate thiếu tên thì thông báo và focus
       if (this.validateProduct.error) {
         this.$notify({
           title: "THÔNG BÁO",
@@ -508,12 +539,16 @@ export default {
         if (this.product.productID == null) {
           //Gán productID = guid.empty để nó parse được
           this.product.productID = "00000000-0000-0000-0000-000000000000";
-          this.postProduct();
+          await this.postProduct();
+          console.log([this.product, ...this.children]);
         } else {
-          this.putRestaurant();
+          console.log([this.product, ...this.children]);
+
+          await this.putRestaurant();
         }
-        this.closeForm();
       }
+
+      this.closeForm();
     },
   },
   computed: {

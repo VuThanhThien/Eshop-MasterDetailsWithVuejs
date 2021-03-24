@@ -91,5 +91,10 @@ namespace MISA.eShop.Model.Dictionary
         /// </summary>
         public DateTime? ModifiedDate { get; set; }
 
+        /// <summary>
+        /// Để lưu trạng thái thêm/sửa/xóa của hàng hóa từ client gửi lên
+        /// </summary>
+        //public int EditMode { get; set; }
+
     }
 }
