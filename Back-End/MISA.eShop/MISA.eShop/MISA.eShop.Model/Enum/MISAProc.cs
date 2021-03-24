@@ -68,6 +68,10 @@ namespace MISA.eShop.Model.Enum
         /// </summary>
         public const string PROC_GEN_PRODUCT_SKU = "Proc_GenProductSKU";
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string LAST_GET_BYPARENT = "ByIDParent";
         #endregion
     }
 }

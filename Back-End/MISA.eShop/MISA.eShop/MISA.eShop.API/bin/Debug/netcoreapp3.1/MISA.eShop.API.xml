@@ -146,6 +146,16 @@
             <param name="product">Thông tin sửa đổi</param>
             <returns></returns>
         </member>
+        <member name="M:MISA.eShop.API.Controllers.ProductsController.Synchronized(MISA.eShop.Model.Dictionary.SynchronizeWrapper)">
+            <summary>
+            Cập nhật Form chi tiết hàng hóa
+            Thêm, sửa hàng hóa cha
+            Thêm, sửa, xóa hàng hóa con
+            </summary>
+            <param name="synchronizeWrapper">Một Object gồm 2 mảng, mảng đầu là mảng những object thêm, sửa. Mảng sau là mảng những id cần xóa</param>
+            <returns>Số bản ghi thay đổi</returns>
+            CreatedBy VTThien 24/03/21
+        </member>
         <member name="T:MISA.eShop.API.Program">
             <summary>
             Lớp khởi tạo chương trình

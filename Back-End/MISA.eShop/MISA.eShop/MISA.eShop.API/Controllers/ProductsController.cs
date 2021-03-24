@@ -140,6 +140,14 @@ namespace MISA.eShop.API.Controllers
             return StatusCode((int)result.HTTPStatusCode, result.Data);
         }
 
+        /// <summary>
+        /// Cập nhật Form chi tiết hàng hóa
+        /// Thêm, sửa hàng hóa cha
+        /// Thêm, sửa, xóa hàng hóa con
+        /// </summary>
+        /// <param name="synchronizeWrapper">Một Object gồm 2 mảng, mảng đầu là mảng những object thêm, sửa. Mảng sau là mảng những id cần xóa</param>
+        /// <returns>Số bản ghi thay đổi</returns>
+        /// CreatedBy VTThien 24/03/21
         [HttpPost("Sync")]
         public IActionResult Synchronized([FromBody] SynchronizeWrapper synchronizeWrapper)
         {

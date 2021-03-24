@@ -272,39 +272,52 @@ namespace MISA.eShop.Business.Dictionary
             return base.Update(productID, product);
         }
 
+        /// <summary>
+        /// Xử lý thêm sửa xóa cha và con ở form hàng hóa chi tiêys
+        /// </summary>
+        /// <param name="synchronizeWrapper">Object gồm 2 mảng. Mảng đầu là mảng object thêm sửa. Mảng sau là các id con cần xóa</param>
+        /// <returns></returns>
         public BaseResponse Synchronized(SynchronizeWrapper synchronizeWrapper)
         {
             var result = new BaseResponse()
             {
-                HTTPStatusCode = HTTPStatusCode.Ok
+                HTTPStatusCode = HTTPStatusCode.Ok,
+                Data = synchronizeWrapper.NewOrEditObject.Count + synchronizeWrapper.DeleteObject.Count
             };
 
             try
             {
                 using (var ts = new TransactionScope())
                 {
+                    //Gán id parent bằng new guid
                     var idParent = Guid.NewGuid();
                     // xử lý list thêm mới hoặc sửa
+                    //For trong mảng đầu tiên
                     for (var i = 0; i < synchronizeWrapper.NewOrEditObject.Count; i++)
                     {
+                        //Lấy object theo id truyền vào
                         var productById = GetByID(synchronizeWrapper.NewOrEditObject[i].ProductID);
+                        //nếu lấy được tức đã tồn tại bản ghi này => update
                         if (productById.HTTPStatusCode == HTTPStatusCode.Ok && productById.Data != null)
                         {
+                            //Nếu là phần tử đầu tiên của mảng <=> hàng hóa cha
                             if (i == 0)
                             {
-                                // lấy thông tin id của sản phẩm cha nếu sp tra đã có
+                                // lấy id của hàng hóa cha ra để chuẩn bị gán cho hàng hóa con
                                 idParent = synchronizeWrapper.NewOrEditObject[i].ProductID;
                             }
+                            //update hàng hóa 
                             var updateResult = Update(synchronizeWrapper.NewOrEditObject[i].ProductID, synchronizeWrapper.NewOrEditObject[i]);
-                            if(updateResult.HTTPStatusCode != HTTPStatusCode.Ok)
+                            if (updateResult.HTTPStatusCode != HTTPStatusCode.Ok)
                             {
                                 return updateResult;
                             }
                         }
+                        //Nếu không lây được thông tin tức là thêm mới
                         else
                         {
-                            // nếu thêm mới sản phẩm cha
                             // Mặc định phần tử đầu tiên là sản phẩm cha
+                            // nếu thêm mới sản phẩm cha
                             if (i == 0)
                             {
                                 // gán Id của sản phẩm cha bằng một chuỗi Id ngẫu nhiên
@@ -313,10 +326,14 @@ namespace MISA.eShop.Business.Dictionary
                             else
                             {
                                 // nếu thêm mới sản phẩm con
+                                //sinh id con ngẫu nhiên
                                 synchronizeWrapper.NewOrEditObject[i].ProductID = Guid.NewGuid();
+                                //id parent con bằng id cha đã lấy bên trên
                                 synchronizeWrapper.NewOrEditObject[i].ProductIDParent = idParent;
                             }
+                            //insert
                             var insertResult = Insert(synchronizeWrapper.NewOrEditObject[i]);
+
                             if (insertResult.HTTPStatusCode != HTTPStatusCode.Created)
                             {
                                 return insertResult;

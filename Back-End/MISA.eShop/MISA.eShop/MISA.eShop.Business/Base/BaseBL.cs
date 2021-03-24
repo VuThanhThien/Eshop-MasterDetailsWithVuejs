@@ -236,6 +236,11 @@ namespace MISA.eShop.Business.Base
             }
         }
 
+        /// <summary>
+        /// Lấy thông tin theo id cha mẹ
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public virtual BaseResponse GetByIDParent(Guid id)
         {
             // lấy dữ liệu từ tầng DL về

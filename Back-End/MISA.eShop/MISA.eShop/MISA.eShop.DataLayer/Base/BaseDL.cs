@@ -12,7 +12,7 @@ namespace MISA.eShop.DataLayer.Base
     /// </summary>
     /// <typeparam name="T">Model</typeparam>
     /// created by vtthien 08.03.2021
-    public class BaseDL<T>: IBaseDL<T> where T: class
+    public class BaseDL<T> : IBaseDL<T> where T : class
     {
         /// <summary>
         /// Biến DbContext
@@ -142,7 +142,7 @@ namespace MISA.eShop.DataLayer.Base
 
         public IEnumerable<T> GetByIDParent(Guid id)
         {
-            var storeName = "Proc_GetProductByIDParent";
+            var storeName = MISAProc.PRE_PROC_NAME + MISAProc.PROC_GET + typeof(T).Name + MISAProc.LAST_GET_BYPARENT;
 
             var parameters = new
             {
