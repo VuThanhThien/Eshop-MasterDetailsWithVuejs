@@ -1,11 +1,11 @@
 <template>
   <div class="formBody" :class="{ isHide: isHide }">
     <div class="myButtonDialog" style="border-bottom: solid 1px gray">
-      <button class="myButton" id="buttonSave" @click="save">
+      <button title="Ctrl + S" class="myButton" id="buttonSave" @click.prevent="save" v-shortkey="['ctrl', 's']" @shortkey="save()">
         <div class="iconSave"></div>
         Lưu
       </button>
-      <button class="myButton" id="buttonCancel" @click="cancel">
+      <button title="Ctrl + C" class="myButton" id="buttonCancel" @click="cancel" v-shortkey="['ctrl', 'c']" @shortkey="cancel()">
         <div class="iconCancel"></div>
         Hủy bỏ
       </button>
@@ -167,17 +167,17 @@
                 </td>
                 <td>
                   <div class="cell">
-                    <DxNumberBox :value="tag.barCode" format="##0" />
+                    <DxNumberBox v-model="tag.barCode" format="##0" />
                   </div>
                 </td>
                 <td>
                   <div class="cell">
-                    <DxNumberBox :value="tag.buyPrice" format="#,##0" />
+                    <DxNumberBox v-model="tag.buyPrice" format="#,##0" />
                   </div>
                 </td>
                 <td>
                   <div class="cell">
-                    <DxNumberBox :value="tag.sellPrice" format="#,##0" />
+                    <DxNumberBox v-model="tag.sellPrice" format="#,##0" />
                   </div>
                 </td>
               </tr>
@@ -229,11 +229,11 @@
       style="border-top: solid 1px gray"
       id="buttonBottom"
     >
-      <button class="myButton" id="buttonSave" @click.prevent="save">
+      <button title="Ctrl + S" class="myButton" id="buttonSave" @click.prevent="save" v-shortkey="['ctrl', 's']" @shortkey="save()">
         <div class="iconSave"></div>
         Lưu
       </button>
-      <button class="myButton" id="buttonCancel" @click="cancel">
+      <button title="Ctrl + C" class="myButton" id="buttonCancel" @click="cancel" v-shortkey="['ctrl', 'c']" @shortkey="cancel()">
         <div class="iconCancel"></div>
         Hủy bỏ
       </button>
@@ -344,9 +344,6 @@ export default {
         productChild.productIDParent = "00000000-0000-0000-0000-000000000000";
         productChild.barCode = null;
         productChild.buyPrice = this.product.buyPrice;
-        productChild.sellPrice = this.product.sellPrice;
-        productChild.sellPrice = this.product.sellPrice;
-        productChild.sellPrice = this.product.sellPrice;
         productChild.sellPrice = this.product.sellPrice;
         productChild.status = this.product.status;
         this.children.push(productChild);

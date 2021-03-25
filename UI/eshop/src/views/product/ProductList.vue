@@ -4,9 +4,11 @@
     <div class="contentHeader">
       <!-- nút thêm  -->
       <button
-        title="Thêm mới cửa hàng"
+        title="Ctrl + O"
         class="contentHeaderButton"
         @click="btnAddOnClick"
+        v-shortkey="['ctrl', 'o']"
+        @shortkey="btnAddOnClick()"
       >
         <div class="iconHeader">
           <div class="iconAdd"></div>
@@ -14,9 +16,11 @@
         <div class="iconText">Thêm mới</div>
       </button>
       <button
-        title="Nhân bản thêm một cửa hàng nữa"
+        title="Ctrl + D"
         class="contentHeaderButton"
         @click="btnDuplicateOnClick"
+        v-shortkey="['ctrl', 'd']"
+        @shortkey="btnDuplicateOnClick()"
       >
         <div class="iconHeader">
           <div class="iconDupplicate"></div>
@@ -25,9 +29,11 @@
       </button>
       <!-- sửa  -->
       <button
-        title="Chỉnh sửa thông tin cửa hàng"
+        title="Ctrl + E"
         class="contentHeaderButton"
         @click="btnEditOnClick"
+        v-shortkey="['ctrl', 'e']"
+        @shortkey="btnEditOnClick()"
       >
         <div class="iconHeader">
           <div class="iconEdit"></div>
@@ -36,9 +42,10 @@
       </button>
       <!-- xóa  -->
       <button
-        title="Xóa cửa hàng"
+        title="Ctrl X"
         class="contentHeaderButton"
         @click="btnDeleteOnClick"
+        v-shortkey="['ctrl', 'x']" @shortkey="btnDeleteOnClick()"
       >
         <div class="iconHeader">
           <div class="iconDelete"></div>
@@ -238,13 +245,24 @@
       </table>
     </div>
     <!-- Component chi tiết  -->
-    <Details :isHide="isHideParent" :product="product" :productChildren="productChildren" @outIsHide="outIsHide" />
+    <Details
+      :isHide="isHideParent"
+      :product="product"
+      :productChildren="productChildren"
+      @outIsHide="outIsHide"
+    />
     <div class="contentFooter">
       <div class="contentFooterLeft">
         <button class="buttonPage" @click="firstPage">
           <div class="firstPage"></div>
         </button>
-        <button class="buttonPage" @click="prevPage">
+        <button
+          title="Ctrl <"
+          class="buttonPage"
+          @click="prevPage"
+          v-shortkey="['ctrl', 'arrowleft']"
+          @shortkey="prevPage()"
+        >
           <div class="prevPage"></div>
         </button>
         <div class="contentFooterPaging">
@@ -261,7 +279,13 @@
             {{ Math.ceil(lengthOfFilter / typePage) }}
           </div>
         </div>
-        <button class="buttonPage" @click="nextPage">
+        <button
+          title="Ctrl >"
+          class="buttonPage"
+          @click="nextPage"
+          v-shortkey="['ctrl', 'arrowright']"
+          @shortkey="nextPage()"
+        >
           <div class="nextPage"></div>
         </button>
         <button class="buttonPage" @click="lastPage">
@@ -326,8 +350,14 @@ export default {
     /**Nút sửa */
     //Createdby VTT 19/03/21
     btnEditOnClick() {
-      // else
-      this.isHideParent = !this.isHideParent;
+      if (this.isActive < 0) {
+        this.$notify({
+          title: "THÔNG BÁO",
+          text: "Vui lòng chọn hàng cần sửa",
+        });
+      } else this.isHideParent = !this.isHideParent;
+      //tắt active đi
+      this.isActive = -1;
     },
 
     /**Sự kiện nhân bản */
@@ -337,14 +367,25 @@ export default {
       this.product.sku = "";
       this.product.barCode = null;
       //Createdby VTT 22/03/21
-      // else
-      this.isHideParent = !this.isHideParent;
+      if (this.isActive < 0) {
+        this.$notify({
+          title: "THÔNG BÁO",
+          text: "Vui lòng chọn hàng cần nhân bản",
+        });
+      } else this.isHideParent = !this.isHideParent;
+      //tắt active đi
+      this.isActive = -1;
     },
     /**Xóa hàng hóa */
     btnDeleteOnClick() {
       //Createdby VTT 19/03/21
-      // else
-      this.isHidePopupParent = !this.isHidePopupParent;
+      if (this.checked.length == 0) {
+        this.$notify({
+          type: "warn",
+          title: "Important message",
+          text: "Vui lòng click vào ô checkbox của hàng hóa bạn muốn xóa!",
+        });
+      } else this.isHidePopupParent = !this.isHidePopupParent;
     },
 
     /**Đóng form */
@@ -545,7 +586,7 @@ export default {
       enterStatus: 2,
       enterIsShow: 2,
       enterSellPrice: 0,
-      isActive: 0,
+      isActive: -1,
       typePage: 25,
       currentPage: 1,
       isHideParent: true,

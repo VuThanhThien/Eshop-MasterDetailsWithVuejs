@@ -7,6 +7,7 @@ import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 import InputTag from './components/commons/input-tag/InputTag'
 Vue.component('input-tag', InputTag)
+Vue.use(require('vue-shortkey'))
 Vue.use(Notifications)
 Vue.config.productionTip = false
 new Vue({
