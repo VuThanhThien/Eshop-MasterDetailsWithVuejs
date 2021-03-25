@@ -119,6 +119,8 @@
     font-style: italic;
     color: #8f8f8f;
   }
+ 
+  
   .vue-input-tag-wrapper {
     max-width: 400px !important;
   }
@@ -127,6 +129,11 @@
     border: none !important;
     color: white !important;
     padding: 8px !important;
+  }
+  .input-tag:hover{
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
   }
   .vue-input-tag-wrapper .input-tag .remove {
     cursor: pointer;

@@ -39,10 +39,12 @@
         <input
           type="text"
           class="productName"
-          v-model.lazy="product.productName"
+          :class="{ borders: validateProduct.error }"
+          v-model="product.productName"
           ref="name"
           @input="autoSku"
         />
+        <div class="imgValidate" v-if="validateProduct.error"></div>
       </div>
 
       <div class="rowForm">
@@ -324,20 +326,31 @@ export default {
     /**gán data mặc định cho hàng hóa chi tiết */
     inputBindDefaultChild(color) {
       let productChild = {};
-      productChild.productName =
-        this.product.productName.toString() + " ( " + color + " )";
-      productChild.color = color;
-      productChild.sku = null;
-      productChild.productID = "00000000-0000-0000-0000-000000000000";
-      productChild.productIDParent = "00000000-0000-0000-0000-000000000000";
-      productChild.barCode = null;
-      productChild.buyPrice = this.product.buyPrice;
-      productChild.sellPrice = this.product.sellPrice;
-      productChild.sellPrice = this.product.sellPrice;
-      productChild.sellPrice = this.product.sellPrice;
-      productChild.sellPrice = this.product.sellPrice;
-      productChild.status = this.product.status;
-      this.children.push(productChild);
+      if (this.validateProduct.error) {
+        this.$notify({
+          title: "THÔNG BÁO",
+          text: this.validateProduct.msg,
+        });
+        //focus
+        if (this.validateProduct.typeError == "name") {
+          this.$refs.name.focus();
+        }
+      } else {
+        productChild.productName =
+          this.product.productName.toString() + " ( " + color + " )";
+        productChild.color = color;
+        productChild.sku = null;
+        productChild.productID = "00000000-0000-0000-0000-000000000000";
+        productChild.productIDParent = "00000000-0000-0000-0000-000000000000";
+        productChild.barCode = null;
+        productChild.buyPrice = this.product.buyPrice;
+        productChild.sellPrice = this.product.sellPrice;
+        productChild.sellPrice = this.product.sellPrice;
+        productChild.sellPrice = this.product.sellPrice;
+        productChild.sellPrice = this.product.sellPrice;
+        productChild.status = this.product.status;
+        this.children.push(productChild);
+      }
     },
 
     /**Sinh SKU tự động */
@@ -357,7 +370,7 @@ export default {
     /**Đóng form */
     closeForm() {
       this.$emit("outIsHide", !this.isHide);
-      location.reload();
+      this.colors = [];
     },
     /**format tiền */
     formatPrice(value) {
@@ -419,7 +432,7 @@ export default {
               text: "Thêm mới thành công ",
             });
             // load lai trang sau 2s
-            setTimeout(() => location.reload(), 2000);
+            // setTimeout(() => location.reload(), 2000);
           }
         })
         .catch((e) => {
@@ -430,7 +443,7 @@ export default {
               title: "THÔNG BÁO",
               text: "Thêm mới cửa hàng thất bại !",
             });
-            setTimeout(() => location.reload(), 2000);
+            // setTimeout(() => location.reload(), 2000);
           }
 
           if (e.response.status == 500) {
@@ -439,7 +452,7 @@ export default {
               title: "THÔNG BÁO",
               text: "Vui lòng liên hệ MISA để được hỗ trợ",
             });
-            setTimeout(() => location.reload(), 2000);
+            // setTimeout(() => location.reload(), 2000);
           }
         });
     },
@@ -496,7 +509,7 @@ export default {
               text: "Cập nhật thành công ",
             });
             // load lai trang sau 2s
-            setTimeout(() => location.reload(), 2000);
+            setTimeout(() => location.reload(), 1500);
           }
         })
         .catch((e) => {
@@ -576,9 +589,7 @@ export default {
           //Gán productID = guid.empty để nó parse được
           this.product.productID = "00000000-0000-0000-0000-000000000000";
         }
-        // TODO đã lấy được ra mảng các object trong form, thằng đầu tiên là cha,
-        //Từ thằng thứ 2 là con
-        console.log([this.product, ...this.children]);
+        //Nối mảng cha...con
         var newOrEditProduct = [this.product, ...this.children];
         var deleteProduct = this.idToDelete;
         var synchronizeWrapper = {
@@ -586,9 +597,8 @@ export default {
           deleteObject: deleteProduct,
         };
         this.syncProduct(synchronizeWrapper);
+        this.closeForm();
       }
-
-      this.closeForm();
     },
   },
   computed: {
@@ -614,4 +624,16 @@ export default {
 </script>
 
 <style>
+.borders {
+  border: 1px solid red !important;
+  width: 280px;
+}
+.imgValidate {
+  width: 16px;
+  height: 16px;
+  margin: 6px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("../../assets/images/exclamation.png");
+}
 </style>

@@ -333,7 +333,7 @@ namespace MISA.eShop.Business.Dictionary
                             }
                             //insert
                             var insertResult = Insert(synchronizeWrapper.NewOrEditObject[i]);
-
+                            //Thêm thành công thì trả về kết quả
                             if (insertResult.HTTPStatusCode != HTTPStatusCode.Created)
                             {
                                 return insertResult;
