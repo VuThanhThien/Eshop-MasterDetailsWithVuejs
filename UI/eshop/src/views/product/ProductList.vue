@@ -7,7 +7,7 @@
         title="Ctrl + O"
         class="contentHeaderButton"
         @click="btnAddOnClick"
-        v-shortkey="['ctrl', 'o']"
+        v-shortkey="['ctrl',  'o']"
         @shortkey="btnAddOnClick()"
       >
         <div class="iconHeader">
@@ -117,7 +117,7 @@
                   <option selected value="0">Tất cả</option>
                   <option
                     v-for="category in categories"
-                    :key="category"
+                    :key="category.id"
                     :value="category.id"
                   >
                     {{ category.name }}
@@ -136,7 +136,7 @@
                   @change="getPaginate"
                 >
                   <option selected value="0">Tất cả</option>
-                  <option v-for="unit in units" :key="unit" :value="unit.id">
+                  <option v-for="unit in units" :key="unit.id" :value="unit.id">
                     {{ unit.name }}
                   </option>
                 </select>

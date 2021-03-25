@@ -143,7 +143,8 @@ const products = [
     "productIDParent": "00000000-0000-0000-0000-000000000000",
     "modifiedDate": "1971-06-17T07:53:58"
   }
-]
+];
+
 const units = [
   {
     "id": 1,
@@ -177,7 +178,7 @@ const units = [
     "id": 8,
     "name": "Lít"
   },
-]
+];
 
 const categories = [
   {
@@ -240,7 +241,7 @@ const categories = [
     "id": 15,
     "name": "Áo"
   },
-]
+];
 import * as axios from "axios";
 
 export default {

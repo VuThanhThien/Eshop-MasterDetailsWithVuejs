@@ -72,7 +72,7 @@
           <option selected disabled>Chọn nhóm hàng hóa</option>
           <option
             v-for="category in categories"
-            :key="category"
+            :key="category.id"
             :value="category.id"
           >
             {{ category.name }}
@@ -109,7 +109,7 @@
           v-model="product.unitCode"
         >
           <option selected disabled>Chọn đơn vị</option>
-          <option v-for="unit in units" :key="unit" :value="unit.id">
+          <option v-for="unit in units" :key="unit.id" :value="unit.id">
             {{ unit.name }}
           </option>
         </select>
