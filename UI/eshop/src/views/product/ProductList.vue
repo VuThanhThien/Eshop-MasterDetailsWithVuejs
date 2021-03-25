@@ -208,7 +208,7 @@
               </div>
             </td>
             <td>
-              <div class="cell" id="productName">
+              <div class="cell" id="productName" @dblclick="btnEditOnClick">
                 {{ product.productName }}
               </div>
             </td>

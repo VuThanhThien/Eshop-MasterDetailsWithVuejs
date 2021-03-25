@@ -5,7 +5,7 @@
         <div class="iconSave"></div>
         Lưu
       </button>
-      <button class="myButton" id="buttonCancel" @click="closeForm">
+      <button class="myButton" id="buttonCancel" @click="cancel">
         <div class="iconCancel"></div>
         Hủy bỏ
       </button>
@@ -233,7 +233,7 @@
         <div class="iconSave"></div>
         Lưu
       </button>
-      <button class="myButton" id="buttonCancel" @click="closeForm">
+      <button class="myButton" id="buttonCancel" @click="cancel">
         <div class="iconCancel"></div>
         Hủy bỏ
       </button>
@@ -366,6 +366,10 @@ export default {
           .get("http://localhost:55810/api/Products/SKU?productKey=" + acronym)
           .then((response) => (this.product.sku = response.data));
       }
+    },
+    cancel() {
+      this.closeForm();
+      location.reload();
     },
     /**Đóng form */
     closeForm() {
