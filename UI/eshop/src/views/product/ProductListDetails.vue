@@ -1,11 +1,25 @@
 <template>
   <div class="formBody" :class="{ isHide: isHide }">
     <div class="myButtonDialog" style="border-bottom: solid 1px gray">
-      <button title="Ctrl + S" class="myButton" id="buttonSave" @click.prevent="save" v-shortkey="['ctrl', 's']" @shortkey="save()">
+      <button
+        title="Ctrl + S"
+        class="myButton"
+        id="buttonSave"
+        @click.prevent="save"
+        v-shortkey="['ctrl', 's']"
+        @shortkey="save()"
+      >
         <div class="iconSave"></div>
         Lưu
       </button>
-      <button title="Ctrl + C" class="myButton" id="buttonCancel" @click="cancel" v-shortkey="['ctrl', 'c']" @shortkey="cancel()">
+      <button
+        title="Ctrl + C"
+        class="myButton"
+        id="buttonCancel"
+        @click="cancel"
+        v-shortkey="['ctrl', 'c']"
+        @shortkey="cancel()"
+      >
         <div class="iconCancel"></div>
         Hủy bỏ
       </button>
@@ -56,21 +70,13 @@
           v-model="product.categoryCode"
         >
           <option selected disabled>Chọn nhóm hàng hóa</option>
-          <option value="1">Đồ dùng cá nhân</option>
-          <option value="2">Đồ gia dụng</option>
-          <option value="3">Đồng hồ</option>
-          <option value="4">Giày</option>
-          <option value="5">Giày bata</option>
-          <option value="6">Giày da</option>
-          <option value="7">Giày Sneaker</option>
-          <option value="8">Giày vải</option>
-          <option value="9">Hoa quả</option>
-          <option value="10">Khăn</option>
-          <option value="11">Nước ngọt</option>
-          <option value="12">Quần</option>
-          <option value="13">Váy</option>
-          <option value="14">Xe máy</option>
-          <option value="15">Áo</option>
+          <option
+            v-for="category in categories"
+            :key="category"
+            :value="category.id"
+          >
+            {{ category.name }}
+          </option>
         </select>
         <div class="iconPlusContain">
           <div class="iconPlus"></div>
@@ -92,7 +98,6 @@
 
       <div class="rowForm">
         <div class="labelForm">Giá bán</div>
-        <!-- <input type="number" class="inputNumber" placeholder="0" /> -->
         <DxNumberBox v-model="product.sellPrice" format="#,##0" />
       </div>
 
@@ -104,14 +109,9 @@
           v-model="product.unitCode"
         >
           <option selected disabled>Chọn đơn vị</option>
-          <option value="1">Đôi</option>
-          <option value="2">Chiếc</option>
-          <option value="3">Túi</option>
-          <option value="3">Kg</option>
-          <option value="5">Thùng</option>
-          <option value="6">Mét</option>
-          <option value="7">Cuộn</option>
-          <option value="8">Lít</option>
+          <option v-for="unit in units" :key="unit" :value="unit.id">
+            {{ unit.name }}
+          </option>
         </select>
         <div class="iconPlusContain">
           <div class="iconPlus"></div>
@@ -229,11 +229,25 @@
       style="border-top: solid 1px gray"
       id="buttonBottom"
     >
-      <button title="Ctrl + S" class="myButton" id="buttonSave" @click.prevent="save" v-shortkey="['ctrl', 's']" @shortkey="save()">
+      <button
+        title="Ctrl + S"
+        class="myButton"
+        id="buttonSave"
+        @click.prevent="save"
+        v-shortkey="['ctrl', 's']"
+        @shortkey="save()"
+      >
         <div class="iconSave"></div>
         Lưu
       </button>
-      <button title="Ctrl + C" class="myButton" id="buttonCancel" @click="cancel" v-shortkey="['ctrl', 'c']" @shortkey="cancel()">
+      <button
+        title="Ctrl + C"
+        class="myButton"
+        id="buttonCancel"
+        @click="cancel"
+        v-shortkey="['ctrl', 'c']"
+        @shortkey="cancel()"
+      >
         <div class="iconCancel"></div>
         Hủy bỏ
       </button>
@@ -243,6 +257,8 @@
 
 <script>
 import * as axios from "axios";
+import service from "@/data.js";
+
 import DxNumberBox from "devextreme-vue/number-box";
 export default {
   name: "ProductDetails",
@@ -286,6 +302,8 @@ export default {
       children: [],
       productChild: [],
       idToDelete: [],
+      categories: service.getCategories(),
+      units: service.getUnits(),
     };
   },
   methods: {
@@ -364,6 +382,7 @@ export default {
           .then((response) => (this.product.sku = response.data));
       }
     },
+    /**Sự kiện hủy */
     cancel() {
       this.closeForm();
       location.reload();
@@ -383,7 +402,7 @@ export default {
       const file = e.target.files[0];
       this.url = URL.createObjectURL(file);
     },
-    /**Thay thế tiếng Việt */
+    /**Bỏ dấu  */
     removeVietnameseTones(str) {
       str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
       str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
@@ -440,7 +459,7 @@ export default {
           if (e.response.status == 400) {
             this.$notify({
               // bad request
-              type: "errors",
+              type: "error",
               title: "THÔNG BÁO",
               text: "Thêm mới cửa hàng thất bại !",
             });
@@ -482,7 +501,7 @@ export default {
         .catch((e) => {
           if (e.response.status == 400) {
             this.$notify({
-              type: "errors",
+              type: "error",
               title: "THÔNG BÁO",
               text: "Cập nhật thông tin cửa hàng thất bại !",
             });
@@ -490,7 +509,7 @@ export default {
 
           if (e.response.status == 500) {
             this.$notify({
-              type: "errors",
+              type: "error",
               title: "THÔNG BÁO",
               text: "Vui lòng liên hệ MISA để được hỗ trợ",
             });
@@ -534,8 +553,8 @@ export default {
           }
         });
     },
+    /**ép kiểu lại data  */
     formatData() {
-      //#region  ép kiểu data trước khi post hàng hóa cha
       //Ép kiểu int cho các trường
       if (this.product.categoryCode == null) {
         this.product.categoryCode = 0;
@@ -603,7 +622,7 @@ export default {
     },
   },
   computed: {
-    /**Validate */
+    /**Validate tên hàng hóa*/
     validateProduct() {
       let returnData = {
         error: false,
@@ -636,5 +655,12 @@ export default {
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url("../../assets/images/exclamation.png");
+}
+.dx-state-hover {
+  box-shadow: none !important;
+  border: none !important;
+}
+.dx-texteditor {
+  border: none !important;
 }
 </style>

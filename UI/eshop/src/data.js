@@ -144,19 +144,121 @@ const products = [
     "modifiedDate": "1971-06-17T07:53:58"
   }
 ]
+const units = [
+  {
+    "id": 1,
+    "name": "Đôi"
+  },
+  {
+    "id": 2,
+    "name": "Chiếc"
+  },
+  {
+    "id": 3,
+    "name": "Túi"
+  },
+  {
+    "id": 4,
+    "name": "Kg"
+  },
+  {
+    "id": 5,
+    "name": "Thùng"
+  },
+  {
+    "id": 6,
+    "name": "Mét"
+  },
+  {
+    "id": 7,
+    "name": "Cuộn"
+  },
+  {
+    "id": 8,
+    "name": "Lít"
+  },
+]
 
+const categories = [
+  {
+    "id": 1,
+    "name": "Đồ dùng cá nhân"
+  },
+  {
+    "id": 2,
+    "name": "Đồ gia dụng"
+  },
+  {
+    "id": 3,
+    "name": "Đồng hồ"
+  },
+  {
+    "id": 4,
+    "name": "Giày"
+  },
+  {
+    "id": 5,
+    "name": "Giày bata"
+  },
+  {
+    "id": 6,
+    "name": "Giày da"
+  },
+  {
+    "id": 7,
+    "name": "Giày Sneaker"
+  },
+  {
+    "id": 8,
+    "name": "Giày vải"
+  },
+  {
+    "id": 9,
+    "name": "Hoa quả"
+  },
+  {
+    "id": 10,
+    "name": "Khăn"
+  },
+  {
+    "id": 11,
+    "name": "Nước ngọt"
+  },
+  {
+    "id": 12,
+    "name": "Quần"
+  },
+  {
+    "id": 13,
+    "name": "Váy"
+  },
+  {
+    "id": 14,
+    "name": "Xe máy"
+  },
+  {
+    "id": 15,
+    "name": "Áo"
+  },
+]
 import * as axios from "axios";
-  
+
 export default {
-    getProducts() {
-        return products;
-    },
-    async created() {
-      var offset = (this.currentPage - 1)*this.typePage + 1 ;
-      const response = await axios.get(
-        "http://localhost:55810/api/Products/Paginate?offset="+ offset +"&limit="+ this.typePage+"&sellPrice=0&isShow=2&status=2"
-      );
-      this.products = response.data;
-    },
+  getCategories() {
+    return categories;
+  },
+  getUnits() {
+    return units;
+  },
+  getProducts() {
+    return products;
+  },
+  async created() {
+    var offset = (this.currentPage - 1) * this.typePage + 1;
+    const response = await axios.get(
+      "http://localhost:55810/api/Products/Paginate?offset=" + offset + "&limit=" + this.typePage + "&sellPrice=0&isShow=2&status=2"
+    );
+    this.products = response.data;
+  },
 
 };

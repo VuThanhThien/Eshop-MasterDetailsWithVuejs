@@ -40,11 +40,9 @@
         <div class="dialogFooter" style="justify-content: flex-end">
           <div class="dialogFooterButtonBox">
             <button
-            title="Enter"
               class="dialogFooterButton"
               id="buttonDelete"
               @click="deleteOnClick"
-              v-shortkey="['enter']" @shortkey="deleteOnClick()"
             >
               <div class="iconDelete"></div>
               Xóa
@@ -53,7 +51,6 @@
               class="dialogFooterButton"
               id="buttonCancel"
               @click="closePopup"
-              v-shortkey="['esc']" @shortkey="closePopup()"
             >
               <div class="iconCancel"></div>
               Hủy bỏ

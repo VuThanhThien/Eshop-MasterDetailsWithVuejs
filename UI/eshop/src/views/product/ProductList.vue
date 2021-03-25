@@ -45,7 +45,8 @@
         title="Ctrl X"
         class="contentHeaderButton"
         @click="btnDeleteOnClick"
-        v-shortkey="['ctrl', 'x']" @shortkey="btnDeleteOnClick()"
+        v-shortkey="['ctrl', 'x']"
+        @shortkey="btnDeleteOnClick()"
       >
         <div class="iconHeader">
           <div class="iconDelete"></div>
@@ -65,11 +66,12 @@
         <div class="iconText">Nạp</div>
       </button>
     </div>
-
+<!-- table  -->
     <div class="gridTable">
       <table class="tableContent">
         <thead>
           <tr class="filter">
+            <!-- checkAll -->
             <th width="3%">
               <input
                 type="checkbox"
@@ -78,6 +80,7 @@
                 style="margin: 0"
               />
             </th>
+            <!-- SKU -->
             <th width="10%">
               SKU
               <div class="filterField">
@@ -89,6 +92,7 @@
                 />
               </div>
             </th>
+            <!-- Tên hàng hóa  -->
             <th width="15%">
               Tên hàng hóa
               <div class="filterField">
@@ -100,6 +104,7 @@
                 />
               </div>
             </th>
+            <!-- Nhóm hàng hóa fix ở data.js -->
             <th width="20%">
               Nhóm hàng hóa
               <div class="filterField">
@@ -110,24 +115,17 @@
                   @change="getPaginate"
                 >
                   <option selected value="0">Tất cả</option>
-                  <option value="1">Đồ dùng cá nhân</option>
-                  <option value="2">Đồ gia dụng</option>
-                  <option value="3">Đồng hồ</option>
-                  <option value="4">Giày</option>
-                  <option value="5">Giày bata</option>
-                  <option value="6">Giày da</option>
-                  <option value="7">Giày Sneaker</option>
-                  <option value="8">Giày vải</option>
-                  <option value="9">Hoa quả</option>
-                  <option value="10">Khăn</option>
-                  <option value="11">Nước ngọt</option>
-                  <option value="12">Quần</option>
-                  <option value="13">Váy</option>
-                  <option value="14">Xe máy</option>
-                  <option value="15">Áo</option>
+                  <option
+                    v-for="category in categories"
+                    :key="category"
+                    :value="category.id"
+                  >
+                    {{ category.name }}
+                  </option>
                 </select>
               </div>
             </th>
+            <!-- đơn vị fix ở data.js -->
             <th width="10%">
               Đơn vị tính
               <div class="filterField">
@@ -138,14 +136,9 @@
                   @change="getPaginate"
                 >
                   <option selected value="0">Tất cả</option>
-                  <option value="1">Đôi</option>
-                  <option value="2">Chiếc</option>
-                  <option value="3">Túi</option>
-                  <option value="3">Kg</option>
-                  <option value="5">Thùng</option>
-                  <option value="6">Mét</option>
-                  <option value="7">Cuộn</option>
-                  <option value="8">Lít</option>
+                  <option v-for="unit in units" :key="unit" :value="unit.id">
+                    {{ unit.name }}
+                  </option>
                 </select>
               </div>
             </th>
@@ -191,6 +184,7 @@
             </th>
           </tr>
         </thead>
+        <!-- body -->
         <tbody>
           <tr
             class="tableRow"
@@ -251,11 +245,20 @@
       :productChildren="productChildren"
       @outIsHide="outIsHide"
     />
+    <!-- Footer -->
     <div class="contentFooter">
       <div class="contentFooterLeft">
-        <button class="buttonPage" @click="firstPage">
+        <!-- Trang đầu -->
+        <button
+          title="Home"
+          class="buttonPage"
+          @click="firstPage"
+          v-shortkey="['home']"
+          @shortkey="firstPage()"
+        >
           <div class="firstPage"></div>
         </button>
+        <!-- Trang trước -->
         <button
           title="Ctrl <"
           class="buttonPage"
@@ -267,6 +270,7 @@
         </button>
         <div class="contentFooterPaging">
           <a>Trang </a>
+          <!-- trang hiện tại -->
           <input
             type="text"
             class="currentPage"
@@ -275,10 +279,12 @@
             @keyup.enter="getPaginate"
           />
           <a> trên </a>
+          <!-- Tổng trang -->
           <div class="totalPage">
             {{ Math.ceil(lengthOfFilter / typePage) }}
           </div>
         </div>
+        <!-- Trang tiếp theo -->
         <button
           title="Ctrl >"
           class="buttonPage"
@@ -288,12 +294,20 @@
         >
           <div class="nextPage"></div>
         </button>
-        <button class="buttonPage" @click="lastPage">
+        <!-- Trang cuối -->
+        <button
+          title="End"
+          class="buttonPage"
+          @click="lastPage"
+          v-shortkey="['end']"
+          @shortkey="lastPage()"
+        >
           <div class="lastPage"></div>
         </button>
         <button class="buttonPage" @click="reload">
           <div class="refresh"></div>
         </button>
+        <!-- Bao nhiêu bản ghi trên một trang -->
         <select class="typePage" v-model="typePage" @change="getPaginate">
           <option value="5">5</option>
           <option value="25" selected>25</option>
@@ -591,6 +605,8 @@ export default {
       currentPage: 1,
       isHideParent: true,
       isHidePopupParent: true,
+      categories: service.getCategories(),
+      units: service.getUnits(),
       products: service.getProducts(),
       allMode: "allPages",
       checkBoxesMode: "always",
@@ -681,7 +697,7 @@ export default {
 }
 
 .currentPage {
-  width: 45px;
+  width: 50px;
 }
 .typePage {
   width: 75px;
