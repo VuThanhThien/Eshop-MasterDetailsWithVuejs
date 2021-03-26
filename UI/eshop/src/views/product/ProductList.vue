@@ -414,7 +414,7 @@ export default {
     /**Đóng popup */
     outIsHidePopup(e) {
       this.isHidePopupParent = e;
-      location.reload();
+      // location.reload();
       this.getPaginate();
     },
     /**format trạng thái */
@@ -620,7 +620,7 @@ export default {
   /**API ban đầu */
   async created() {
     this.productEmpty = {};
-    var offset = (this.currentPage - 1) * this.typePage + 1;
+    var offset = (this.currentPage - 1) * this.typePage ;
     const response = await axios.get(
       "http://localhost:55810/api/Products/Paginate?offset=" +
         offset +

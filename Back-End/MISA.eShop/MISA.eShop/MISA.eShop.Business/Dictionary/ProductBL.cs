@@ -289,6 +289,7 @@ namespace MISA.eShop.Business.Dictionary
             {
                 using (var ts = new TransactionScope())
                 {
+
                     //Gán id parent bằng new guid
                     var idParent = Guid.NewGuid();
                     // xử lý list thêm mới hoặc sửa

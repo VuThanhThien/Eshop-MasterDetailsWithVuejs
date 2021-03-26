@@ -147,8 +147,8 @@
           <table width="100%">
             <thead width="100%">
               <tr class="detailTable">
-                <th width="50%">Tên hàng hóa</th>
-                <th width="9%">Mã SKU</th>
+                <th width="40%">Tên hàng hóa</th>
+                <th width="19%">Mã SKU</th>
                 <th width="9%">Mã vạch</th>
                 <th width="9%">Giá mua</th>
                 <th width="9%">Giá bán</th>
@@ -178,12 +178,20 @@
                 </td>
                 <td>
                   <div class="cell">
-                    <DxNumberBox v-model="tag.buyPrice" format="#,##0" />
+                    <DxNumberBox
+                      v-model="tag.buyPrice"
+                      format="#,##0"
+                      style="background-color: transparent"
+                    />
                   </div>
                 </td>
                 <td>
                   <div class="cell">
-                    <DxNumberBox v-model="tag.sellPrice" format="#,##0" />
+                    <DxNumberBox
+                      v-model="tag.sellPrice"
+                      format="#,##0"
+                      style="background-color: transparent"
+                    />
                   </div>
                 </td>
               </tr>
@@ -351,6 +359,7 @@ export default {
     },
     /**xóa tag thì xóa hàng hóa */
     inputColorOnRemove(index) {
+      this.children = [];
       const colorRemove = this.colors[index];
       if (
         this.children[index].productID !==
@@ -471,7 +480,7 @@ export default {
               title: "THÔNG BÁO",
               text: "Cập nhật thành công ",
             });
-            setTimeout(() => this.closeForm(), 1500);
+            setTimeout(() => this.closeForm(), 2000);
           }
         })
         .catch((e) => {
@@ -534,6 +543,7 @@ export default {
     },
     /**Event nút Lưu */
     async save() {
+      debugger
       this.formatData();
       //Nếu validate thiếu tên thì thông báo và focus
       if (this.validateProduct.error) {
