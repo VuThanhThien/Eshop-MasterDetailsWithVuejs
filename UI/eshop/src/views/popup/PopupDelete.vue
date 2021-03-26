@@ -113,8 +113,7 @@ export default {
           title: "Important message",
           text: "Xóa thành công " + count + " cửa hàng !",
         });
-        // load lai trang sau 2s
-        setTimeout(() => location.reload(), 2000);
+        // location.reload();
       }
     },
   },

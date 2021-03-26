@@ -98,6 +98,17 @@ namespace MISA.eShop.API.Controllers
             return StatusCode((int)result.HTTPStatusCode, result.Data);
         }
 
+        /// <summary>
+        /// Lấy Barcode
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("BarCode")]
+        public IActionResult GetBarCode()
+        {
+            var result = _productBL.GetBarCode();
+            return StatusCode((int)result.HTTPStatusCode, result.Data);
+        }
+
         // POST api/<ProductsController>
         /// <summary>
         /// Thêm mới một sản phẩm

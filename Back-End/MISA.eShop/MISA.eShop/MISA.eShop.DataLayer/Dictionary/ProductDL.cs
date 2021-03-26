@@ -61,5 +61,14 @@ namespace MISA.eShop.DataLayer.Dictionary
 
             return result;
         }
+
+        public int GetBarCode()
+        {
+            var procName = "Proc_GetNewBarCode";
+
+            var result = (int)_dbContext.ExcuteScalarStore(procName) + 1;
+
+            return result;
+        }
     }
 }

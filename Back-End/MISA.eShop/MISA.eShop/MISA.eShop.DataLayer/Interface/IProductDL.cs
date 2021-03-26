@@ -25,5 +25,11 @@ namespace MISA.eShop.DataLayer.Interface
         /// <param name="productKey">Chuỗi cắt gọn tên hàng hóa</param>
         /// <returns></returns>
         string GetSKUGenerate(object param);
+
+        /// <summary>
+        /// Lấy mã vạch
+        /// </summary>
+        /// <returns></returns>
+        int GetBarCode();
     }
 }

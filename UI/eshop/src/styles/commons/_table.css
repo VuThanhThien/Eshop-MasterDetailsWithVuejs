@@ -1,5 +1,5 @@
 .gridTable {
-    height: calc(80vh + 11px);
+    height: calc(80vh + 20px);
     overflow: auto;
 }
 

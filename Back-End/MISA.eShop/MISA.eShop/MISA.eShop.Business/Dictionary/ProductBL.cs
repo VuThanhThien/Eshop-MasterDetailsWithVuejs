@@ -85,7 +85,7 @@ namespace MISA.eShop.Business.Dictionary
         }
 
         /// <summary>
-        /// Lấy danh sách hàng hoá
+        /// Lấy số bản ghi thỏa mãn điều kiện search
         /// </summary>
         /// <param name="offset">Vị trí bắt đầu (mặc định là 1)</param>
         /// <param name="limit">Giới hạn bản ghi cần lấy (mặc định là 25)</param>
@@ -362,5 +362,24 @@ namespace MISA.eShop.Business.Dictionary
 
             return result;
         }
+
+        /// <summary>
+        /// lấy mã vạch 
+        /// </summary>
+        /// <returns></returns>
+        public BaseResponse GetBarCode()
+        {
+            var result = _productDL.GetBarCode();
+
+            var response = new BaseResponse()
+            {
+                HTTPStatusCode = HTTPStatusCode.Ok,
+                Data = result
+            };
+
+            return response;
+
+        }
+
     }
 }

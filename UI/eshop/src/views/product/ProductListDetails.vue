@@ -2,22 +2,22 @@
   <div class="formBody" :class="{ isHide: isHide }">
     <div class="myButtonDialog" style="border-bottom: solid 1px gray">
       <button
-        title="Ctrl + S"
+        title="Ctrl Alt S"
         class="myButton"
         id="buttonSave"
         @click.prevent="save"
-        v-shortkey="['ctrl', 's']"
+        v-shortkey="['ctrl', 'alt', 's']"
         @shortkey="save()"
       >
         <div class="iconSave"></div>
         Lưu
       </button>
       <button
-        title="Ctrl + C"
+        title="Ctrl Alt C"
         class="myButton"
         id="buttonCancel"
         @click="cancel"
-        v-shortkey="['ctrl', 'c']"
+        v-shortkey="['ctrl', 'alt', 'c']"
         @shortkey="cancel()"
       >
         <div class="iconCancel"></div>
@@ -136,6 +136,7 @@
             v-model="colors"
             @remove="inputColorOnRemove($event)"
             @add="inputColorOnAdd($event)"
+            @input="checkName"
           ></input-tag>
         </div>
       </div>
@@ -167,7 +168,12 @@
                 </td>
                 <td>
                   <div class="cell">
-                    <DxNumberBox v-model="tag.barCode" format="##0" />
+                    <!-- <DxNumberBox v-model="tag.barCode" format="##0" /> -->
+                    <input
+                      type="text"
+                      v-model="tag.barCode"
+                      @keypress="onlyNumber"
+                    />
                   </div>
                 </td>
                 <td>
@@ -230,22 +236,22 @@
       id="buttonBottom"
     >
       <button
-        title="Ctrl + S"
+        title="Ctrl Alt S"
         class="myButton"
         id="buttonSave"
         @click.prevent="save"
-        v-shortkey="['ctrl', 's']"
+        v-shortkey="['ctrl', 'alt', 's']"
         @shortkey="save()"
       >
         <div class="iconSave"></div>
         Lưu
       </button>
       <button
-        title="Ctrl + C"
+        title="Ctrl Alt C"
         class="myButton"
         id="buttonCancel"
         @click="cancel"
-        v-shortkey="['ctrl', 'c']"
+        v-shortkey="['ctrl', 'alt', 'c']"
         @shortkey="cancel()"
       >
         <div class="iconCancel"></div>
@@ -304,9 +310,28 @@ export default {
       idToDelete: [],
       categories: service.getCategories(),
       units: service.getUnits(),
+      barCode: null,
     };
   },
   methods: {
+    /**
+     * Input chỉ đc nhập số
+     */
+    onlyNumber($event) {
+      let keyCode = $event.keyCode ? $event.keyCode : $event.which;
+      if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) {
+        // 46 is dot
+        $event.preventDefault();
+      }
+    },
+    checkName() {
+      if (this.product.productName == null) {
+        this.colors = [];
+      }
+      if (this.product.productName == "") {
+        this.colors = [];
+      }
+    },
     onShow() {
       // bind các thông tin lên form
       this.bindProductToForm();
@@ -327,7 +352,11 @@ export default {
     /**xóa tag thì xóa hàng hóa */
     inputColorOnRemove(index) {
       const colorRemove = this.colors[index];
-      this.idToDelete.push(this.children[index].productID);
+      if (
+        this.children[index].productID !==
+        "00000000-0000-0000-0000-000000000000"
+      )
+        this.idToDelete.push(this.children[index].productID);
       this.children = this.children.filter((p) => p.color !== colorRemove);
     },
     /**thêm tag thì thêm hàng hóa chi tiết*/
@@ -357,10 +386,13 @@ export default {
         productChild.productName =
           this.product.productName.toString() + " ( " + color + " )";
         productChild.color = color;
-        productChild.sku = null;
+        productChild.sku =
+          this.product.sku +
+          "-" +
+          this.removeVietnameseTones(color).toUpperCase();
         productChild.productID = "00000000-0000-0000-0000-000000000000";
         productChild.productIDParent = "00000000-0000-0000-0000-000000000000";
-        productChild.barCode = null;
+        productChild.barCode = this.barCode + this.colors.length;
         productChild.buyPrice = this.product.buyPrice;
         productChild.sellPrice = this.product.sellPrice;
         productChild.status = this.product.status;
@@ -385,7 +417,6 @@ export default {
     /**Sự kiện hủy */
     cancel() {
       this.closeForm();
-      location.reload();
     },
     /**Đóng form */
     closeForm() {
@@ -429,94 +460,6 @@ export default {
       return str;
     },
 
-    /**Lấy hàng hóa theo SKU */
-    // async getProductBySKU(sku) {
-    //   let id = "";
-    //   await axios
-    //     .get("http://localhost:55810/api/Products/ProductBySKU/" + sku)
-    //     .then((response) => (id = response.data.productID));
-    //   // console.log(id);
-    //   return id;
-    // },
-    /**Hàm POST */
-    async postProduct() {
-      await // Thực hiện post
-      axios
-        .post("http://localhost:55810/api/Products", this.product)
-        .then((response) => {
-          if (response.data) {
-            this.$notify({
-              //thông báo thêm mới
-              type: "success",
-              title: "THÔNG BÁO",
-              text: "Thêm mới thành công ",
-            });
-            // load lai trang sau 2s
-            // setTimeout(() => location.reload(), 2000);
-          }
-        })
-        .catch((e) => {
-          if (e.response.status == 400) {
-            this.$notify({
-              // bad request
-              type: "error",
-              title: "THÔNG BÁO",
-              text: "Thêm mới cửa hàng thất bại !",
-            });
-            // setTimeout(() => location.reload(), 2000);
-          }
-
-          if (e.response.status == 500) {
-            this.$notify({
-              //Lỗi server
-              title: "THÔNG BÁO",
-              text: "Vui lòng liên hệ MISA để được hỗ trợ",
-            });
-            // setTimeout(() => location.reload(), 2000);
-          }
-        });
-    },
-
-    /**Hàm PUT */
-    async putRestaurant() {
-      await // Thực hiện put
-      axios
-        .put(
-          "http://localhost:55810/api/Products?productId=" +
-            this.product.productID,
-          this.product
-        )
-        .then((response) => {
-          if (response.status == 200) {
-            this.$notify({
-              //Sửa thành công
-              type: "success",
-              title: "THÔNG BÁO",
-              text: "Đã cập nhật thành công cửa hàng ",
-            });
-            // load lai trang sau 2s
-            // setTimeout(() => location.reload(), 2000);
-          }
-        })
-        .catch((e) => {
-          if (e.response.status == 400) {
-            this.$notify({
-              type: "error",
-              title: "THÔNG BÁO",
-              text: "Cập nhật thông tin cửa hàng thất bại !",
-            });
-          }
-
-          if (e.response.status == 500) {
-            this.$notify({
-              type: "error",
-              title: "THÔNG BÁO",
-              text: "Vui lòng liên hệ MISA để được hỗ trợ",
-            });
-          }
-        });
-    },
-
     /**Thêm sửa cha + thêm, sửa, xóa con ở đây */
     async syncProduct(synchronizeWrapper) {
       await axios
@@ -528,28 +471,28 @@ export default {
               title: "THÔNG BÁO",
               text: "Cập nhật thành công ",
             });
-            // load lai trang sau 2s
-            setTimeout(() => location.reload(), 1500);
+            // setTimeout(() => location.reload(), 1500);
+            this.closeForm();
           }
         })
         .catch((e) => {
           if (e.response.status == 400) {
             this.$notify({
               // bad request
-              type: "errors",
+              type: "error",
               title: "THÔNG BÁO",
-              text: "Cập nhật cửa hàng thất bại !",
+              text: e.response.data.devMsg,
             });
-            setTimeout(() => location.reload(), 2000);
           }
 
           if (e.response.status == 500) {
             this.$notify({
               //Lỗi server
+              type: "error",
               title: "THÔNG BÁO",
-              text: "Vui lòng liên hệ MISA để được hỗ trợ",
+              text:
+                "Vui lòng thay đổi mã vạch hoặc liên hệ MISA để được hỗ trợ!",
             });
-            setTimeout(() => location.reload(), 2000);
           }
         });
     },
@@ -617,7 +560,6 @@ export default {
           deleteObject: deleteProduct,
         };
         this.syncProduct(synchronizeWrapper);
-        this.closeForm();
       }
     },
   },
@@ -629,7 +571,15 @@ export default {
         msg: "",
         typeError: "",
       };
-      if (this.product.productName == "" || this.product.productName == null) {
+
+      if (this.product.sku === "" || this.product.sku == null) {
+        returnData = {
+          error: true,
+          msg: "Vui lòng nhập sku hàng hóa",
+          typeError: "sku",
+        };
+      }
+      if (this.product.productName === "" || this.product.productName == null) {
         returnData = {
           error: true,
           msg: "Vui lòng nhập tên hàng hóa",
@@ -637,8 +587,30 @@ export default {
         };
       }
 
+      this.children.forEach((element) => {
+        if (element.barCode == "") {
+          returnData = {
+            error: true,
+            msg: "Vui lòng nhập mã vạch hàng hóa",
+            typeError: "barCode",
+          };
+        }
+        if (element.sku == "") {
+          returnData = {
+            error: true,
+            msg: "Vui lòng nhập sku hàng hóa",
+            typeError: "sku",
+          };
+        }
+      });
       return returnData;
     },
+  },
+  async created() {
+    var response = await axios.get(
+      "http://localhost:55810/api/Products/BarCode"
+    );
+    this.barCode = response.data;
   },
 };
 </script>
@@ -646,7 +618,6 @@ export default {
 <style>
 .borders {
   border: 1px solid red !important;
-  width: 280px;
 }
 .imgValidate {
   width: 16px;

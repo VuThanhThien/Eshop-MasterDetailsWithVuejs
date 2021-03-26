@@ -124,6 +124,12 @@
             <param name="productKey">Chuỗi tên nhập vào</param>
             <returns>SKU mới</returns>
         </member>
+        <member name="M:MISA.eShop.API.Controllers.ProductsController.GetBarCode">
+            <summary>
+            Lấy Barcode
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:MISA.eShop.API.Controllers.ProductsController.Post(MISA.eShop.Model.Dictionary.Product)">
             <summary>
             Thêm mới một sản phẩm

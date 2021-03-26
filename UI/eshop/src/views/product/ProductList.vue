@@ -4,10 +4,10 @@
     <div class="contentHeader">
       <!-- nút thêm  -->
       <button
-        title="Ctrl + O"
+        title="Ctrl Alt O"
         class="contentHeaderButton"
         @click="btnAddOnClick"
-        v-shortkey="['ctrl',  'o']"
+        v-shortkey="['ctrl','alt',  'o']"
         @shortkey="btnAddOnClick()"
       >
         <div class="iconHeader">
@@ -16,10 +16,10 @@
         <div class="iconText">Thêm mới</div>
       </button>
       <button
-        title="Ctrl + D"
+        title="Ctrl Alt D"
         class="contentHeaderButton"
         @click="btnDuplicateOnClick"
-        v-shortkey="['ctrl', 'd']"
+        v-shortkey="['ctrl','alt', 'd']"
         @shortkey="btnDuplicateOnClick()"
       >
         <div class="iconHeader">
@@ -29,10 +29,10 @@
       </button>
       <!-- sửa  -->
       <button
-        title="Ctrl + E"
+        title="Ctrl Alt E"
         class="contentHeaderButton"
         @click="btnEditOnClick"
-        v-shortkey="['ctrl', 'e']"
+        v-shortkey="['ctrl','alt', 'e']"
         @shortkey="btnEditOnClick()"
       >
         <div class="iconHeader">
@@ -45,7 +45,7 @@
         title="Ctrl X"
         class="contentHeaderButton"
         @click="btnDeleteOnClick"
-        v-shortkey="['ctrl', 'x']"
+        v-shortkey="['ctrl','alt', 'x']"
         @shortkey="btnDeleteOnClick()"
       >
         <div class="iconHeader">
@@ -407,10 +407,12 @@ export default {
     outIsHide(e) {
       this.isHideParent = e;
       this.product = this.productEmpty;
+      this.getPaginate();
     },
     /**Đóng popup */
     outIsHidePopup(e) {
       this.isHidePopupParent = e;
+      this.getPaginate();
     },
     /**format trạng thái */
     //Createdby VTT 19/03/21
