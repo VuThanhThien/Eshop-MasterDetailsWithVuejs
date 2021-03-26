@@ -471,8 +471,7 @@ export default {
               title: "THÔNG BÁO",
               text: "Cập nhật thành công ",
             });
-            // setTimeout(() => location.reload(), 1500);
-            this.closeForm();
+            setTimeout(() => this.closeForm(), 1500);
           }
         })
         .catch((e) => {

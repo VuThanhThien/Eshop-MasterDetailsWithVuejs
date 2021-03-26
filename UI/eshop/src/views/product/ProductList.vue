@@ -412,6 +412,7 @@ export default {
     /**Đóng popup */
     outIsHidePopup(e) {
       this.isHidePopupParent = e;
+      location.reload();
       this.getPaginate();
     },
     /**format trạng thái */
