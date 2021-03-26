@@ -355,6 +355,8 @@ export default {
       this.isHideParent = !this.isHideParent;
       //clear hàng hóa temp lưu những thằng vừa click
       this.productEmpty = {};
+      this.productEmpty.isShow = 1;
+      this.productEmpty.status = 1;
       //clear hàng hóa chi tiết của thằng vừa được click
       this.productChildren = [];
       //tắt active đi
