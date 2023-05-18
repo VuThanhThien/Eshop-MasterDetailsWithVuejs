@@ -43,3 +43,13 @@ C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eS
 C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.dll
 C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.pdb
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\bin\Debug\netcoreapp3.1\MISA.eShop.Model.deps.json
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\bin\Debug\netcoreapp3.1\MISA.eShop.Model.dll
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\bin\Debug\netcoreapp3.1\MISA.eShop.Model.pdb
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.csproj.AssemblyReference.cache
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.AssemblyInfoInputs.cache
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.AssemblyInfo.cs
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.csproj.CoreCompileInputs.cache
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.dll
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.Model\obj\Debug\netcoreapp3.1\MISA.eShop.Model.pdb

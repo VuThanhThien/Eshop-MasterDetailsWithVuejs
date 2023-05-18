@@ -58,3 +58,16 @@ C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eS
 C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.csproj.CopyComplete
 C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.dll
 C:\Users\Admin\Desktop\VTT-eShop-18-03-21\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.pdb
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.deps.json
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.dll
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\bin\Debug\netcoreapp3.1\MISA.eShop.DataLayer.pdb
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\bin\Debug\netcoreapp3.1\MISA.eShop.Model.dll
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\bin\Debug\netcoreapp3.1\MISA.eShop.Model.pdb
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.csproj.AssemblyReference.cache
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.AssemblyInfoInputs.cache
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.AssemblyInfo.cs
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.csproj.CoreCompileInputs.cache
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.csproj.CopyComplete
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.dll
+C:\VuThanhThien\Study\Eshop-MasterDetailsWithVuejs\Back-End\MISA.eShop\MISA.eShop\MISA.eShop.DataLayer\obj\Debug\netcoreapp3.1\MISA.eShop.DataLayer.pdb
